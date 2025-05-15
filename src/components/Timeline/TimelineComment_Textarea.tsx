@@ -6,19 +6,19 @@ import { Button } from "../ui/button";
 const TimelineComments = () => {
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex gap-4 bg-red mt-8 container px-3">
         <div>
           <img
             src="https://i.pravatar.cc/100?img=1"
             alt=""
-            className="rounded-full"
+            className="rounded-full size-10"
           />
         </div>
-        <div>
-          <Textarea placeholder="What's happening?" className="p-4" />
-          <div className="my-4">
-            <div className="inline-flex gap-2">
-            <Button variant='outline' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+        <div className="w-full ">
+          <Textarea placeholder="What's happening?"  className="w-full h-25 p-4 bg-[#F5F5F5] rounded-none border-none outline-none" />
+          <div className="my-4 flex items-center">
+            <div className="flex gap-2 items-center">
+            <Button variant="ghost" className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -36,7 +36,7 @@ const TimelineComments = () => {
                 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
               </svg>
             </Button>
-            <Button variant='outline' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <Button variant="ghost" className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -55,7 +55,7 @@ const TimelineComments = () => {
                 <line x1="15" x2="15.01" y1="9" y2="9"></line>
               </svg>
             </Button>
-            <Button variant='outline' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <Button variant="ghost" className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -74,7 +74,7 @@ const TimelineComments = () => {
                 <path d="M3 10h18"></path>
               </svg>
             </Button>
-            <Button variant='outline' className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
+            <Button variant="ghost" className="inline-flex items-center justify-center whitespace-nowrap rounded-none text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-10 w-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -92,7 +92,7 @@ const TimelineComments = () => {
               </svg>
             </Button>
             </div>
-            <Button className="ml-auto" size='sm'>Post</Button>
+            <Button className="ml-auto rounded-none " size='sm'>Post</Button>
           </div>
         </div>
       </div>

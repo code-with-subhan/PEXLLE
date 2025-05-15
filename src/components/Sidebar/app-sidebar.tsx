@@ -111,7 +111,7 @@ const data = {
       items: [
         {
           title: "Social Timeline",
-          url: "http://localhost:3000/Social/Timeline",
+          url: "http://localhost:3000/Social/TimeLine",
         },
         {
           title: "Profile",

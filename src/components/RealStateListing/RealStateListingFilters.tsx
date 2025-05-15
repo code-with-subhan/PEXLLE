@@ -3,7 +3,6 @@ import React from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Building, House, MapPin, Store } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 import { CheckboxDemoFilters } from "./checkboxListingFilters";
 
 const RealStateListingFilters = () => {

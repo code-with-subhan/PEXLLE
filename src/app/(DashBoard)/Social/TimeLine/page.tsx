@@ -7,15 +7,15 @@ import Timeline_menus from '@/components/Timeline/Timeline_menus'
 
 const page = () => {
   return (
-    <div>
-      <div>
+    <div className='flex gap-2 px-6 '>
+      <div className='bg-red w-1/4 sticky'>
         <Timeline_menus />
       </div>
-      <div>
+      <div className='w-1/2'>
         <TimelineComments />
         <TimelineAllComments/>
       </div>
-      <div>
+      <div className='w-1/3 my-6'>
         <TimelineFollowsers/>
         <TimeLine_Trending/>
       </div>

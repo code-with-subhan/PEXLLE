@@ -6,24 +6,24 @@ import { House , Users ,Bell , Mail , Bookmark , User , Settings } from 'lucide-
 const Timeline_menus = () => {
   return (
     <>
-    <div>
-      <ul className='p-4 grid grid-rows-7 '>
-        <li><Button variant='outline'><House/> Home</Button></li>
-        <li><Button variant='outline'><Users/>Communities</Button></li>
-        <li><Button variant='outline'><Bell/>Notification</Button></li>
-        <li><Button variant='outline'><Mail/>Messages</Button></li>
-        <li><Button variant='outline'><Bookmark/>Bookmarks</Button></li>
-        <li><Button variant='outline'><User/>Profile</Button></li>
-        <li><Button variant='outline'><Settings/>Settings</Button></li>
+    <div className='w-full'>
+      <ul className='p-4 px-2 flex flex-col w-full gap-2 '>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><House/> Home</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><Users/>Communities</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><Bell/>Notification</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><Mail/>Messages</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><Bookmark/>Bookmarks</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><User/>Profile</Button></li>
+        <li className='w-full block'><Button variant='ghost' className="rounded-none cursor-pointer"><Settings/>Settings</Button></li>
       </ul>
-      <Button className='w-full my-4'>Create Post</Button>
+      <Button className='w-full my-4 rounded-none cursor-pointer' >Create Post</Button>
     </div>
-    <div className='bg-[#F5F5F5] p-3'>
-        <h5>Your Communities</h5>
-        <ul className='grid grid-rows-3 gap-3 mt-3 px-4'>
-            <li>🎨 Design Community</li>
-            <li>💻 Tech Enthusiasts</li>
-            <li>🌱 Sustainability</li>
+    <div className='bg-[#F5F5F5] p-4'>
+        <h5 className='font-bold text-sm '>Your Communities</h5>
+        <ul className='grid grid-rows-3 gap-5 mt-3 px-4  '>
+            <li className='text-sm font-medium'>🎨 Design Community</li>
+            <li className='text-sm font-medium'>💻 Tech Enthusiasts</li>
+            <li className='text-sm font-medium'>🌱 Sustainability</li>
         </ul>
     </div>
     </>

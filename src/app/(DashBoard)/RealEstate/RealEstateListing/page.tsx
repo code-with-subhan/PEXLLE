@@ -1,9 +1,12 @@
 import React from 'react'
+import RealstateHomes from '@/components/RealStateListing/RealstateHomes'
+import RealStateListingFilters from '@/components/RealStateListing/RealStateListingFilters'
 
 const page = () => {
   return (
-    <div>
-      
+    <div className='flex'>
+      <RealStateListingFilters />
+      <RealstateHomes />
     </div>
   )
 }
