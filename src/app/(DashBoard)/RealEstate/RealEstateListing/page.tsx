@@ -4,7 +4,7 @@ import RealStateListingFilters from '@/components/RealStateListing/RealStateList
 
 const page = () => {
   return (
-    <div className='flex'>
+    <div className='flex my-5 gap-6'>
       <RealStateListingFilters />
       <RealstateHomes />
     </div>
