@@ -19,10 +19,10 @@ const TimelineAllComments = () => {
                 <div className='text-sm my-3'>{e.description}</div>
                 {e.img && <img src={e.img} className='my-2'/>}
                 <div className='flex items-center justify-between my-2'>
-                    <div className='[&>8]:text-[#737373] [&>8]:text-sm flex gap-1'>
+                    <div className='text-[#737373] text-sm flex gap-1'>
                         <Button><Heart/>{e.favouriteCount}</Button><Repeat/>{e.share}<Button></Button><MessagesSquare/>{e.messages}<Button></Button>
                     </div>
-                    <div className='[&>8]:text-[#737373] [&>8]:text-sm flex gap-1'>
+                    <div className='text-[#737373] text-sm flex gap-1'>
                         <Bookmark/>
                         <Upload/>
                     </div>

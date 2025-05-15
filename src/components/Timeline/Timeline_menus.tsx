@@ -7,7 +7,7 @@ const Timeline_menus = () => {
   return (
     <>
     <div>
-      <ul className='p-4 grid grid-rows-7 [&>*]:text-black'>
+      <ul className='p-4 grid grid-rows-7 '>
         <li><Button variant='outline'><House/> Home</Button></li>
         <li><Button variant='outline'><Users/>Communities</Button></li>
         <li><Button variant='outline'><Bell/>Notification</Button></li>

@@ -92,11 +92,11 @@ const data = {
       items: [
         {
           title: "Building Management",
-          url: "#",
+          url: "http://localhost:3000/RealEstate/BuildingManagement",
         },
         {
           title: "Real Estate lisings",
-          url: "#",
+          url: "http://localhost:3000/RealEstate/RealEstateListing",
         },
         {
           title: "Search Results",
