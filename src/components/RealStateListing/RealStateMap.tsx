@@ -1,21 +1,36 @@
-"use client"
+'use client';
 
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '400px',
+  height: '500px',
 };
 
 const center = {
-  lat: 51.505,
-  lng: -0.09,
+  lat: 37.7749,
+  lng: -122.4194,
 };
 
-export default function MyGoogleMap() {
+export default function InteractiveMap() {
   return (
-    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+    <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        options={{
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DEFAULT,
+            position: google.maps.ControlPosition.TOP_RIGHT,
+            mapTypeIds: ['roadmap'],
+          },
+          zoomControl: true,
+          scrollwheel: true,
+          draggable: true,
+        }}
+      >
         <Marker position={center} />
       </GoogleMap>
     </LoadScript>
