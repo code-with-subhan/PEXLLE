@@ -77,12 +77,12 @@ const data = {
     },
     {
       title: "Logistics",
-      url: "#",
+      url: "http://localhost:3000/Logistics",
       icon: Truck,
     },
     {
       title: "Medical",
-      url: "#",
+      url: "http://localhost:3000/Medical",
       icon: HeartPulse,
     },
     {
