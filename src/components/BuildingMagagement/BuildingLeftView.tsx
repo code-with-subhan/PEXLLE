@@ -2,7 +2,7 @@
 import React from "react";
 import { Badge } from "../ui/badge";
 import { CardDescription, CardTitle } from "../ui/card";
-import { Progress } from "@/components/ui/progress";
+// import { Progress } from "@/components/ui/progress";
 import { BuildingChart } from "./BuildingChart";
 
 const BuildingLeftView = () => {
@@ -36,7 +36,7 @@ const BuildingLeftView = () => {
       </div>
       <div className="my-3">
         <h3 className="font-semibold text-sm">Leased by 87%</h3>
-        <Progress value={87} />
+        {/* <Progress value={87} /> */}
       </div>
       <div className="my-3">
         <h3>Work Orders</h3>
@@ -58,12 +58,12 @@ const BuildingLeftView = () => {
         <CardDescription>+971 5 927 6701</CardDescription>
       </div>
       <div className="mt-2">
-        <AvatarGroup total={24}>
+        {/* <AvatarGroup total={24}>
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
           <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
           <Avatar alt="Agnes Walker" src="/static/images/avatar/4.jpg" />
           <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
-        </AvatarGroup>
+        </AvatarGroup> */}
       </div>
       <CardDescription>34 staff members</CardDescription>
     </div>

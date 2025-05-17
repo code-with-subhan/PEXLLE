@@ -126,7 +126,7 @@ const data = {
       items: [
         {
           title: "User Profile",
-          url: "#",
+          url: "http://localhost:3000/Ecommerce/UserProfile",
         },
         {
           title: "Post Details",
@@ -134,11 +134,11 @@ const data = {
         },
         {
           title: "All Posts",
-          url: "#",
+          url: "http://localhost:3000/Ecommerce/AllPosts",
         },
         {
           title: "Categories",
-          url: "#",
+          url: "http://localhost:3000/Ecommerce/Categories",
         },
         {
           title: "Filters",
