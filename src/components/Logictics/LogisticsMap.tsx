@@ -12,7 +12,7 @@ const center = {
   lng: -122.4194,
 };
 
-export default function InteractiveMap() {
+export default function LogicticsMap() {
   return (
     <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
       <GoogleMap
