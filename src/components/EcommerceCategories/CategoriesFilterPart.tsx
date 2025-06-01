@@ -4,8 +4,34 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { LayoutGrid, List } from "lucide-react";
 import { ComboboxFilter } from "./ComboBoxFilter";
+import { setSelectedCategory } from "@/store/slices/SelectProductCategorySlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { boolean } from "zod";
 
-const CategoriesFilterPart = () => {
+const CategoriesFilterPart = ({
+  uniqueCategories,
+  searchQuery,
+  setsearchQuery,
+  toggle,
+  setToggle,
+}: {
+  uniqueCategories: string[];
+  searchQuery: string;
+  setsearchQuery: (value: string) => void;
+  toggle : boolean;
+  setToggle : (value : boolean | ((prev: boolean) => boolean)) => void;
+}) => {
+
+  const selectCategory = useSelector(
+    (state: RootState) => state.category.selectedCategory
+  );
+  const dispatch = useDispatch<AppDispatch>();
+
+  // toggle function
+  function toggleFunction (value : boolean){
+    setToggle(value)
+  }
   return (
     <div>
       <div className="relative">
@@ -26,38 +52,32 @@ const CategoriesFilterPart = () => {
         </div>
       </div>
       <div className="my-5 flex items-center gap-4">
-        <Input className="bg-[#F5F5F5] rounded-none focus:border-none focus:outline-none " placeholder="Search ads..." />
+        <Input
+          className="bg-[#F5F5F5] rounded-none focus:border-none focus:outline-none "
+          placeholder="Search ads..."
+          value={searchQuery}
+          onChange={(e) => setsearchQuery(e.target.value)}
+        />
         <ComboboxFilter />
-        <Button className="rounded-none" variant="outline" size='icon'>
+        <Button className={`rounded-none ${toggle ? "border border-black " : "border"} hover:border hover:border-black`} variant={toggle ? "secondary" : "outline"} size="icon" onClick={() => toggleFunction(true)}>
           <LayoutGrid />
         </Button>
-        <Button className="rounded-none" size='icon'>
+        <Button className="rounded-none" size="icon" variant={toggle ? "outline" : "default"} onClick={() => toggleFunction(false)}>
           <List />
         </Button>
       </div>
-      <div className="flex gap-2 mb-4">
-        <Button size="sm" className="rounded-none">All</Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Electronics
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Fashion
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Home & Garden
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Sprots
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Toys
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Vehicles
-        </Button>
-        <Button size='sm' className="rounded-none" variant="secondary">
-          Other
-        </Button>
+      <div className="flex gap-2 mb-7">
+        {uniqueCategories.map((e) => (
+          <Button
+            size="sm"
+            className="rounded-none"
+            key={e}
+            variant={e === selectCategory ? "default" : "outline"}
+            onClick={() => dispatch(setSelectedCategory(e))}
+          >
+            {e}
+          </Button>
+        ))}
       </div>
     </div>
   );

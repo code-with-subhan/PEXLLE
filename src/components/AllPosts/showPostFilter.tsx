@@ -1,18 +1,20 @@
 "use client";
 import React from "react";
 import { Button } from "../ui/button";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/store/store";
+import { setSelectedCategory } from "@/store/slices/SelectProductCategorySlice";
 
 const ShowPostFilter = ({
   showfilter,
   uniqueCategory,
   selectCategory,
-  onSelectCategory,
 }: {
   showfilter: boolean;
   uniqueCategory: string[];
   selectCategory: string;
-  onSelectCategory: (value: string) => void;
 }) => {
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <div
       className={`p-6 bg-[#F5F5F5] transition-all duration-800 ease-in-out  ${
@@ -21,15 +23,15 @@ const ShowPostFilter = ({
     >
       <h2 className="text-xl font-semibold">Categories</h2>
       <div className="flex gap-2 mt-4">
-        {uniqueCategory.map((e) => (
+        {uniqueCategory.map((a) => (
           <Button
             size="sm"
             className="rounded-none"
-            key={e}
-            variant={e === selectCategory ? "default" : "outline"}
-            onClick={() => onSelectCategory(e)}
+            key={a}
+            variant={a === selectCategory ? "default" : "outline"}
+            onClick={() => dispatch(setSelectedCategory(a))}
           >
-            {e}
+            {a}
           </Button>
         ))}
       </div>
@@ -37,4 +39,4 @@ const ShowPostFilter = ({
   );
 };
 
-export default ShowPostFilter;
+export default React.memo(ShowPostFilter);

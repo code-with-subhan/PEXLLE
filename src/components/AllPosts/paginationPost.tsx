@@ -8,36 +8,47 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-export function PaginationPost() {
+export function PaginationPost({
+  pag,
+  pagActive,
+  setpagActive,
+}: {
+  pag: number;
+  pagActive: number;
+  setpagActive: (value: number | ((prev: number) => number)) => void;
+}) {
+
+  type OperatorType = "+" | "-"
+
+
+
+  function SetPaginationNumber(operator: OperatorType) {
+    
+    if (pagActive !== 0 && pagActive <= pag) {
+      setpagActive(prev => {
+        if(operator === "+"){
+          return prev < pag ? prev + 1 : prev
+        }else{
+          return prev > 1 ? prev - 1 : prev
+        }
+      })
+    }
+  }
   return (
     <Pagination>
       <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" className="rounded-none" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isActive className="rounded-none"> 2</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">4</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">5</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">6</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">7</PaginationLink>
-        </PaginationItem>
         <PaginationItem >
-          <PaginationNext href="#" className="rounded-none"/>
+          <PaginationPrevious href="#" className="rounded-none" onClick={() => SetPaginationNumber("-")} />
+        </PaginationItem>
+        {[...Array(pag)].map((e, i) => (
+          <PaginationItem key={i}>
+            <PaginationLink href="#" onClick={() => setpagActive(i + 1)} className={`text-black rounded-none ${pagActive === i + 1 ? "border" : ""}`}>
+              {i + 1}
+            </PaginationLink>
+          </PaginationItem>
+        ))}
+        <PaginationItem>
+          <PaginationNext href="#" className="rounded-none" onClick={() => SetPaginationNumber("+")} />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

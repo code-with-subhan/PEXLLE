@@ -15,8 +15,17 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import RatingStars from "./RatingStars";
 
-export function AllPostCards({ product, key }: { product: any; key: string }) {
- 
+export function AllPostCards({
+  product,
+  ke,
+  pag,
+  pagActive,
+}: {
+  product: any;
+  ke: number;
+  pag: number;
+  pagActive: number;
+}) {
   return (
     <MorphingDialog
       transition={{
@@ -24,13 +33,14 @@ export function AllPostCards({ product, key }: { product: any; key: string }) {
         bounce: 0.05,
         duration: 0.25,
       }}
-      key={key}
+      key={ke}
+
     >
       <MorphingDialogTrigger
         style={{
           borderRadius: "0px",
         }}
-        className="flex max-w-[240px]    flex-col overflow-hidden rounded-none border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 "
+        className={`flex max-w-[240px]    flex-col overflow-hidden rounded-none border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 ${ke < 8*pagActive && ke >= (8*pagActive ) -8 ? "flex" : "hidden"}`}
       >
         <MorphingDialogImage
           src={product.image}

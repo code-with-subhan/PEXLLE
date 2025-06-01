@@ -5,8 +5,8 @@ import ShowPostFilter from "@/components/AllPosts/showPostFilter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Funnel, Search } from "lucide-react";
-
-import { useDispatch, useSelector } from "react-redux";
+import { findUniqueProductCategory } from "@/lib/productutils";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "@/store/slices/Products";
 import { RootState, AppDispatch } from "@/store/store";
 import { PaginationPost } from "@/components/AllPosts/paginationPost";
@@ -19,7 +19,7 @@ const AllPostHeader = () => {
   const { data, loading, error } = useSelector(
     (state: RootState) => state.fetchProducts
   );
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const selectedCategory = useSelector((state: RootState) => state.category.selectedCategory, shallowEqual)
   const [searchQuery, setSearchQuery] = useState("");
 
   // dispatch data means calling the api
@@ -27,12 +27,6 @@ const AllPostHeader = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-
-  // Manage categoreies for buttons of filters
-  const uniqueCategories = Array.from(
-    new Set(data?.map((p: any) => p.category) || [])
-  ).sort();
-  uniqueCategories.unshift("All");
 
   // select categories buttons
   const filteredProducts = data
@@ -43,8 +37,17 @@ const AllPostHeader = () => {
       selectedCategory === "All" ? true : product.category === selectedCategory
     );
 
+  const [paginationNumber, setpaginationNumber] = useState(data && Math.ceil(filteredProducts.length / 8))
+  const [paginationActive, setpaginationActive] = useState(1)
+
+  useEffect(() => {
+    setpaginationNumber(Math.ceil(filteredProducts.length / 8))
+  }, [filteredProducts])
+
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
+
 
   return (
     <div className="mt-6 container">
@@ -69,17 +72,16 @@ const AllPostHeader = () => {
       </div>
       <ShowPostFilter
         showfilter={showFilters}
-        uniqueCategory={uniqueCategories}
+        uniqueCategory={findUniqueProductCategory(data)}
         selectCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
       />
       <div className="grid grid-cols-4 gap-4 mb-6 w-full gap-y-6">
-        {filteredProducts.map((e: any) => (
-          <AllPostCards product={e} key={e.id} />
+        {filteredProducts.map((e: any ,i :number) => (
+          <AllPostCards product={e} ke={i} pag={paginationNumber} pagActive={paginationActive} />
         ))}
       </div>
       <div className="mt-5">
-        <PaginationPost />
+        <PaginationPost pag={paginationNumber} pagActive={paginationActive} setpagActive={setpaginationActive} />
       </div>
     </div>
   );
