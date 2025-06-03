@@ -130,7 +130,7 @@ const data = {
         },
         {
           title: "Post Details",
-          url: "#",
+          url: "http://localhost:3000/Ecommerce/PostDetail",
         },
         {
           title: "All Posts",
@@ -142,7 +142,7 @@ const data = {
         },
         {
           title: "Filters",
-          url: "#",
+          url: "http://localhost:3000/Ecommerce/Filters",
         },
       ],
     },

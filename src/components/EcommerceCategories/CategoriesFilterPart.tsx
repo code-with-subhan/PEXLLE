@@ -4,19 +4,15 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { LayoutGrid, List } from "lucide-react";
 import { ComboboxFilter } from "./ComboBoxFilter";
-import { setSelectedCategory } from "@/store/slices/SelectProductCategorySlice";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { boolean } from "zod";
 
 const CategoriesFilterPart = ({
-  uniqueCategories,
   searchQuery,
   setsearchQuery,
   toggle,
   setToggle,
 }: {
-  uniqueCategories: string[];
   searchQuery: string;
   setsearchQuery: (value: string) => void;
   toggle : boolean;
@@ -34,24 +30,8 @@ const CategoriesFilterPart = ({
   }
   return (
     <div>
-      <div className="relative">
-        <div className="bg-black relative">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZb360NlZhomuQL-pSLFqIlCLtQ63jXopSUQ&s"
-            alt=""
-            className="h-53 w-full object-cover opacity-55"
-          />
-          <div className="absolute top-0 left-0 flex justify-center items-center h-full flex-col w-full gap-5">
-            <h1 className="text-4xl font-bold text-white">
-              Welcome to Our Marketplace
-            </h1>
-            <p className="text-xl text-white">
-              Discover amazing deals on unique items
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="my-5 flex items-center gap-4">
+      
+      <div className="mb-5 flex items-center gap-4">
         <Input
           className="bg-[#F5F5F5] rounded-none focus:border-none focus:outline-none "
           placeholder="Search ads..."
@@ -66,19 +46,7 @@ const CategoriesFilterPart = ({
           <List />
         </Button>
       </div>
-      <div className="flex gap-2 mb-7">
-        {uniqueCategories.map((e) => (
-          <Button
-            size="sm"
-            className="rounded-none"
-            key={e}
-            variant={e === selectCategory ? "default" : "outline"}
-            onClick={() => dispatch(setSelectedCategory(e))}
-          >
-            {e}
-          </Button>
-        ))}
-      </div>
+
     </div>
   );
 };

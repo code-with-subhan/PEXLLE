@@ -6,10 +6,7 @@ import CategoriesCardPage from "@/components/EcommerceCategories/CategoriesCardP
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from "@/store/store";
 import { fetchProducts } from "@/store/slices/Products";
-import { findUniqueProductCategory } from "@/lib/productutils";
-import CommerceTopImage from "./CommerceTopImage";
-import CommerceCategoriesFiltersButton from "./CommerceCategoriesFiltersButton";
-const CategoriesWholePage = () => {
+const FiltersCard = () => {
 
     // set states of different things and manage 
     const { data, loading, error } = useSelector((state: RootState) => state.fetchProducts)
@@ -45,26 +42,16 @@ const CategoriesWholePage = () => {
 
     return (
         <div>
-            {/* Top image */}
-            <CommerceTopImage />
-
-            {/* Filters Part */}
             <CategoriesFilterPart
                 searchQuery={searchQuery}
                 setsearchQuery={setSearchQuery}
                 toggle={toggleButton}
                 setToggle={settoggleButton} />
 
-            {/* Categories Part */}
-            <CommerceCategoriesFiltersButton uniqueCategories={findUniqueProductCategory(data)} />
-
-            {/* Card Part */}
             <CategoriesCardPage data={filteredProducts} toggle={toggleButton} pag={paginationNumber} pagActive={paginationActive} />
-            
-            {/* Pagination Part */}
             <CategoriesPagination pag={paginationNumber} pagActive={paginationActive} setpagActive={setpaginationActive} />
         </div>
     )
 }
 
-export default CategoriesWholePage
+export default FiltersCard

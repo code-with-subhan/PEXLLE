@@ -15,7 +15,7 @@ interface props {
 const CategoriesFourCardLines = ({ data, ke, pag, pagActive }: props) => {
   console.log(ke)
   return (
-    <div key={ke} className={` relative max-w-[250px] overflow-hidden ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
+    <div key={ke} className={`border border-[#F5F5F5] relative max-w-[250px] overflow-hidden ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
       <img
         alt=""
         src={data.image}
