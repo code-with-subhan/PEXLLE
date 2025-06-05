@@ -100,7 +100,7 @@ const data = {
         },
         {
           title: "Search Results",
-          url: "#",
+          url: "http://localhost:3000/RealEstate/Search_Results",
         },
       ],
     },
@@ -215,15 +215,15 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props} className="bg-[#F5F5F5]">
+    <Sidebar collapsible="offcanvas" {...props} className="bg-[#F5F5F5]" variant="sidebar" >
       <SidebarHeader>
         <TeamSwitcher />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavComponents components={data.Components}/>
-        <NavAuth authentication={data.authentication}/>
-        <NavTemplates Templates={data.Templates}/>
+        <NavComponents components={data.Components} />
+        <NavAuth authentication={data.authentication} />
+        <NavTemplates Templates={data.Templates} />
       </SidebarContent>
     </Sidebar>
   )

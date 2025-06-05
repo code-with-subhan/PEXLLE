@@ -129,7 +129,7 @@ function CarouselNavigation({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute left-[2%] top-1/2 flex w-[96%] -translate-y-1/2 justify-between px-2',
+        'pointer-events-none absolute left-[4%] top-1/2 flex w-[92%] -translate-y-1/2 justify-between px-2',
         className
       )}
     >
@@ -137,10 +137,10 @@ function CarouselNavigation({
         type='button'
         aria-label='Previous slide'
         className={cn(
-          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
+          'pointer-events-auto h-fit w-fit rounded-full cursor-pointer opacity-50 bg-[rgba(255,255,255,0.8)] p-3.5 transition-opacity duration-300 dark:bg-zinc-950',
           alwaysShow
             ? 'opacity-100'
-            : 'opacity-0 group-hover/hover:opacity-100',
+            : 'opacity-0 group-hover/hover:opacity-70',
           alwaysShow
             ? 'disabled:opacity-40'
             : 'group-hover/hover:disabled:opacity-40',
@@ -161,13 +161,13 @@ function CarouselNavigation({
       <button
         type='button'
         className={cn(
-          'pointer-events-auto h-fit w-fit rounded-full bg-zinc-50 p-2 transition-opacity duration-300 dark:bg-zinc-950',
+          'pointer-events-auto h-fit w-fit rounded-full bg-[rgba(255,255,255,0.8)] opacity-50 p-3.5 cursor-pointer transition-opacity duration-300 dark:bg-zinc-950',
           alwaysShow
             ? 'opacity-100'
-            : 'opacity-0 group-hover/hover:opacity-100',
+            : 'opacity-0 group-hover/hover:opacity-70',
           alwaysShow
-            ? 'disabled:opacity-40'
-            : 'group-hover/hover:disabled:opacity-40',
+            ? 'disabled:opacity-100'
+            : 'group-hover/hover:disabled:opacity-70',
           classNameButton
         )}
         aria-label='Next slide'

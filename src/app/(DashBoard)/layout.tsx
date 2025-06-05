@@ -15,10 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import { Avatar } from "@/components/ui/avatar";
 import {
-  BellRing,
   Moon,
   Search,
-  AppWindow,
   Bell,
   LayoutGrid,
   House,
@@ -28,7 +26,6 @@ import {
   User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 
 export default function WithHeaderLayout({
   children,
@@ -42,17 +39,17 @@ export default function WithHeaderLayout({
           <AppSidebar />
           <SidebarInset className="p-3 bg-[#F5F5F5]">
             <div className="bg-white pt-3">
-              <header className="flex pt-3 h-12 pr-4 items-center gap-4 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+              <header className="flex pt-3 h-12 pr-4 items-center gap-4 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 md:justify-between">
                 <div className="flex items-center gap-2 px-4">
                   <SidebarTrigger className="-ml-1 text-[#737373]" />
                   <Separator orientation="vertical" className="mr-2 h-4" />
                   <Breadcrumb>
-                    <BreadcrumbList>
+                    <BreadcrumbList className="flex flex-wrap">
                       <BreadcrumbItem className="hidden md:block">
                         <BreadcrumbLink href="#">Home</BreadcrumbLink>
                       </BreadcrumbItem>
                       <BreadcrumbSeparator className="hidden md:block" />
-                      <BreadcrumbItem>
+                      <BreadcrumbItem className="hidden md:block">
                         <BreadcrumbPage className="font-semibold">
                           Dashboard
                         </BreadcrumbPage>
@@ -65,13 +62,13 @@ export default function WithHeaderLayout({
                     action=""
                     className="border-2 border-accent flex p-1 bg-accent gap-2 px-2"
                   >
-                    <Search className="text-[#737373] w-4"></Search>
+                    <Search className="text-[#737373] max-w-4 lg:w-[55rem] md:w-[20rem]"></Search>
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="border-0  text-xs w-[500px]"
+                      className="border-0  text-xs max-w-[550px] lg:w-[30rem] md:w-2/3 w-[90%] sm:w-[15rem] "
                     />
-                    <div className="bg-white py-0 px-1 text-xs text-[#737373] shrink-0 flex items-center gap-[1px]">
+                    <div className="hidden md:flex bg-white py-0 px-1 text-xs text-[#737373] shrink-0  items-center gap-[1px]">
                       <LayoutGrid className="text-[#737373] w-3.5 flex items-center text-xs"></LayoutGrid>
                       k
                     </div>

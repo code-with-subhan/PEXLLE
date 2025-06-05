@@ -7,6 +7,8 @@ import {
     CarouselItem,
 } from "@/components/ui/carousel";
 import { ZoomIn } from "lucide-react";
+import { CarouselImage } from "./CaroouselImage";
+import React from "react";
 
 type img = string;
 
@@ -17,20 +19,19 @@ const ImagesArray: img[] = [
     "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1551645120-d70bfe84c826%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1920%26q%3D80&w=1920&q=75",
 ];
 export function CarouselBasic() {
+    const [first, setfirst] = React.useState(0)
     return (
-        <div className="relative  max-w-2xl">
+        <div className="relative  max-w-full ">
             <Carousel className="relative">
-                <div className="absolute top-7 w-5 h-5  z-10 right-8 flex justify-center items-center rounded-full bg-gray-200">
-                    <ZoomIn className="w-3"/>
-                </div>
+                    <CarouselImage img={ImagesArray[first]}/>
                 <CarouselContent>
                     {ImagesArray.map(e => (
                         <CarouselItem className="p-4">
-                                <img src={e} alt="" className="w-full h-98 object-cover"/>
+                            <img src={e} alt="" className="w-full h-105 object-cover"  />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselNavigation alwaysShow className="absolute" />
+                <CarouselNavigation alwaysShow className="absolute"  />
                 <CarouselIndicator className="absolute" />
             </Carousel>
         </div>
