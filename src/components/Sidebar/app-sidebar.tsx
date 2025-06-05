@@ -215,7 +215,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="offcanvas" {...props} className="bg-[#F5F5F5]" variant="sidebar" >
+    <Sidebar collapsible="icon" {...props} className="bg-[#F5F5F5]" variant="sidebar" >
       <SidebarHeader>
         <TeamSwitcher />
       </SidebarHeader>

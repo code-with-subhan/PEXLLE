@@ -53,15 +53,15 @@ export function CompareComboBox() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-[250px] justify-between rounded-none bg-[#F5F5F5] focus:border focus:border-black"
+          className="max:w-[150px] sm:w-[250px] justify-between rounded-none bg-[#F5F5F5] focus:border focus:border-black"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label
-            : "Select framework..."}
+            : "Select a property"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[250px] p-0">
+      <PopoverContent className="max-w-[150px] sm:w-[250px] p-0">
         <Command>
           <CommandList>
             <CommandGroup>

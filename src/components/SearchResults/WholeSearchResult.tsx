@@ -13,7 +13,7 @@ const WholeSearchResult = () => {
             <SearchHeader />
             <div className="mt-9 md:flex gap-9 block justify-between ">
                 <PropertyFilters />
-                <div className="grid gap-9">
+                <div className="grid gap-9 w-full">
                     <ShowingContent view={ShowView} setView={setShowView}/>
                     {ShowView ? <SearchResultCard /> : <LogisticsMap />}
                 </div>

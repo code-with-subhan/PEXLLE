@@ -62,11 +62,11 @@ export default function WithHeaderLayout({
                     action=""
                     className="border-2 border-accent flex p-1 bg-accent gap-2 px-2"
                   >
-                    <Search className="text-[#737373] max-w-4 lg:w-[55rem] md:w-[20rem]"></Search>
+                    <Search className="text-[#737373] max-w-4  md:w-[20rem]"></Search>
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="border-0  text-xs max-w-[550px] lg:w-[30rem] md:w-2/3 w-[90%] sm:w-[15rem] "
+                      className="border-0  text-xs max-w-[550px] lg:w-[40rem] md:w-2/3 w-[90%] sm:w-[15rem] "
                     />
                     <div className="hidden md:flex bg-white py-0 px-1 text-xs text-[#737373] shrink-0  items-center gap-[1px]">
                       <LayoutGrid className="text-[#737373] w-3.5 flex items-center text-xs"></LayoutGrid>

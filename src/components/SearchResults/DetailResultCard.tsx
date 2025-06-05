@@ -13,7 +13,7 @@ export function DetailedResultCard() {
                     <Eye className="w-5" />
                 </div>
             </DialogTrigger>
-            <DialogContent className="max-w-[800px]">
+            <DialogContent className="max-w-[800px] md:block hidden">
                 <h1 className="text-xl font-semibold ">
                     Charming Suburban Cottage
                 </h1>

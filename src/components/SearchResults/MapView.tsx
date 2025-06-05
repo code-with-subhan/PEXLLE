@@ -3,7 +3,7 @@ import LogisticsMap from '../Logictics/LogisticsMap'
 
 const MapView = () => {
   return (
-    <div>
+    <div className='w-full'>
       <LogisticsMap/>
     </div>
   )

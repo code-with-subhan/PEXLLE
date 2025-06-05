@@ -7,7 +7,7 @@ const SearchHeader = () => {
     const [showFilter, setshowFilter] = React.useState<boolean>(true)
     return (
         <>
-            <div className='flex items-center gap-8 bg-[#F5F5F5] p-5 sm:p-3 px-5 '>
+            <div className='sm:flex items-center gap-8 bg-[#F5F5F5] p-5 sm:p-3 px-5  '>
                 {showFilter ? 
                 <Menu className='sm:hidden w-6' onClick={() => setshowFilter(prev => !prev)} />:
                 <X className='sm:hidden' onClick={() => setshowFilter(prev => !prev)}/>

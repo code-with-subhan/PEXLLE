@@ -40,7 +40,7 @@ export function PriceFilter() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild className="w-200px">
+      <PopoverTrigger asChild className="w-200px mt-2 sm:mt-0">
         <Button
           variant="outline"
           role="combobox"

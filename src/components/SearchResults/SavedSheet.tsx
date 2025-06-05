@@ -16,7 +16,7 @@ export function SavedSheet() {
             <SheetTrigger asChild>
                 <Button variant="outline" className="rounded-none">Saved</Button>
             </SheetTrigger>
-            <SheetContent className="w-125 p-5 pt-3 m-4 h-auto overflow-auto">
+            <SheetContent className="sm:w-125  p-5 pt-3 m-4 h-auto overflow-auto">
                 <SheetHeader>
                     <SheetTitle className="text-xl">Saved Properties </SheetTitle>
                 </SheetHeader>
