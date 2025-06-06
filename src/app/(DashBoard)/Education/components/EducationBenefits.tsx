@@ -3,7 +3,7 @@ import React from "react";
 
 const EducationBenefits = () => {
   return (
-    <div className="pl-14 my-7">
+    <div className="pl-14 my-7 sticky ">
       <div>
         <h3 className="font-bold text-sm text-[#09090B]">ASSIGNMENT</h3>
         <p className="text-[#7C7A7C] text-[.9rem] leading-5 my-3">

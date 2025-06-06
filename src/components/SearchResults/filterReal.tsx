@@ -12,14 +12,14 @@ const PropertyFilters = () => {
     const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
     const [showFilter, setshowFilter] = useState<boolean>(true)
     return (
-        <div className="sm:max-w-[40rem] md:w-[40rem] lg:max-w-[35rem] max-w-[35rem] p-6 border border-gray-200 rounded-none bg-[#F5F5F5] ">
+        <div className="sm:max-w-[40rem] md:w-[40rem] lg:max-w-[20rem] max-w-[35rem] p-6 border border-gray-200 rounded-none bg-[#F5F5F5] ">
             {/* Select  */}
             <div className='p-4 py-3 flex cursor-pointer md:hidden  justify-between items-center border hover:bg-[#F5F5F5] bg-white' onClick={() => setshowFilter(prev => !prev)}>
                 <span className='text-sm font-semibold'>Filter</span>
-                <ChevronDown className={`w-5 ${!showFilter ? "rotate-180" : "rotate-0"}`} />
+                <ChevronDown className={`w-5 ${!showFilter ? "rotate-180" : "rotate-0"} transition duration-200`} />
             </div>
 
-            <div className={`${!showFilter ? "block" : "hidden"} md:block`}>
+            <div className={`${!showFilter ? "block" : "hidden"} md:block mt-4`}>
 
                 {/* New Real Estate Type Checkbox Group */}
                 <CheckboxGroup

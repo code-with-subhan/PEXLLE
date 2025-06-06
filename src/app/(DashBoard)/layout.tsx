@@ -39,7 +39,7 @@ export default function WithHeaderLayout({
           <AppSidebar />
           <SidebarInset className="p-3 bg-[#F5F5F5]">
             <div className="bg-white pt-3">
-              <header className="flex pt-3 h-12 pr-4 items-center gap-4 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 md:justify-between">
+              <header className="flex pt-3  pr-4 items-center gap-4 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 md:justify-between sticky top-0 bg-[rgba(255,255,255,0.7)] backdrop-blur-xl pb-4 z-20">
                 <div className="flex items-center gap-2 px-4">
                   <SidebarTrigger className="-ml-1 text-[#737373]" />
                   <Separator orientation="vertical" className="mr-2 h-4" />

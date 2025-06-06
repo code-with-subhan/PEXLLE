@@ -15,7 +15,6 @@ const page = () => {
       </div>
       <div className='w-4/3 '>
         <EducationInformation />
-        <EducationBenefits />
       </div>
     </div>
   )

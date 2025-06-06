@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import { Calendar, ChevronLeft, Mail, Phone, Plus } from "lucide-react";
 import React from "react";
@@ -7,7 +8,7 @@ import { AdressInfo } from "../data/data";
 
 const LeadsProfile = () => {
   return (
-    <div className="p-7 bg-[#F5F5F5]  h-[100vh] overflow-auto">
+    <div className="p-7 bg-[#F5F5F5]  h-[100vh] overflow-auto sticky top-0">
       <div className="flex gap-2 items-center text-sm text-[#8b8b8b] hover:text-[#636262]">
         <ChevronLeft className="w-4" />
         Back to Leads
