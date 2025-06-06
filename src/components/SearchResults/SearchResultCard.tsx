@@ -14,11 +14,24 @@ import { Badge } from "../ui/badge";
 import { CardDescription } from "../ui/card";
 import { DetailedResultCard } from "./DetailResultCard";
 import { DrawerDetailCard } from "./DrawerDetailCard";
+import {  useDispatch, useSelector  } from "react-redux";
+import { RootState , AppDispatch } from "@/store/store";
+import { fetchBuilding } from "@/store/slices/BuildingAPIS";
+import { useEffect } from "react";
+
 
 const SearchResultCard = () => {
+    const dispatch = useDispatch<AppDispatch>()
+    
+    useEffect(() => {
+        dispatch(fetchBuilding())
+    }, [dispatch])
+    
+    const { data, loading, error } = useSelector((state: RootState) => state.Building)
+    console.log(data , error , loading)
     return (
         <div className="flex gap-7 gap-x-2 flex-wrap justify-between w-full">
-            {[...Array(6)].map((e) => (
+            {[...Array(6)].map((e: React.Key | null | undefined) => (
                 <div
                     key={e}
                     className="w-full p-4.5 border rounded-2xl  md:max-w-[15.5rem] grid hover:shadow"
