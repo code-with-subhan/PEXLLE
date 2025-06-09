@@ -3,7 +3,6 @@ import {
     Bath,
     Bed,
     Calendar,
-    Eye,
     Heart,
     MapPin,
     Scan,
@@ -14,26 +13,23 @@ import { Badge } from "../ui/badge";
 import { CardDescription } from "../ui/card";
 import { DetailedResultCard } from "./DetailResultCard";
 import { DrawerDetailCard } from "./DrawerDetailCard";
-import {  useDispatch, useSelector  } from "react-redux";
-import { RootState , AppDispatch } from "@/store/store";
-import { fetchBuilding } from "@/store/slices/BuildingAPIS";
-import { useEffect } from "react";
+import { Properties } from "./data/properties";
+import { PropertiesTypes } from "./data/properties";
 
+interface props {
+    searchQuery: string,
+    data: PropertiesTypes[]
+}
 
-const SearchResultCard = () => {
-    const dispatch = useDispatch<AppDispatch>()
-    
-    useEffect(() => {
-        dispatch(fetchBuilding())
-    }, [dispatch])
-    
-    const { data, loading, error } = useSelector((state: RootState) => state.Building)
-    console.log(data , error , loading)
+const SearchResultCard = ({ searchQuery, data }: props) => {
+
+    const ArrayData = data.length !== 0 ? data : Properties
+    console.log(ArrayData, data)
     return (
         <div className="flex gap-7 gap-x-2 flex-wrap justify-between w-full">
-            {[...Array(6)].map((e: React.Key | null | undefined) => (
+            {ArrayData.map((e) => (
                 <div
-                    key={e}
+                    key={e.id}
                     className="w-full p-4.5 border rounded-2xl  md:max-w-[15.5rem] grid hover:shadow"
                 >
                     <div className=" rounded-2xl relative mb-2 ">
@@ -52,36 +48,36 @@ const SearchResultCard = () => {
                             </div>
                         </div>
                         <img
-                            src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600596542815-ffad4c1539a9%3Fixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%253D%253D%26auto%3Dformat%26fit%3Dcrop%26w%3D800%26h%3D600%26q%3D80&w=1920&q=75"
+                            src={e.images.main}
                             alt=""
-                            className="w-full  object-cover"
+                            className="w-full  object-cover lg:h-[230px]"
                         />
-                        <Badge className="absolute -bottom-2 rounded-full">House</Badge>
+                        <Badge className="absolute -bottom-2 rounded-full">{e.realEstateType}</Badge>
                     </div>
                     <div>
                         <div className="flex gap-1 justify-between">
                             <h1 className="text-xl font-semibold w-1/3">
-                                Charming Suburban Cottage
+                                {e.title}
                             </h1>
-                            <h1 className="text-xl font-bold">$800,000</h1>
+                            <h1 className="text-xl font-bold">${e.price}</h1>
                         </div>
                         <CardDescription className="text-sm flex gap-2 flex-wrap">
-                            <MapPin className="w-4" /> Sunnybrook Ln.
+                            <MapPin className="w-4" /> {e.location}
                         </CardDescription>
                         <div className="flex justify-between items-center mt-2">
                             <CardDescription className="flex gap-2 items-center flex-wrap text-sm">
-                                <Bed className="w-4" /> 2 Bedrooms
+                                <Bed className="w-4" /> {e.bedrooms} Bedrooms
                             </CardDescription>
                             <CardDescription className="flex gap-2 items-center flex-wrap text-sm">
-                                <Users className="w-4" />2 Guests
+                                <Users className="w-4" />{e.guestRoom} Guests
                             </CardDescription>
                         </div>
                         <div className="flex justify-between items-center mt-2">
                             <CardDescription className="flex gap-2 items-center flex-wrap text-sm">
-                                <Bath className="w-4" /> 2 Baths
+                                <Bath className="w-4" /> {e.bathrooms} Baths
                             </CardDescription>
                             <CardDescription className="flex gap-2 items-center flex-wrap text-sm">
-                                <Scan className="w-4" /> 1500 sq ft
+                                <Scan className="w-4" /> {e.size.value} {e.size.unit} ft
                             </CardDescription>
                         </div>
                         <div className="flex justify-between items-center mt-2">
@@ -89,7 +85,7 @@ const SearchResultCard = () => {
                                 Houses
                             </CardDescription>
                             <CardDescription className="flex gap-2 items-center flex-wrap text-sm">
-                                <Calendar className="w-4" /> Built 2015{" "}
+                                <Calendar className="w-4" /> Built {e.builtYear}
                             </CardDescription>
                         </div>
                     </div>

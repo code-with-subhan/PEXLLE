@@ -32,9 +32,9 @@ export const RadioGroup = ({
             <input
               type="radio"
               name={name}
-              value={option.value}
-              checked={selectedValue === option.value}
-              onChange={() => onChange(option.value)}
+              value={option.label}
+              checked={selectedValue === option.label}
+              onChange={() => onChange(option.label)}
               className="
                 w-5 h-5
                 border-2

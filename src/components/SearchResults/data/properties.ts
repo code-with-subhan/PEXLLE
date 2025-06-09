@@ -1,4 +1,23 @@
-const properties = [
+export interface PropertiesTypes {
+  id : string,
+ title : string,
+ description : string,
+ realEstateType : string,
+ location : string,
+ bedrooms : number,
+ bathrooms : number,
+ guestRoom : number,
+ builtYear : number,
+ size : {value : number , unit : string},
+ rentalPeriod : string,
+ price : number,
+ amenities: {pool : boolean , gym : boolean , parking : boolean} ,
+ images:{
+    main : string,
+    gallery : string[]
+ }  ,
+}
+export const Properties : PropertiesTypes[] = [
   {
     id: "property-1",
     title: "Family Home",
@@ -441,4 +460,3 @@ const properties = [
   },
 ];
 
-export default properties;
