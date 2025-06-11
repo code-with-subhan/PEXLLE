@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 
 const TabsContents = ({ time, price }: { time: string; price: string }) => {
   return (
-    <div className="grid grid-cols-3 w-full gap-7 mb-5 px-4">
+    <div className="grid md:grid-cols-3 w-full gap-7 mb-5 px-4 grid-cols-1">
       <div className="w-full border border-[#FSFSFS]">
         <div className="bg-[#F5F5F5] p-6">
           <div className="mb-12 h-16">
@@ -55,8 +55,8 @@ const TabsContents = ({ time, price }: { time: string; price: string }) => {
           </h1>
           <div className="px-3">
             <Button
-              size="sm"
-              className="rounded-none cursor-pointer  w-full mt-7 hover:bg-transparent hover:text-black"
+              size="default"
+              className="rounded-none cursor-pointer bg-black  w-full mt-7 hover:bg-transparent hover:text-black"
             >
               Choose Premium
             </Button>

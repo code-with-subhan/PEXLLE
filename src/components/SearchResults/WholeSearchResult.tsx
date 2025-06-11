@@ -15,17 +15,16 @@ const WholeSearchResult = () => {
     const [SearchQuery, setSearchQuery] = React.useState<string>("");
     const [selectedPeriod, setSelectedPeriod] = useState<string>("");
     const [bedroomMin, setBedroomMin] = useState<number>(1);
-    const [bedroomMax, setBedroomMax] = useState<number>(4);
+    const [bedroomMax, setBedroomMax] = useState<number>(6);
     const [bathroomMin, setBathroomMin] = useState<number>(1);
-    const [bathroomMax, setBathroomMax] = useState<number>(2);
+    const [bathroomMax, setBathroomMax] = useState<number>(6);
     const [Heart, setHeart] = useState<PropertiesTypes[]>([]);
     const [HeartBackground, setHeartBackground] = useState<string[]>([])
     // pagination
     const [PerPageCard, setPerPageCard] = useState<number>(6)
     const [paginationNumber, setpaginationNumber] = useState(Math.ceil(Properties.length / PerPageCard))
     const [paginationActive, setpaginationActive] = useState(1)
-let count = 0
-    
+
     let data = Properties
         // .filter((e: any) => {
         //     e.title.toLowerCase().includes(SearchQuery.toLowerCase())
@@ -45,22 +44,25 @@ let count = 0
         //     return e.realEstateType.toLowerCase() === element;
         // })
         .filter((e: any) => {
-            let element: string = ""
             let objElements = Object.keys(e.amenities)
             let a = e.amenities
             for (const element of objElements) {
                 for (const feature of selectedFeatures) {
-                    if(element == feature && a[element] === true){
-                        count++
-                        console.log(element , feature , a[element] , count)
-                        return element == feature && a[element] === true
-                    }
+                    return element == feature && a[element] === true
                 }
             }
         })
-        React.useEffect(() => {
-        setpaginationNumber(Math.ceil(Properties.length / PerPageCard))
-    }, [PerPageCard])
+        // .filter((e: any) => {
+        //     return e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax
+        // })
+        // .filter((e: any) => {
+        //     return e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax
+        // })
+
+    React.useEffect(() => {
+        setpaginationNumber(Math.ceil(data.length / PerPageCard))
+        setpaginationActive(1)
+    }, [PerPageCard | bedroomMax | bedroomMin])
     // console.log(data, "data");
     function HeartList(value: PropertiesTypes) {
         if (Heart.includes(value)) {
