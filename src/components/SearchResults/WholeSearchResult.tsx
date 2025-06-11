@@ -5,40 +5,72 @@ import PropertyFilters from "./filterReal";
 import ShowingContent from "./ShowingContent";
 import SearchResultCard from "./SearchResultCard";
 import LogisticsMap from "../Logictics/LogisticsMap";
-import { Properties } from "./data/properties";
-
+import { Properties, PropertiesTypes } from "./data/properties";
+import { ResultPagination } from "./ResultPagination";
 
 const WholeSearchResult = () => {
     const [ShowView, setShowView] = React.useState<boolean>(true);
     const [selectedFeatures, setSelectedFeatures] = useState<string[]>([]);
     const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
-    const [SearchQuery, setSearchQuery] = React.useState<string>("")
-    const [selectedPeriod, setSelectedPeriod] = useState<string>("")
+    const [SearchQuery, setSearchQuery] = React.useState<string>("");
+    const [selectedPeriod, setSelectedPeriod] = useState<string>("");
     const [bedroomMin, setBedroomMin] = useState<number>(1);
     const [bedroomMax, setBedroomMax] = useState<number>(4);
     const [bathroomMin, setBathroomMin] = useState<number>(1);
     const [bathroomMax, setBathroomMax] = useState<number>(2);
-
-    const data = Properties
-        .filter(e => {
-            return e.title.toLowerCase().includes(SearchQuery.toLowerCase())
-        })
-        .filter(e => {
-            return e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase() 
-        })
-        .filter(e => {
+    const [Heart, setHeart] = useState<PropertiesTypes[]>([]);
+    const [HeartBackground, setHeartBackground] = useState<string[]>([])
+    // pagination
+    const [PerPageCard, setPerPageCard] = useState<number>(6)
+    const [paginationNumber, setpaginationNumber] = useState(Math.ceil(Properties.length / PerPageCard))
+    const [paginationActive, setpaginationActive] = useState(1)
+let count = 0
+    
+    let data = Properties
+        // .filter((e: any) => {
+        //     e.title.toLowerCase().includes(SearchQuery.toLowerCase())
+        // })
+        //     .filter((e: any) =>
+        //         selectedPeriod === 'Any' ||
+        //     e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase()
+        // )
+        // .filter((e: any) => {
+        //     let element: string = "";
+        //     for (let i = 0; i < selectedPropertyTypes.length; i++) {
+        //         let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
+        //         if (arrayElement === e.realEstateType.toLowerCase()) {
+        //             element = arrayElement;
+        //         }
+        //     }
+        //     return e.realEstateType.toLowerCase() === element;
+        // })
+        .filter((e: any) => {
             let element: string = ""
-            for (let i = 0; i < selectedPropertyTypes.length; i++) {
-                let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1)
-                console.log(arrayElement, e.realEstateType.toLowerCase())
-                if (arrayElement === e.realEstateType.toLowerCase()) {
-                    element = arrayElement
+            let objElements = Object.keys(e.amenities)
+            let a = e.amenities
+            for (const element of objElements) {
+                for (const feature of selectedFeatures) {
+                    if(element == feature && a[element] === true){
+                        count++
+                        console.log(element , feature , a[element] , count)
+                        return element == feature && a[element] === true
+                    }
                 }
             }
-            console.log(element, element == e.realEstateType.toLowerCase())
-            return e.realEstateType.toLowerCase() === element
         })
-    console.log(data, "data")
+        React.useEffect(() => {
+        setpaginationNumber(Math.ceil(Properties.length / PerPageCard))
+    }, [PerPageCard])
+    // console.log(data, "data");
+    function HeartList(value: PropertiesTypes) {
+        if (Heart.includes(value)) {
+            setHeart((e) => e.filter(item => item.id !== value.id));
+            setHeartBackground((e) => e.filter(item => item !== value.id));
+        } else {
+            setHeart([...Heart, value]);
+            setHeartBackground([...HeartBackground, value.id]);
+        }
+    }
 
     return (
         <div className="p-6 px-6">
@@ -60,15 +92,15 @@ const WholeSearchResult = () => {
                     setBathroomMin={setBathroomMin}
                     bathroomMax={bathroomMax}
                     setBathroomMax={setBathroomMax}
-
                 />
                 <div className="grid gap-9 w-full">
-                    <ShowingContent view={ShowView} setView={setShowView} />
-                    {ShowView ? <SearchResultCard
-                        searchQuery={SearchQuery}
-                        data={data}
-
-                    /> : <LogisticsMap />}
+                    <ShowingContent view={ShowView} setView={setShowView} HeartList={HeartList} Heart={Heart} serPerPage={setPerPageCard} perPage={PerPageCard} />
+                    {ShowView ? (
+                        <SearchResultCard data={data} HeartList={HeartList} HeartBackground={HeartBackground} pagActive={paginationActive} perPage={PerPageCard} />
+                    ) : (
+                        <LogisticsMap />
+                    )}
+                    <ResultPagination pag={paginationNumber} pagActive={paginationActive} setpagActive={setpaginationActive} />
                 </div>
             </div>
         </div>
