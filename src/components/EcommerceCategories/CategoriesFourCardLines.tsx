@@ -15,11 +15,11 @@ interface props {
 const CategoriesFourCardLines = ({ data, ke, pag, pagActive }: props) => {
   console.log(ke)
   return (
-    <div key={ke} className={`border border-[#F5F5F5] relative max-w-[250px] overflow-hidden ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
+    <div key={ke} className={`border border-[#F5F5F5] relative w-full lg:max-w-[280px] overflow-hidden ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
       <img
         alt=""
         src={data.image}
-        className="w-[290px] h-[330px] hover:scale-125 relative  cursor-pointer object-contain"
+        className="w-[290px] lg:h-[330px] h-150 sm:h-120 hover:scale-125 relative  cursor-pointer object-contain mx-auto"
       />
       <div className="absolute top-0 left-0 flex justify-between items-center z-20 w-full p-2 ">
         <Badge>{data.category}</Badge>

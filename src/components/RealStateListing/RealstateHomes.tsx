@@ -11,14 +11,14 @@ const RealstateHomes = () => {
           alt="fasf"
           className="object-cover h-60 w-full opacity-70"
         />
-        <h1 className="text-white absolute text-4xl font-bold">
+        <h1 className="text-white absolute text-4xl font-bold text-center">
           Find Your Dream Apartment
         </h1>
       </div>
 
       <div className="mt-16">
         <h2 className="font-bold text-xl mb-3">Search Results (248)</h2>
-        <div className="flex gap-2">
+        <div className="lg:flex gap-2">
         <RealStateHousesCategory/>
         <MyGoogleMap/>
         </div>

@@ -72,16 +72,16 @@ const NotificationAccount = () => {
       </h6>
       <div className="grid gap-4 mt-4">
         <div className="flex gap-2 items-center text-sm text-[#666667] font-semibold cursor-not-allowed">
-          <Switch className="cursor-not-allowed" disabled /> Account Activity
+          <Switch className="cursor-not-allowed" disabled checked /> Account Activity
         </div>
         <div className="flex gap-2 items-center text-sm text-[#666667] font-semibold cursor-not-allowed">
-          <Switch className="cursor-not-allowed" disabled /> New features
+          <Switch className="cursor-not-allowed" disabled checked/> New features
         </div>
         <div className="flex gap-2 items-center text-sm text-[#666667] font-semibold cursor-not-allowed">
-          <Switch className="cursor-not-allowed" disabled /> Marketing
+          <Switch className="cursor-not-allowed" disabled checked/> Marketing
         </div>
         <div className="flex gap-2 items-center text-sm text-[#666667] font-semibold cursor-not-allowed">
-          <Switch className="cursor-not-allowed" disabled /> Security alerts
+          <Switch className="cursor-not-allowed" disabled checked/> Security alerts
         </div>
       </div>
       <Button className="bg-black rounded-none mt-5">Save Preferences</Button>

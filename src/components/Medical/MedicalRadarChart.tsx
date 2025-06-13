@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function MedicalRadarChart() {
   return (
-    <Card className="w-full border border-[#F5F5F5] shadow-none rounded-none">
+    <Card className="lg:w-full md:w-1/2 border border-[#F5F5F5] shadow-none rounded-none">
       <CardHeader className="flex flex-col justify-center items-center pb-4">
         <CardTitle>Patient Visits - Last 6 Months</CardTitle>
         <CardDescription>Showing new and follow-up patients</CardDescription>

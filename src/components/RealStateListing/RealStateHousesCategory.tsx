@@ -8,8 +8,8 @@ const RealStateHousesCategory = () => {
   return (
     <div className="w-full">
       {HousesData.map((e) => (
-        <div key={e.id} className="my-2 flex gap-2 bg-[#F5F5F5] w-full">
-          <img src={e.img} alt="" className="object-cover w-1/3" />
+        <div key={e.id} className="my-2 sm:flex gap-2 bg-[#F5F5F5] w-full">
+          <img src={e.img} alt="" className="object-cover sm:w-1/3" />
           <div className="p-4 whitespace-pre-wrap w-full">
             <div className="flex items-center gap-1 justify-between">
               <MapPin className="w-4 text-[#737373]" />

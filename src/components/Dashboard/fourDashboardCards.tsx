@@ -12,7 +12,7 @@ import { DollarSign, Users, Folder, HeartPulse } from "lucide-react";
 
 const fourDashboardCards = () => {
   return (
-    <div className="grid grid-cols-4 items-center w-full gap-4 flex-wrap my-4">
+    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1  items-center w-full gap-4 flex-wrap my-4">
       <Card className="flex-col gap-0 rounded-none bg-accent shadow-none border-none" >
         <CardHeader className="flex w-full justify-between items-center mb-1">
           <CardDescription className="text-[.8rem] text-accent-foreground font-semibold">Total Revenue</CardDescription>

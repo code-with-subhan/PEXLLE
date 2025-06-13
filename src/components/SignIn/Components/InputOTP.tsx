@@ -18,15 +18,15 @@ import {
 
 const OTPpassword = () => {
   return (
-    // <main className="hidden lg:block w-full">
+    <main className="hidden lg:block w-full">
       <Dialog>
-        <DialogTrigger className="rounded-none">
+        <DialogTrigger className="rounded-none w-full">
           <Button
             type="submit"
             className="w-full bg-[#F05454] hover:bg-[#F05445] rounded-none cursor-pointer"
           >
             {" "}
-            Log inn
+            Log in
           </Button>
         </DialogTrigger>
         <DialogContent className="rounded-none">
@@ -54,7 +54,7 @@ const OTPpassword = () => {
           </div>
         </DialogContent>
       </Dialog>
-    // </main>
+     </main>
   );
 };
 

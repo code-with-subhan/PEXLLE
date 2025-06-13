@@ -1,4 +1,4 @@
-type JobData = {
+export type JobData = {
     id: number,
     img: string,
     title: string,

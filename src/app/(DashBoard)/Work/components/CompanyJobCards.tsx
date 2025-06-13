@@ -5,12 +5,25 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SlidersHorizontal } from "lucide-react";
 import { Bookmark } from "lucide-react";
-import { Search } from "lucide-react";
 import { JobDetail } from "../data/data";
+import { JobData } from "../data/data";
 
-const CompanyJobCards = () => {
+const CompanyJobCards = ({
+  WorkObj,
+  setWorkObj,
+  setshowWork,
+  showWork,
+}: {
+  WorkObj: JobData;
+  setWorkObj: (value: JobData) => void;
+  setshowWork: (value: boolean | ((prev: boolean) => boolean)) => void;
+  showWork: boolean;
+}) => {
   return (
-    <div className="w-[calc(300px)] py-3">
+    <div
+      className={`lg:w-[calc(300px)] py-3 ${showWork ? "block" : "hidden"
+        }  lg:block`}
+    >
       <div className="bg-white flex gap-2 ">
         <Input
           placeholder={`UI Designer`}
@@ -26,19 +39,23 @@ const CompanyJobCards = () => {
       <div className="p-8 pt-3 mt-2 px-1 flex flex-col gap-4 h-[75vh] overflow-auto">
         {/*  */}
         {JobDetail.map((e) => (
-          <div className="p-4 bg-[#E5E5E5] cursor-pointer" key={e.id}>
+          <div
+            className={`p-4  cursor-pointer ${WorkObj.id == e.id
+                ? "border-black bg-[rgba(0,0,0,0.1)] border"
+                : "bg-[#f5F5F5]"
+              }`}
+            key={e.id}
+            onClick={() => {
+              setshowWork((prev) => !prev);
+              setWorkObj(e);
+            }}
+          >
             <div className="flex gap-4 items-start">
-              <img
-                src={e.img}
-                alt=""
-                className="w-10 h-10"
-              />
+              <img src={e.img} alt="" className="w-10 h-10" />
               <div>
                 <h6 className="text-sm font-bold">{e.title}</h6>
                 <p className="text-xs text-[#737373]">{e.JobTitle}</p>
-                <p className="text-xs text-[#737373]">
-                  {e.description}
-                </p>
+                <p className="text-xs text-[#737373]">{e.description}</p>
               </div>
               <div className="ml-auto p-1.5 px-3 hover:bg-[#F1F1F1] cursor-pointer bg-white">
                 <Bookmark className="w-4" />
@@ -64,13 +81,9 @@ const CompanyJobCards = () => {
                 Senior
               </Badge>
             </div>
-            <div className="text-sm text-[#737373] mt-2">
-              {e.Requirements}
-            </div>
+            <div className="text-sm text-[#737373] mt-2">{e.Requirements}</div>
             <div className="flex justify-between mt-2">
-              <span className="text-xs text-[#737373]">
-                {e.Verified}
-              </span>
+              <span className="text-xs text-[#737373]">{e.Verified}</span>
               <span className="text-xs text-[#737373]">{e.time}</span>
             </div>
           </div>

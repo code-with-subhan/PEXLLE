@@ -1,18 +1,18 @@
 import React from "react";
-import { JobDetail } from "../data/data";
 import { Bookmark } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { JobData } from "../data/data";
 
-const SpecificJobDetail = () => {
+const SpecificJobDetail = ({WorkObj} : {WorkObj : JobData}) => {
   return (
-    <div className="w-1/2 p-6 bg-[#F5F5F5]">
+    <div className="lg:w-1/2 p-6 bg-[#F5F5F5] hidden lg:block">
       <div className="flex gap-4 items-start">
-        <img src={JobDetail[0].img} alt="" className="w-17 h-17" />
+        <img src={WorkObj.img} alt="" className="w-17 h-17" />
         <div>
-          <h6 className="text-xl font-bold">{JobDetail[0].title}</h6>
-          <p className="text-sm text-[#737373]">{JobDetail[0].JobTitle}</p>
-          <p className="text-sm text-[#737373]">{JobDetail[0].description}</p>
+          <h6 className="text-xl font-bold">{WorkObj.title}</h6>
+          <p className="text-sm text-[#737373]">{WorkObj.JobTitle}</p>
+          <p className="text-sm text-[#737373]">{WorkObj.description}</p>
         </div>
         <div className="ml-auto p-1.5 px-3 hover:bg-[#F1F1F1] cursor-pointer bg-white">
           <Bookmark className="w-4" />
@@ -20,7 +20,7 @@ const SpecificJobDetail = () => {
       </div>
       <div className="my-9 flex gap-5 gap-y-4 flex-wrap w-[90%]">
         <Badge variant="outline" className= "font-bold">
-          Salary: <span className ="font-normal text-[#737373]"> {JobDetail[0].Salary} </span>{" "}
+          Salary: <span className ="font-normal text-[#737373]"> {WorkObj.Salary} </span>{" "}
         </Badge>
         <Badge variant="outline" className= "font-bold">
           Job Type:
@@ -32,12 +32,12 @@ const SpecificJobDetail = () => {
         </Badge>
         <Badge variant="outline" className= "font-bold">
           Experience:
-          <span className ="font-normal text-[#737373]">{JobDetail[0].Experience}</span>
+          <span className ="font-normal text-[#737373]">{WorkObj.Experience}</span>
         </Badge>
       </div>
       <div>
         <h2 className="font-semibold text-[1.1rem]">Job Description</h2>
-        <p className="my-5 text-[.85rem] text-[#737373]">{JobDetail[0].JobDesc}</p>
+        <p className="my-5 text-[.85rem] text-[#737373]">{WorkObj.JobDesc}</p>
         <ul className="flex flex-col gap-2 pl-4">
           <li className="list-disc text-[#737373] text-[.8rem] ">
             Design and implement user-centered interfaces for web and mobile
@@ -65,7 +65,7 @@ const SpecificJobDetail = () => {
       <div>
         <h2 className="font-semibold my-6 text-[1.1rem] ">Requirements</h2>
         <ul className="flex flex-col gap-2 pl-4">
-          <li className="list-disc text-[#737373] text-[.8rem] ">{JobDetail[0].Requirements}</li>
+          <li className="list-disc text-[#737373] text-[.8rem] ">{WorkObj.Requirements}</li>
           <li className="list-disc text-[#737373] text-[.8rem] ">
             Strong portfolio demonstrating user-centered design process
           </li>

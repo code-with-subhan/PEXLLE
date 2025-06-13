@@ -17,9 +17,9 @@ const Request: RequestBuildingManagement[] = [
 
 const BuildingRequest = () => {
     return (
-        <div className='w-1/2'>
+        <div className='lg:w-1/2 lg:mb-0 mb-16'>
             <h1 className='mb-8 font-bold'>New Requests</h1>
-            <div className='flex flex-col gap-4'>
+            <div className='flex flex-col lg:gap-4 gap-6'>
                 {Request.map(e => (
                     <div className='flex gap-4'>
                         <div>

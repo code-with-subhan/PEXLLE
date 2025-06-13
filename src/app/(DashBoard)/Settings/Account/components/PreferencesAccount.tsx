@@ -19,9 +19,9 @@ const PreferencesAccount = () => {
           Choose your preferred theme
         </p>
       </div>
-      <div className="mt-4 flex gap-4">
+      <div className="mt-4 sm:flex gap-4">
         <div className="flex  flex-col">
-          <div className="flex h-42 w-42 gap-2 p-3 bg-white border-2 border-black">
+          <div className="flex h-42 w-42 gap-2 p-3 bg-white border-3 border-black">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-400"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -41,7 +41,7 @@ const PreferencesAccount = () => {
             </div>
           </div>
 
-          <h6 className="text-center text-sm font-semibold text-[#131315] mt-1">Light</h6>
+          <h6 className="text-center text-sm font-semibold text-[#131315] mt-1 mb-3 w-42">Light</h6>
         </div>
         <div>
           <div className="flex h-42 w-42 gap-2 p-3 bg-[#1A1A1A]">
@@ -63,7 +63,7 @@ const PreferencesAccount = () => {
               </div>
             </div>
           </div>
-          <h6 className="text-center text-sm font-semibold text-[#131315] mt-1">Dark</h6>
+          <h6 className="text-center text-sm font-semibold text-[#131315] mt-1 mb-3  w-42">Dark</h6>
         </div>
       </div>
       <div className="flex flex-col gap-3 mt-7">

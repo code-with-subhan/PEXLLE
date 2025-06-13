@@ -48,12 +48,13 @@ export function MedicalComboboxDemo() {
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild className="w-full bg-[#F5F5F5]">
+      <PopoverTrigger asChild className="w-full bg-[#F5F5F5] ">
+        
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="justify-between rounded-none  w-[280px]"
+          className="justify-between rounded-none  sm:w-[280px] w-full"
         >
           {value
             ? frameworks.find((framework) => framework.value === value)?.label

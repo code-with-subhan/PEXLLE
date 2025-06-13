@@ -3,7 +3,7 @@ import React from "react";
 
 const EditProfile = () => {
   return (
-    <div className="w-1/5">
+    <div className="w-1/5 lg:block hidden">
       <div className="bg-[#F5F5F5] p-3">
         <div className="flex justify-between gap-8 items-center">
           <img

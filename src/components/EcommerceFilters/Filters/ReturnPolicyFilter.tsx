@@ -9,7 +9,7 @@ const ReturnPolicyFilter = () => {
             <h1 className='text-sm font-semibold mt-5'>Return Policy</h1>
             <div className='flex gap-2 flex-wrap mt-2'>
             {Policy.map(e => (
-                <Button variant='outline' size='sm' className='rounded-none cursor-pointer'>{e}</Button>
+                <Button variant='outline' size='sm' className='shadow-none rounded-none cursor-pointer'>{e}</Button>
             ))}
             </div>
         </div>

@@ -21,12 +21,12 @@ const InvestmentCal = () => {
             placeholder="0"
           />
           <Select>
-            <SelectTrigger className="w-[100px] rounded-full bg-white border-none">
+            <SelectTrigger className="w-[100px]  rounded-full bg-white border-none">
               <SelectValue placeholder="BTC" />
             </SelectTrigger>
             <SelectContent className="bg-white border-none">
-              <SelectItem value="light">BTC</SelectItem>
-              <SelectItem value="dark">EtH</SelectItem>
+              <SelectItem value="BTC">BTC</SelectItem>
+              <SelectItem value="Eth">EtH</SelectItem>
             </SelectContent>
           </Select>
         </div>

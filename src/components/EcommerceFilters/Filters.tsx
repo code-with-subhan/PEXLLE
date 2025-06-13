@@ -14,7 +14,7 @@ import { SubCategoryFilter } from './Filters/SubCategoryFilter'
 
 const Filters = () => {
     return (
-        <div className='bg-[#F5F5F5] p-4 w-1/3'>
+        <div className='bg-[#F5F5F5] p-4 lg:w-1/2 lg:block hidden'>
             <div className='flex justify-between items-center'>
                 <h1 className='font-bold text-[1rem]'>Filters</h1>
                 <Button variant='outline' size='sm' className='rounded-none cursor-pointer'>Clear Filters</Button>

@@ -11,7 +11,7 @@ import CombineDivProfile from "./components/CombineDivProfile";
 
 const page = () => {
   return (
-    <div className="flex gap-2 p-2.5 px-0 justify-between">
+    <div className="lg:flex gap-2 p-2.5 px-0 justify-between grid">
       <div className="h-auto">
         <div>
           <img
@@ -120,7 +120,7 @@ const page = () => {
           <TabsContent value="Likes"></TabsContent>
         </Tabs>
       </div>
-      <div className="w-1/2 ">
+      <div className="lg:w-1/2 ">
         <CombineDivProfile />
       </div>
     </div>

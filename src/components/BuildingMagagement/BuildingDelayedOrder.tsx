@@ -20,7 +20,7 @@ const Order: DelayedOrder[] = [
 
 const BuildingDelayedOrder = () => {
     return (
-        <div className='w-1/2'>
+        <div className='lg:w-1/2'>
             <h1 className='mb-8 font-bold'>Delayed Work Orders</h1>
             <div className='flex flex-col gap-6'>
                 {Order.map(e => (

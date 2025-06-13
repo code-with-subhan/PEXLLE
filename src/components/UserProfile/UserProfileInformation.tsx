@@ -7,12 +7,12 @@ import { CardDescription, CardTitle } from "../ui/card";
 
 const UserProfileInformation = () => {
   return (
-    <div className="bg-[#F5F5F5] container w-1/3 p-8 flex flex-col items-center">
+    <div className="bg-[#F5F5F5] container lg:w-1/3 lg:p-8 p-8 flex flex-col items-center">
       <div className="relative">
         <img
           src="https://i.pravatar.cc/150?img=1"
           alt=""
-          className="rounded-full"
+          className="rounded-full size-42 lg:size-auto"
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,21 +37,17 @@ const UserProfileInformation = () => {
         </svg>
       </div>
       <h1 className="text-center text-xl mt-2">Alice Johnson</h1>
-      <Badge variant="outline" className="text-center">
-        5.2k Followers
-      </Badge>
+      <Badge variant="outline" className="text-center">5.2k Followers</Badge>
       <div className="px-2 my-3 mt-4 flex gap-4  ">
         <Button className="rounded-none flex gap-4 ">Follow</Button>
-        <Button className="rounded-none" variant="outline">
-          Messages
-        </Button>
+        <Button className="rounded-none" variant="outline">Messages</Button>
       </div>
-      <div className="my-2">
+      <div className="my-2 ">
         <div className="flex gpp-4 items-center">
           <Calendar className="w-3 text-[#737373]" />
           <CardDescription>Joined 2022-03-15</CardDescription>
         </div>
-        <div className="flex gpp-4 items-center">
+        <div className="flex gpp-4 my-1 items-center">
           <Phone className="w-3 text-[#737373]" />
           <CardDescription>+1 (555) 123-4567</CardDescription>
         </div>
@@ -67,17 +63,17 @@ const UserProfileInformation = () => {
           network optimization.
         </CardDescription>
       </div>
-      <div className="mt-2">
+      <div className="mt-2 w-full">
         <h2 className="my-2 text-sm">Seller Stats</h2>
-        <div className="flex items-center gap-2 w-full">
-          <div className="flex items-center bg-white p-2 gap-2 justify-between w-full">
+        <div className="lg:flex items-center gap-2 w-full grid grid-cols-2">
+          <div className="flex items-center bg-white p-2 gap-2 lg:justify-between w-full">
             <ShoppingBag />
             <div>
               <CardDescription className="text-sm">Items Sold</CardDescription>
               <CardTitle className="text-sm">150</CardTitle>
             </div>
           </div>
-          <div className="flex items-center bg-white p-2 gap-1 justify-between w-full">
+          <div className="flex items-center bg-white p-2 gap-1 lg:justify-between w-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -101,7 +97,7 @@ const UserProfileInformation = () => {
       </div>
       <div className="">
         <h2 className=" mt-3 text-sm ">Favourite Tags</h2>
-        <div className="flex gap-1 flex-wrap mt-2">
+        <div className="flex gap-1 flex-wrap mt-2 w-full">
           <Badge variant="outline" className="bg-white">cybersecurity</Badge>
           <Badge variant="outline" className="bg-white">networking</Badge>
           <Badge variant="outline" className="bg-white">cloud</Badge>

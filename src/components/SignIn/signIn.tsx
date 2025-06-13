@@ -14,7 +14,7 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("flex flex-col gap-3 w-[430px] m-auto mt-8 ", className)}
+      className={cn("flex flex-col gap-3 sm:w-[430px] m-auto mt-8 ", className)}
       {...props}
     >
       <form className="p-6 md:p-8 mb-12">
@@ -32,7 +32,7 @@ export function LoginForm({
               id="email"
               type="email"
               placeholder="m@example.com"
-              className="bg-white shadow-none rounded-none active:border-[#f36161] border-none outline-none"
+              className="bg-white shadow-none rounded-none active:border-[#f36161] border-none outline-none w-full"
               required
             />
           </div>
@@ -41,19 +41,20 @@ export function LoginForm({
               <Label htmlFor="password">Password</Label>
             </div>
             <Input
-              id="password"
               type="password"
               required
               placeholder="Your password"
-              className="bg-white shadow-none rounded-none active:border-[#f36161] border-none outline-none"
+              className="bg-white shadow-none w-full rounded-none active:border-[#f36161] border-none outline-none"
             />
           </div>
           <ForgetPassword />
+          <main className="lg:hidden block">
           <DrawerOTP />
+          </main>
           <main className="lg:grid w-full hidden">
             <OTPpassword />
           </main>
-          <div className="grid grid-cols-2 gap-4 items-center w-2/3 m-auto">
+          <div className="grid grid-cols-2 gap-4 items-center sm:w-2/3 m-auto">
             <Button variant="outline" className="w-full rounded-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

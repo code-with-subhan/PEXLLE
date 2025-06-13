@@ -57,7 +57,7 @@ export function ChartComponent2() {
   )
 
   return (
-    <Card className="w-2/3 rounded-none p-0 shadow-none">
+    <Card className="lg:w-2/3 rounded-none p-0 shadow-none">
       <CardHeader className="flex flex-col items-stretch space-y-0 border-b p-0 sm:flex-row">
         <div className="flex flex-1 flex-col justify-center gap-1 px-6 py-0 sm:py-6">
           <CardTitle>Line Chart - Interactive</CardTitle>
@@ -72,7 +72,7 @@ export function ChartComponent2() {
               <button
                 key={chart}
                 data-active={activeChart === chart}
-                className="flex flex-1 flex-col justify-center gap-1 border-t px-6 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
+                className="flex flex-1 flex-col w-full justify-center gap-1 border-t px-6 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-l sm:border-t-0 sm:px-8 sm:py-6"
                 onClick={() => setActiveChart(chart)}
               >
                 <span className="text-xs text-muted-foreground">

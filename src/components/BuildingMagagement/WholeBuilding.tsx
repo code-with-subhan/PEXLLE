@@ -7,13 +7,13 @@ import BuildingUpcomingUnit from './BuildingUpcomingUnit'
 
 const WholeBuilding = () => {
     return (
-        <div className='flex gap-7 mt-6 px-5'> 
-            <div className='w-1/2'>
+        <div className='lg:flex gap-7 mt-6 px-5'> 
+            <div className='lg:w-1/2'>
                 <BuildingLeftView />
             </div>
             <div className='w-full'>
                 <BuildingPayment />
-                <div className='my-8 px-3 flex  gap-6 justify-between w-full'>
+                <div className='my-8 px-3 lg:flex  gap-6 justify-between w-full'>
                     <BuildingRequest />
                     <BuildingDelayedOrder />
                 </div>

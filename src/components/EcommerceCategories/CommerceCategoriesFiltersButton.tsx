@@ -10,7 +10,7 @@ const CommerceCategoriesFiltersButton = ({ uniqueCategories, }: { uniqueCategori
     );
     const dispatch = useDispatch<AppDispatch>();
     return (
-        <div className="flex gap-2 mb-7">
+        <div className="flex flex-wrap gap-2 mb-7">
             {uniqueCategories.map((e) => (
                 <Button
                     size="sm"

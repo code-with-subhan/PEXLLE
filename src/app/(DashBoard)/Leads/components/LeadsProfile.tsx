@@ -8,7 +8,7 @@ import { AdressInfo } from "../data/data";
 
 const LeadsProfile = () => {
   return (
-    <div className="p-7 bg-[#F5F5F5]  h-[100vh] overflow-auto sticky top-0">
+    <div className="p-7 bg-[#F5F5F5]  h-[100vh] overflow-auto lg:sticky top-0">
       <div className="flex gap-2 items-center text-sm text-[#8b8b8b] hover:text-[#636262]">
         <ChevronLeft className="w-4" />
         Back to Leads
@@ -59,7 +59,7 @@ const LeadsProfile = () => {
       <Tabs defaultValue="account" className="">
         <TabsList className="w-full bg-[#f0f0f0] rounded-none">
           <TabsTrigger value="account" className="font-normal">Leads info</TabsTrigger>
-          <TabsTrigger value="password " className="font-normal">Address info</TabsTrigger>
+          <TabsTrigger value="adress" className="font-normal">Address info</TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <div className="my-4 grid grid-rows-6 gap-3.5">
@@ -74,7 +74,7 @@ const LeadsProfile = () => {
             ))}
           </div>
         </TabsContent>
-        <TabsContent value="password">
+        <TabsContent value="adress">
           <div className="my-4 grid grid-rows-6 gap-3.5">
           {AdressInfo.map((e) => (
               <div className="flex items-center gap-2">

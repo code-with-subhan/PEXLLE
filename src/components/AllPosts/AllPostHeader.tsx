@@ -52,7 +52,7 @@ const AllPostHeader = () => {
   return (
     <div className="mt-6 container">
       <h1 className="text-4xl text-center font-bold">E-commerce Store</h1>
-      <div className="flex justify-between items-center gap-4 mt-8 relative">
+      <div className="md:flex justify-between items-center gap-4 mt-8 relative grid grid-cols-1">
         <Search className="absolute top-1.5 left-3 w-4 text-[#737373]" />
         <Input
           placeholder="Search Products.."
@@ -75,7 +75,7 @@ const AllPostHeader = () => {
         uniqueCategory={findUniqueProductCategory(data)}
         selectCategory={selectedCategory}
       />
-      <div className="grid grid-cols-4 gap-4 mb-6 w-full gap-y-6">
+      <div className="grid lg:grid-cols-4 gap-4 mb-6 w-full gap-y-6 sm:grid-cols-2 grid-cols-1">
         {filteredProducts.map((e: any ,i :number) => (
           <AllPostCards product={e} ke={i} pag={paginationNumber} pagActive={paginationActive} />
         ))}

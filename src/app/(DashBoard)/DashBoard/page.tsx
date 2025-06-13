@@ -11,7 +11,7 @@ export default function Page() {
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-medium">Hi Subhan, Welcome back 👋</h1>
           {/* Buttons and calendar */}
-          <div className="flex gap-2">
+          <div className="md:flex gap-2 hidden">
             <DatePickerWithRange />
             <SonnerDemo />
             <DialogDemo />

@@ -6,7 +6,7 @@ import { ProgressBar } from './MedicalProgressBar'
 
 const PerformanceMatrics = () => {
   return (
-    <div className='w-full border border-[#F5F5F5] p-6 '>
+    <div className='md:w-full border border-[#F5F5F5] p-6 '>
       <CardTitle className='text-sm'>Performance Metrics</CardTitle>
 
       <div className='mt-5 flex flex-col gap-4'>

@@ -3,13 +3,12 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 import { Plus, Search } from "lucide-react";
 import { Button } from "../ui/button";
-import { ShipmentsData } from "./ShipmentsData";
+import { Data, ShipmentsData } from "./ShipmentsData";
 import { CardDescription, CardTitle } from "../ui/card";
-import { Badge } from "../ui/badge";
 
-const Shipments = () => {
+const Shipments = ({ logicObject, setLogicObject, showlogic , setShowlogic }: { logicObject: Data, setLogicObject: (value: Data) => void, showlogic: boolean ,setShowlogic : (value : boolean | ((value : boolean) => boolean)) => void }) => {
   return (
-    <div className="bg-[#F5F5F5] p-4 w-full">
+    <div className={`bg-[#F5F5F5]  lg:p-4 w-full p-7 lg:block ${showlogic ? "block" : "hidden"}`}>
       <h1 className="text-xl font-bold">Shipments</h1>
       <div className="flex gap-1 bg-white  mt-5 px-2 items-center">
         <Search className="text-[#737373] w-4.5 " />
@@ -23,7 +22,10 @@ const Shipments = () => {
       </Button>
       <div>
         {ShipmentsData.map((e) => (
-          <div key={e.id} className="mt-4 hover:bg-[#F5F5F5] cursor-pointer border-black border p-4 bg-white">
+          <div key={e.id} className={`${logicObject.id == e.id ? "border-black  bg-[rgba(0,0,0,0.1)]" : "bg-white"} mt-4 hover:bg-[#F5F5F5] cursor-pointer border  p-4 `} onClick={() => {
+            setShowlogic(prev => !prev)
+            setLogicObject(e)
+          }}>
             <div className="flex gap-2">
               <CardDescription className="text-sm">Load Id:</CardDescription>
               <CardTitle className="font-semibold text-sm">{e.id}</CardTitle>

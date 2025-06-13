@@ -10,7 +10,7 @@ const NegotiableFilter = () => {
       <div className='flex gap-2 flex-wrap mt-2'>
 
             {Nogo.map(e => (
-              <Button variant='outline' size='sm' className='rounded-none cursor-pointer'>{e}</Button>
+              <Button variant='outline' size='sm' className='rounded-none cursor-pointer shadow-none'>{e}</Button>
             ))}
             </div>
     </div>

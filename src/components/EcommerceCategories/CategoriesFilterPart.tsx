@@ -15,8 +15,8 @@ const CategoriesFilterPart = ({
 }: {
   searchQuery: string;
   setsearchQuery: (value: string) => void;
-  toggle : boolean;
-  setToggle : (value : boolean | ((prev: boolean) => boolean)) => void;
+  toggle: boolean;
+  setToggle: (value: boolean | ((prev: boolean) => boolean)) => void;
 }) => {
 
   const selectCategory = useSelector(
@@ -25,13 +25,13 @@ const CategoriesFilterPart = ({
   const dispatch = useDispatch<AppDispatch>();
 
   // toggle function
-  function toggleFunction (value : boolean){
+  function toggleFunction(value: boolean) {
     setToggle(value)
   }
   return (
     <div>
-      
-      <div className="mb-5 flex items-center gap-4">
+
+      <div className="mb-5 sm:flex items-center gap-4 grid">
         <Input
           className="bg-[#F5F5F5] rounded-none focus:border-none focus:outline-none "
           placeholder="Search ads..."
@@ -39,12 +39,14 @@ const CategoriesFilterPart = ({
           onChange={(e) => setsearchQuery(e.target.value)}
         />
         <ComboboxFilter />
-        <Button className={`rounded-none ${toggle ? "border border-black " : "border"} hover:border hover:border-black`} variant={toggle ? "secondary" : "outline"} size="icon" onClick={() => toggleFunction(true)}>
-          <LayoutGrid />
-        </Button>
-        <Button className="rounded-none" size="icon" variant={toggle ? "outline" : "default"} onClick={() => toggleFunction(false)}>
-          <List />
-        </Button>
+        <div className="flex gap-4 items-center">
+          <Button className={`rounded-none ${toggle ? "border border-black " : "border"} hover:border hover:border-black`} variant={toggle ? "secondary" : "outline"} size="icon" onClick={() => toggleFunction(true)}>
+            <LayoutGrid />
+          </Button>
+          <Button className="rounded-none" size="icon" variant={toggle ? "outline" : "default"} onClick={() => toggleFunction(false)}>
+            <List />
+          </Button>
+        </div>
       </div>
 
     </div>

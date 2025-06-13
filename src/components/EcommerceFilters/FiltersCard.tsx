@@ -41,7 +41,7 @@ const FiltersCard = () => {
     if (error) return <h1 className="text-center text-xl font-bold">{error || "something went wrong"}</h1>
 
     return (
-        <div>
+        <div className="lg:mt-0 mt-4">
             <CategoriesFilterPart
                 searchQuery={searchQuery}
                 setsearchQuery={setSearchQuery}
