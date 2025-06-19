@@ -2,12 +2,49 @@
 import React from "react";
 import { HousesData } from "./RealStateHouseData";
 import { Heart, MapPin } from "lucide-react";
-import { Card, CardContent, CardDescription, CardTitle } from "../ui/card";
+import { CardDescription, CardTitle } from "../ui/card";
+import { AppDispatch, RootState } from "@/store/store";
+import { useDispatch, useSelector } from "react-redux";
 
 const RealStateHousesCategory = () => {
+  const { query, PropertyType, rooms, BasicCreteria } = useSelector((state: RootState) => state.RealListing);
+  const dispatch = useDispatch<AppDispatch>();
+  let filterData = HousesData
+    .filter(e => e.title && e.title.includes(query))
+    .filter(e => e.PropertyType && e.PropertyType.includes(PropertyType))
+    .filter(e => {
+      if (rooms.length !== 0) {
+        let element: string = "";
+        for (let i = 0; i < rooms.length; i++) {
+          let arrayElement = rooms[i]
+          if (e.Rooms + "" >= "4" && arrayElement == "4") {
+            element = arrayElement;
+          } else if (e.Rooms + "" === arrayElement) {
+            element = arrayElement;
+          }
+        }
+        return element;
+      } else {
+        return e
+      }
+    })
+    .filter(e => {
+      if (BasicCreteria.length !== 0) {
+        for (let i = 0; i < BasicCreteria.length; i++) {
+          let arrayElement = BasicCreteria[i];
+          for (let b of e.BasicCreteria) {
+            if (b === arrayElement) {
+              return e
+            }
+          }
+        }
+      } else {
+        return e
+      }
+    })
   return (
     <div className="w-full">
-      {HousesData.map((e) => (
+      {filterData.map((e) => (
         <div key={e.id} className="my-2 sm:flex gap-2 bg-[#F5F5F5] w-full">
           <img src={e.img} alt="" className="object-cover sm:w-1/3" />
           <div className="p-4 whitespace-pre-wrap w-full">

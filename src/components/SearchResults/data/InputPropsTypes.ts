@@ -1,4 +1,4 @@
 export interface props {
     searchQuery: string,
-    setQuery: (value: string) => void
+    setQuery: (value: string) => void,
 }

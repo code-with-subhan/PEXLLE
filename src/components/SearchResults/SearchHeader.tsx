@@ -4,7 +4,7 @@ import { Menu, Search, X } from 'lucide-react'
 import { PriceFilter } from './PriceCommboBoxFilter'
 import {props} from "./data/InputPropsTypes" 
 
-const SearchHeader = ({ searchQuery, setQuery }: props) => {
+const SearchHeader = ({ searchQuery, setQuery , setformat  }: {searchQuery : string , setQuery : (value : string) => void  ,setformat : (value : number) => void  }) => {
     const [showFilter, setshowFilter] = React.useState<boolean>(true)
     return (
         <>
@@ -24,7 +24,7 @@ const SearchHeader = ({ searchQuery, setQuery }: props) => {
                         <Search className='text-[#858585]' />
                         <Input placeholder='Search Properties...' className='shadow-none p-0 rounded-none border-none outline-none focus:border-none focus:outline-none focus:shadow-none' value={searchQuery} onChange={(e) => setQuery(e.target.value)} />
                     </div>
-                    <PriceFilter />
+                    <PriceFilter searchformal = {setformat}/>
                 </div>
             </div>
             {!showFilter && 

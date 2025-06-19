@@ -14,9 +14,9 @@ const WholeSearchResult = () => {
     const [selectedPropertyTypes, setSelectedPropertyTypes] = useState<string[]>([]);
     const [SearchQuery, setSearchQuery] = React.useState<string>("");
     const [selectedPeriod, setSelectedPeriod] = useState<string>("");
-    const [bedroomMin, setBedroomMin] = useState<number>(1);
+    const [bedroomMin, setBedroomMin] = useState<number>(0);
     const [bedroomMax, setBedroomMax] = useState<number>(6);
-    const [bathroomMin, setBathroomMin] = useState<number>(1);
+    const [bathroomMin, setBathroomMin] = useState<number>(0);
     const [bathroomMax, setBathroomMax] = useState<number>(6);
     const [Heart, setHeart] = useState<PropertiesTypes[]>([]);
     const [HeartBackground, setHeartBackground] = useState<string[]>([])
@@ -24,46 +24,63 @@ const WholeSearchResult = () => {
     const [PerPageCard, setPerPageCard] = useState<number>(6)
     const [paginationNumber, setpaginationNumber] = useState(Math.ceil(Properties.length / PerPageCard))
     const [paginationActive, setpaginationActive] = useState(1)
+    const [formal, setformal] = useState<number>(0)
 
     let data = Properties
-        // .filter((e: any) => {
-        //     e.title.toLowerCase().includes(SearchQuery.toLowerCase())
-        // })
-        //     .filter((e: any) =>
-        //         selectedPeriod === 'Any' ||
-        //     e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase()
-        // )
-        // .filter((e: any) => {
-        //     let element: string = "";
-        //     for (let i = 0; i < selectedPropertyTypes.length; i++) {
-        //         let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
-        //         if (arrayElement === e.realEstateType.toLowerCase()) {
-        //             element = arrayElement;
-        //         }
-        //     }
-        //     return e.realEstateType.toLowerCase() === element;
-        // })
         .filter((e: any) => {
-            let objElements = Object.keys(e.amenities)
-            let a = e.amenities
-            for (const element of objElements) {
-                for (const feature of selectedFeatures) {
-                    return element == feature && a[element] === true
+            return e.title ? e.title.toLowerCase().includes(SearchQuery.toLowerCase()) : e
+        })
+        .filter((e: any) =>
+            selectedPeriod ?
+                selectedPeriod === 'Any' ||
+                e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase() : e
+        )
+        .filter((e: any) => {
+            if (selectedPropertyTypes.length !== 0) {
+                let element: string = "";
+                for (let i = 0; i < selectedPropertyTypes.length; i++) {
+                    let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
+                    if (arrayElement === e.realEstateType.toLowerCase()) {
+                        element = arrayElement;
+                    }
                 }
+                return e.realEstateType.toLowerCase() === element;
+            } else {
+                return e
             }
         })
-        // .filter((e: any) => {
-        //     return e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax
-        // })
-        // .filter((e: any) => {
-        //     return e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax
-        // })
+        .filter((e: any) => {
+            if (selectedFeatures.length !== 0) {
+                let objElements = Object.keys(e.amenities)
+                let a = e.amenities
+                for (const element of objElements) {
+                    for (const feature of selectedFeatures) {
+                        return element == feature && a[element] === true
+                    }
+                }
+            } else {
+                return e
+            }
+        })
+        .filter((e: any) => {
+            return e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax
+        })
+        .filter((e: any) => {
+            return e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax
+        })
+    if (formal == 1) {
+        data.sort((a: any, b: any) => a.price - b.price)
+    } else if (formal == 2) {
+        data.sort((a: any, b: any) => b.price - a.price)
+    }else {
+        data = Properties
+    }
 
     React.useEffect(() => {
         setpaginationNumber(Math.ceil(data.length / PerPageCard))
         setpaginationActive(1)
     }, [PerPageCard | bedroomMax | bedroomMin])
-    // console.log(data, "data");
+
     function HeartList(value: PropertiesTypes) {
         if (Heart.includes(value)) {
             setHeart((e) => e.filter(item => item.id !== value.id));
@@ -76,7 +93,7 @@ const WholeSearchResult = () => {
 
     return (
         <div className="p-6 px-6">
-            <SearchHeader searchQuery={SearchQuery} setQuery={setSearchQuery} />
+            <SearchHeader setQuery={setSearchQuery} setformat={setformal} searchQuery={SearchQuery} />
             <div className="mt-9 md:flex gap-9 block justify-between ">
                 <PropertyFilters
                     searchQuery={SearchQuery}
