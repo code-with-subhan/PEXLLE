@@ -5,8 +5,9 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { DeleteIcon, LogOut } from "lucide-react";
-
+import { useTheme } from "next-themes";
 const PreferencesAccount = () => {
+  const { setTheme } = useTheme()
   return (
     <div className="mx-5">
       <h6 className="text-sm font-bold">Account Preferences</h6>
@@ -19,9 +20,9 @@ const PreferencesAccount = () => {
           Choose your preferred theme
         </p>
       </div>
-      <div className="mt-4 sm:flex gap-4">
-        <div className="flex  flex-col">
-          <div className="flex h-42 w-42 gap-2 p-3 bg-white border-3 border-black">
+      <div className="mt-4 sm:flex gap-4 ">
+        <div className="flex cursor-pointer  flex-col" onClick={() => setTheme("light")}>
+          <div className="flex h-42 w-42 gap-2 p-3 bg-white border-3 border-black dark:border-none">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-400"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -43,8 +44,8 @@ const PreferencesAccount = () => {
 
           <h6 className="text-center text-sm font-semibold text-[#131315] mt-1 mb-3 w-42">Light</h6>
         </div>
-        <div>
-          <div className="flex h-42 w-42 gap-2 p-3 bg-[#1A1A1A]">
+        <div >
+          <div onClick={() => setTheme("dark")}  className="flex h-42 w-42 gap-2 p-3 cursor-pointer bg-[#1A1A1A] border-4 border-white dark:border-4 border-none">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>

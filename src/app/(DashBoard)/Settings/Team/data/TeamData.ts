@@ -1,4 +1,4 @@
-interface Project_TeamMembers {
+export interface Project_TeamMembers {
   id: number;
   img: string;
   Title: string;

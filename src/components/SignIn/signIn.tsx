@@ -7,6 +7,7 @@ import Link from "next/link";
 import ForgetPassword from "./Components/ForgetPassword";
 import OTPpassword from "./Components/InputOTP";
 import DrawerOTP from "./Components/Drawer";
+import Theme from "../Home/Theme";
 
 export function LoginForm({
   className,
@@ -104,7 +105,7 @@ export function LoginForm({
           </div>
         </div>
         <div className="flex w-full justify-center mt-6  items-center">
-          <Moon className="text-xs w-4 text-muted-foreground text-center" />
+          <Theme/>
         </div>
       </form>
     </div>

@@ -19,6 +19,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import { login } from "@/lib/actions/auth";
 
 const DrawerOTP = () => {
   return (
@@ -29,6 +30,7 @@ const DrawerOTP = () => {
             <Button
               type="submit"
               className="w-full bg-[#F05454] hover:bg-[#F05445] rounded-none cursor-pointer"
+              onClick={() => login()}
             >
               Log in
             </Button>

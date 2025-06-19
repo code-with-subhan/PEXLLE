@@ -4,6 +4,7 @@ import { Moon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Theme from "../Home/Theme";
 
 export function RegisterForm({
   className,
@@ -115,7 +116,9 @@ export function RegisterForm({
             </Button>
           </div>
         </div>
-        <div className="flex w-full justify-center mt-5  items-center"><Moon className="text-xs w-4 text-muted-foreground text-center"/></div>
+        <div className="flex w-full justify-center mt-5  items-center">
+          <Theme/>
+        </div>
       </form>
     </div>
   );

@@ -1,9 +1,16 @@
-
+"use server"
 import React from "react";
-import { Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-const Home = () => {
+import Theme from "@/components/Home/Theme";
+import LoginButton from "@/components/AuhButton/LoginButton";
+import { auth } from "@/Auth";
+import LogOutButton from "@/components/AuhButton/LogoutButton";
+
+const Home = async () => {
+  const session = await auth()
+  console.log(session)
+  console.log("GITHUB_ID:", process.env.GITHUB_ID)
   return (
     <>
       <main className="bg-gradient-to-br from-white-100 to-[#f69a9a] v">
@@ -16,15 +23,22 @@ const Home = () => {
               className="w-[130px]"
             />
             <ul className="flex gap-7 items-center">
-              <Link href="http://localhost:3000//DashBoard">
-                <li className="text-sm cursor-pointer">DashBoard</li>
-              </Link>
-              <Link href="http://localhost:3000//Calculator">
-                <li className="text-sm cursor-pointer">Calculator</li>
-              </Link>
+              {session?.user?.name ?
+                <>
+                  <Link href="http://localhost:3000//DashBoard">
+                    <li className="text-sm cursor-pointer" >DashBoard</li>
+                  </Link>
+                  <Link href="http://localhost:3000//Calculator">
+                    <li className="text-sm cursor-pointer">Calculator</li>
+                  </Link>
+                  <LogOutButton/>
+                </>
+                :
+                <LoginButton />
+              }
             </ul>
             <div className="p-1 px-2 hover:bg-muted">
-              <Moon className="w-4 text-muted-foreground" />
+              <Theme />
             </div>
           </div>
           <div className="flex justify-center mt-2">
@@ -37,7 +51,7 @@ const Home = () => {
           </div>
           <h1 className="text-5xl  text-center font-semibold mt-2">
             <span className="text-5xl text-gradient_indigo-purple mb-4 sm:w-full">
-              Build your 
+              Build your
             </span>{" "}
             website Beautifully.
           </h1>
@@ -90,7 +104,7 @@ const Home = () => {
             </div>
           </div>
           <div className="fixed right-0 bottom-0 gap-4 z-[-1] left-0 top-0 bg-red grid grid-cols-90 grid-rows-90 p-2 overflow-hidden">
-            {[...Array(4000)].map((e ,i) => (
+            {[...Array(4000)].map((e, i) => (
               <div className="h-[2px] w-[2px] rounded-full bg-[#b0b0b0] " key={i}></div>
             ))}
           </div>
