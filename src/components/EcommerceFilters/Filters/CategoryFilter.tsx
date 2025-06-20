@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
     Command,
-    CommandEmpty,
     CommandGroup,
-    CommandInput,
     CommandItem,
     CommandList,
 } from "@/components/ui/command"
@@ -42,13 +40,13 @@ const frameworks = [
     },
 ]
 
-export function CategoryFilter() {
+export function CategoryFilter({title , states , setStates  } : {title : string , states : string , setStates : (value : string) => void}) {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
 
     return (
         <div className="w-full">
-            <h1 className="mt-4 font-semibold text-sm mb-2">Categories</h1>
+            <h1 className="mt-4 font-semibold text-sm mb-2">{title}</h1>
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild className="rounded-none w-full">
                     <Button
@@ -75,6 +73,7 @@ export function CategoryFilter() {
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
                                             setOpen(false)
+                                            setStates(framework.value)
                                         }}
                                     >
                                         {framework.label}

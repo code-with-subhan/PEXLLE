@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import SearchHeader from "./SearchHeader";
 import PropertyFilters from "./filterReal";
 import ShowingContent from "./ShowingContent";
@@ -15,71 +15,74 @@ const WholeSearchResult = () => {
     const [SearchQuery, setSearchQuery] = React.useState<string>("");
     const [selectedPeriod, setSelectedPeriod] = useState<string>("");
     const [bedroomMin, setBedroomMin] = useState<number>(0);
-    const [bedroomMax, setBedroomMax] = useState<number>(6);
+    const [bedroomMax, setBedroomMax] = useState<number>(0);
     const [bathroomMin, setBathroomMin] = useState<number>(0);
-    const [bathroomMax, setBathroomMax] = useState<number>(6);
+    const [bathroomMax, setBathroomMax] = useState<number>(0);
     const [Heart, setHeart] = useState<PropertiesTypes[]>([]);
     const [HeartBackground, setHeartBackground] = useState<string[]>([])
     // pagination
     const [PerPageCard, setPerPageCard] = useState<number>(6)
     const [paginationNumber, setpaginationNumber] = useState(Math.ceil(Properties.length / PerPageCard))
     const [paginationActive, setpaginationActive] = useState(1)
+    // format , sorting 
     const [formal, setformal] = useState<number>(0)
+    const [pro, setpro] = useState(Properties)
 
-    let data = Properties
-        .filter((e: any) => {
-            return e.title ? e.title.toLowerCase().includes(SearchQuery.toLowerCase()) : e
-        })
-        .filter((e: any) =>
-            selectedPeriod ?
-                selectedPeriod === 'Any' ||
-                e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase() : e
-        )
-        .filter((e: any) => {
-            if (selectedPropertyTypes.length !== 0) {
-                let element: string = "";
-                for (let i = 0; i < selectedPropertyTypes.length; i++) {
-                    let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
-                    if (arrayElement === e.realEstateType.toLowerCase()) {
-                        element = arrayElement;
+    const data = useMemo(() => {
+        let result = pro
+            .filter((e: any) => {
+                return SearchQuery ? e.title.toLowerCase().includes(SearchQuery.toLowerCase()) : true
+            })
+            .filter((e: any) =>
+                selectedPeriod ?
+                    e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase() : true
+            )
+            .filter((e: any) => {
+                if (selectedPropertyTypes.length !== 0) {
+                    let element: string = "";
+                    for (let i = 0; i < selectedPropertyTypes.length; i++) {
+                        let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
+                        if (arrayElement === e.realEstateType.toLowerCase()) {
+                            element = arrayElement;
+                        }
                     }
+                    return e.realEstateType.toLowerCase() === element;
+                } else {
+                    return true
                 }
-                return e.realEstateType.toLowerCase() === element;
-            } else {
-                return e
-            }
-        })
-        .filter((e: any) => {
-            if (selectedFeatures.length !== 0) {
-                let objElements = Object.keys(e.amenities)
-                let a = e.amenities
-                for (const element of objElements) {
-                    for (const feature of selectedFeatures) {
-                        return element == feature && a[element] === true
+            })
+            .filter((e: any) => {
+                if (selectedFeatures.length !== 0) {
+                    let objElements = Object.keys(e.amenities)
+                    let a = e.amenities
+                    for (const element of objElements) {
+                        for (const feature of selectedFeatures) {
+                            return element == feature && a[element] === true
+                        }
                     }
+                } else {
+                    return true
                 }
-            } else {
-                return e
-            }
-        })
-        .filter((e: any) => {
-            return e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax
-        })
-        .filter((e: any) => {
-            return e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax
-        })
-    if (formal == 1) {
-        data.sort((a: any, b: any) => a.price - b.price)
-    } else if (formal == 2) {
-        data.sort((a: any, b: any) => b.price - a.price)
-    }else {
-        data = Properties
-    }
+            })
+            .filter((e: any) => {
+                return bedroomMax || bedroomMin ? e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax : true
+            })
+            .filter((e: any) => {
+                return bathroomMax || bathroomMin ? e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax : true
+            })
+
+        if (formal == 1) {
+            result.sort((a: any, b: any) => a.price - b.price)
+        } else if (formal == 2) {
+            result.sort((a: any, b: any) => b.price - a.price)
+        }
+        return result
+    }, [[PerPageCard, bedroomMax, bedroomMin, selectedFeatures, selectedPeriod, selectedPropertyTypes, SearchQuery]])
 
     React.useEffect(() => {
         setpaginationNumber(Math.ceil(data.length / PerPageCard))
         setpaginationActive(1)
-    }, [PerPageCard | bedroomMax | bedroomMin])
+    }, [PerPageCard, bedroomMax, bedroomMin, selectedFeatures, selectedPeriod, selectedPropertyTypes, SearchQuery])
 
     function HeartList(value: PropertiesTypes) {
         if (Heart.includes(value)) {

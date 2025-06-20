@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { act } from 'react'
 
 interface InitialStateType { query: string, rooms: string[], BasicCreteria: string[], PropertyType: string }
 
@@ -15,19 +16,10 @@ const RealListingSlice = createSlice({
             state.PropertyType = action.payload
         },
         SetRooms: (state, action) => {
-            console.log(state.rooms.includes(action.payload) , state)
-            if (state.rooms.includes(action.payload)) {
-                state.rooms.filter(e => e.toLowerCase() != action.payload.toLowerCase())
-            } else {
-                state.rooms.push(action.payload)
-            }
+            state.rooms = action.payload
         },
         SetBasicCreteria: (state, action) => {
-            if (state.BasicCreteria.includes(action.payload)) {
-                state.BasicCreteria.filter(e => e != action.payload)
-            } else {
-                state.BasicCreteria.push(action.payload)
-            }
+           state.BasicCreteria = action.payload
         }
     },
 })

@@ -14,12 +14,21 @@ export function CheckboxDemoFilters({
 }: {
   states: string[];
   className: string;
-  setState : (value : string | ((value : string) => string)) => any ;
+  setState : (value : string[] | ((value : string[]) => string[])) => any ;
   specific : string[]
 }) {
   const dispatch = useDispatch<AppDispatch>();
   console.log(specific)
 
+  function handleListing(value : string) {
+    let a = []
+    if(specific.includes(value)){
+     a=  specific.filter((e) => e !== value)
+    }else{
+      a = [...specific , value]
+    }
+    dispatch(setState(a))
+  }
   return (
     <div className={className}>
       {states.map((e) => (
@@ -27,7 +36,7 @@ export function CheckboxDemoFilters({
            <input
               type="checkbox"
               checked={specific.includes(e)}
-              onChange={() => dispatch(setState(e))}
+              onChange={() => handleListing(e)}
               className="
                 w-5 h-5 
                 rounded 

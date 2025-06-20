@@ -10,8 +10,8 @@ const RealStateHousesCategory = () => {
   const { query, PropertyType, rooms, BasicCreteria } = useSelector((state: RootState) => state.RealListing);
   const dispatch = useDispatch<AppDispatch>();
   let filterData = HousesData
-    .filter(e => e.title && e.title.includes(query))
-    .filter(e => e.PropertyType && e.PropertyType.includes(PropertyType))
+    .filter((e : any) => query ? e.title.toLowerCase().includes(query.toLowerCase()) : true)
+    .filter(e => PropertyType ? e.PropertyType.includes(PropertyType) : true)
     .filter(e => {
       if (rooms.length !== 0) {
         let element: string = "";

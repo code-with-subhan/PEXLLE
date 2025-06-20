@@ -4,6 +4,7 @@ import fetchProduct from '@/store/slices/Products'
 import categoryReducer from "@/store/slices/SelectProductCategorySlice"
 import BuildingReducer from "@/store/slices/BuildingAPIS"
 import RealstateListingSlice from "@/store/slices/RealListing"
+import EcommerceFilter from "@/store/slices/EcommerCe_Filter"
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     fetchProducts: fetchProduct,
     category: categoryReducer,
     Building: BuildingReducer,
-    RealListing : RealstateListingSlice
+    RealListing : RealstateListingSlice,
+    EcommerceFilter : EcommerceFilter,
   },
 });
 

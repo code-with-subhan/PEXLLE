@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { AllPostCards } from "@/components/AllPosts/AllPostCards";
 import ShowPostFilter from "@/components/AllPosts/showPostFilter";
 import { Button } from "@/components/ui/button";
@@ -29,13 +29,12 @@ const AllPostHeader = () => {
   }, [dispatch]);
 
   // select categories buttons
-  const filteredProducts = data
-    .filter((product: any) =>
-      product.title.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    .filter((product: any) =>
-      selectedCategory === "All" ? true : product.category === selectedCategory
-    );
+  const filteredProducts = useMemo(() => {
+    let result = data
+      .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
+      .filter(p => selectedCategory === "All" ? true : p.category === selectedCategory);
+    return result;
+  }, [data, searchQuery, selectedCategory]);
 
   const [paginationNumber, setpaginationNumber] = useState(data && Math.ceil(filteredProducts.length / 8))
   const [paginationActive, setpaginationActive] = useState(1)
@@ -43,6 +42,10 @@ const AllPostHeader = () => {
   useEffect(() => {
     setpaginationNumber(Math.ceil(filteredProducts.length / 8))
   }, [filteredProducts])
+
+  useEffect(() => {
+    setpaginationActive(1)
+  }, [searchQuery, selectedCategory])
 
 
   if (loading) return <p>Loading...</p>;
@@ -76,7 +79,7 @@ const AllPostHeader = () => {
         selectCategory={selectedCategory}
       />
       <div className="grid lg:grid-cols-4 gap-4 mb-6 w-full gap-y-6 sm:grid-cols-2 grid-cols-1">
-        {filteredProducts.map((e: any ,i :number) => (
+        {filteredProducts.map((e: any, i: number) => (
           <AllPostCards product={e} ke={i} pag={paginationNumber} pagActive={paginationActive} />
         ))}
       </div>

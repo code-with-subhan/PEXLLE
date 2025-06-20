@@ -12,17 +12,14 @@ const CategoriesFilterPart = ({
   setsearchQuery,
   toggle,
   setToggle,
+  format,
 }: {
   searchQuery: string;
   setsearchQuery: (value: string) => void;
   toggle: boolean;
+  format : (value : number) => void;
   setToggle: (value: boolean | ((prev: boolean) => boolean)) => void;
 }) => {
-
-  const selectCategory = useSelector(
-    (state: RootState) => state.category.selectedCategory
-  );
-  const dispatch = useDispatch<AppDispatch>();
 
   // toggle function
   function toggleFunction(value: boolean) {
@@ -38,7 +35,7 @@ const CategoriesFilterPart = ({
           value={searchQuery}
           onChange={(e) => setsearchQuery(e.target.value)}
         />
-        <ComboboxFilter />
+        <ComboboxFilter format={format}/>
         <div className="flex gap-4 items-center">
           <Button className={`rounded-none ${toggle ? "border border-black " : "border"} hover:border hover:border-black`} variant={toggle ? "secondary" : "outline"} size="icon" onClick={() => toggleFunction(true)}>
             <LayoutGrid />

@@ -13,7 +13,7 @@ const page = () => {
     <div className="lg:px-25 py-10">
       <h1 className="text-3xl font-medium">Account Settings </h1>
       <p className="text-[#7D7D7D] font-normal text-sm mb-7">Manage your account preferences and settings</p>
-      <Tabs defaultValue="account" className="w-full">
+      <Tabs defaultValue="Profile" className="w-full">
         <TabsList className="rounded-none bloack w-full mb-10">
           <TabsTrigger value="Profile" className="rounded-none">Profile</TabsTrigger>
           <TabsTrigger value="Notification" className="rounded-none">Notification</TabsTrigger>

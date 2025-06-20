@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { CheckboxDemoFilters } from "./checkboxListingFilters";
-import { useDispatch, useSelector } from "react-redux";
+import { batch, useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/store/store";
 import { ListingPropety } from "./RealProperytTypeData";
 import { RoomLitingFIlters } from "./ListingFilters";
@@ -13,16 +13,13 @@ import { SetRooms } from "@/store/slices/RealListing";
 import { SetBasicCreteria } from "@/store/slices/RealListing";
 
 const RealStateListingFilters = ({ bool }: { bool: boolean }) => {
-  const [BorderProperty, setBorderProperty] = useState<string>("House");
-  const { query , PropertyType , rooms , BasicCreteria} = useSelector((state: RootState) => state.RealListing);
+  const { query, PropertyType, rooms, BasicCreteria } = useSelector((state: RootState) => state.RealListing);
   const dispatch = useDispatch<AppDispatch>();
-  console.log(query,PropertyType )
-  console.log(rooms ,BasicCreteria)
+
   return (
     <div
-      className={`bg-[#F5F5F5] p-5 h-150 overflow-y-auto lg:w-1/3 mb-6 lg:mb-0  ${
-        bool ? "block" : "hidden"
-      }`}
+      className={`bg-[#F5F5F5] p-5 h-150 overflow-y-auto lg:w-1/3 mb-6 lg:mb-0  ${bool ? "block" : "hidden"
+        }`}
     >
       <div>
         <h1 className="font-bold text-xl">Filters</h1>
@@ -40,13 +37,11 @@ const RealStateListingFilters = ({ bool }: { bool: boolean }) => {
             key={e.id}
             onClick={() => {
               dispatch(SetPropertyType(e.title))
-              setBorderProperty(e.title)
             }}
-            className={`border ${
-              BorderProperty === e.title
-                ? "border-black bg-[rgba(0,0,0,0.1)]"
-                : "border bg-white"
-            }  rounded-none flex flex-col items-center justify-center py-3   gap-2 cursor-pointer`}
+            className={`border ${PropertyType === e.title
+              ? "border-black bg-[rgba(0,0,0,0.1)]"
+              : "border bg-white"
+              }  rounded-none flex flex-col items-center justify-center py-3   gap-2 cursor-pointer`}
 
           >
             {e.element}
@@ -58,16 +53,22 @@ const RealStateListingFilters = ({ bool }: { bool: boolean }) => {
       <div></div>
       <h2 className="text-sm font-semibold mt-6 mb-3 ">Number Of Rooms</h2>
       <div>
-        <CheckboxDemoFilters states={RoomLitingFIlters} className={"md:flex items-center justify-between my-2 grid grid-cols-2 gap-4"} setState={SetRooms} specific = {rooms}/>
+        <CheckboxDemoFilters states={RoomLitingFIlters} className={"md:flex items-center justify-between my-2 grid grid-cols-2 gap-4"} setState={SetRooms} specific={rooms} />
       </div>
       <h2 className="mt-5 text-sm font-semibold ">Basic Creteria</h2>
       <div >
-        <CheckboxDemoFilters setState={SetBasicCreteria} states={BasicCreteriaLitingFIlters} className={"mt-2 mb-5 grid grid-rows-4 gap-2"} specific = {BasicCreteria}/>
+        <CheckboxDemoFilters setState={SetBasicCreteria} states={BasicCreteriaLitingFIlters} className={"mt-2 mb-5 grid grid-rows-4 gap-2"} specific={BasicCreteria} />
       </div>
       <Button variant="outline" className="w-full rounded-none cursor-pointer"
-      onClick={() => 
-        dispatch(SearchQuery("") , SetPropertyType("") , SetRooms([]) , SetBasicCreteria([]))
-      }>
+        onClick={() => {
+          batch(() => {
+            dispatch(SearchQuery(""));
+            dispatch(SetBasicCreteria([]));
+            dispatch(SetPropertyType(""));
+            dispatch(SetRooms([]));
+          });
+        }
+        }>
         Clear Filters
       </Button>
     </div>

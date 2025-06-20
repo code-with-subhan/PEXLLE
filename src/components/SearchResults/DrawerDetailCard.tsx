@@ -12,8 +12,14 @@ import {
 import { Bath, Bed, Calendar, Eye, MapPin, Scan, Users } from "lucide-react";
 import { CardDescription } from "../ui/card";
 import { PropertiesTypes } from "./data/properties"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
-export function DrawerDetailCard({obj} : {obj : PropertiesTypes}) {
+
+export function DrawerDetailCard({ obj }: { obj: PropertiesTypes }) {
     const [goal, setGoal] = React.useState(350)
 
     function onClick(adjustment: number) {
@@ -23,10 +29,19 @@ export function DrawerDetailCard({obj} : {obj : PropertiesTypes}) {
     return (
         <Drawer >
             <DrawerTrigger asChild>
-                <div
-                    className="flex justify-center items-center size-9 rounded-2xl bg-[#F5F5F5]">
-                    <Eye className="w-5" />
-                </div>
+                
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <div
+                            className="flex cursor-pointer justify-center items-center size-9 rounded-2xl bg-[#F5F5F5]">
+                            <Eye className="w-5" />
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>View Detail</p>
+                    </TooltipContent>
+                </Tooltip>
+
             </DrawerTrigger>
             <DrawerContent className=" md:hidden w-full h-full">
                 <div className="mx-auto w-full max-w-sm">
@@ -36,7 +51,7 @@ export function DrawerDetailCard({obj} : {obj : PropertiesTypes}) {
                     <div className=" rounded-2xl max-w-full flex-col  gap-5 justify-between">
                         <div className=" rounded-2xl relative mb-2">
                             <img
-                            src={obj.images.main}
+                                src={obj.images.main}
                                 alt=""
                                 className="max-w-full h-[330px]  object-cover "
                             />
@@ -74,7 +89,7 @@ export function DrawerDetailCard({obj} : {obj : PropertiesTypes}) {
                                 </CardDescription>
                             </div>
                             <CardDescription className="text-sm text-black mt-2">
-                                    {obj.description}
+                                {obj.description}
                             </CardDescription>
                         </div>
                     </div>

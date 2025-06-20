@@ -17,10 +17,7 @@ export function MortageCalculator() {
   const [DownPayment, setDownPayment] = React.useState<number>(0);
   const [LoanTerms, setLoanTerms] = React.useState<number>(0);
   const [InterestRate, setInterestRate] = React.useState<number>(0);
-  const [total, settotal] = React.useState<number>(0)
 
-  function Mortage() {
-    console.log(HomeValue, DownPayment, LoanTerms, InterestRate);
     const monthly = HomeValue - DownPayment;
     const MonthlyInterest = InterestRate / 100 / 12;
     const totalNumberofPayment = LoanTerms * 12;
@@ -28,9 +25,6 @@ export function MortageCalculator() {
       MonthlyInterest * Math.pow(1 + MonthlyInterest, totalNumberofPayment);
     const DeNumerator = Math.pow(1 + MonthlyInterest, totalNumberofPayment) - 1;
     const mortageTotal = monthly * (Numerator / DeNumerator);
-    settotal(mortageTotal)
-    console.log(total , mortageTotal )
-  }
   return (
     <Dialog>
       <form>
@@ -55,7 +49,6 @@ export function MortageCalculator() {
                 name="name"
                 onChange={(e) => {
                   setHomeValue(+e.target.value)
-                  Mortage();
                 }}
               />
             </div>
@@ -68,7 +61,6 @@ export function MortageCalculator() {
                 name="name"
                 onChange={(e) => {
                   setDownPayment(+e.target.value)
-                  Mortage();
                 }}
               />
             </div>
@@ -81,7 +73,6 @@ export function MortageCalculator() {
                 name="name"
                 onChange={(e) => {
                   setLoanTerms(+e.target.value)
-                  Mortage();
                 }}
               />
             </div>
@@ -94,14 +85,13 @@ export function MortageCalculator() {
                 name="name"
                 onChange={(e) => {
                   setInterestRate(+e.target.value)
-                  Mortage();
                 }}
               />
             </div>
           </div>
           <div className="flex justify-between items-center ">
             <div className="text-xl font-bold">Monthly Payment:</div>
-            <div className="text-xl font-bold">€{total}</div>
+            <div className="text-xl font-bold">€{mortageTotal}</div>
           </div>
           <DialogFooter>
             <DialogClose asChild>

@@ -1,27 +1,47 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
     SheetContent,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Filter } from "lucide-react";
 import React from "react";
 import ConditionFilter from "./ConditionFilter";
-import SellerTypeFilter from "./SellerTypeFilter";
 import Waranty from "./Waranty";
-import NegotiableFilter from "./NegotiableFilter";
-import PaymentFilter from "./PaymentFilter";
-import ReturnPolicyFilter from "./ReturnPolicyFilter";
-import AdTypeFilter from "./AdTypeFilter";
-import VerifiedFilter from "./VerifiedFilter";
-import ShippingFilter from "./ShippingFilter";
 import { CategoryFilter } from "./CategoryFilter";
-import { SubCategoryFilter } from "./SubCategoryFilter";
 import { CardDescription } from "@/components/ui/card";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import {
+    SetCategory,
+    SetSubCategory,
+    SetCondition,
+    SetSellerType,
+    SetShipping,
+    SetWarranty,
+    SetNogoTiable,
+    SetpaymentOption,
+    SetReturnPolicy,
+    SetAdType,
+    SetVerifiedSeller,
+} from "@/store/slices/EcommerCe_Filter";
 
 export function EcommerceFilterSheet() {
+    const {
+        Category,
+        SubCategory,
+        Condition,
+        SellerType,
+        Shipping,
+        Warranty,
+        Negotiable,
+        PaymentOptions,
+        ReturnPolicy,
+        AdType,
+        VerifiedSeller,
+    } = useSelector((state: RootState) => state.EcommerceFilter);
+
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -44,17 +64,62 @@ export function EcommerceFilterSheet() {
                         Clear Filters
                     </Button>
                 </div>
-                <CategoryFilter />
-                <SubCategoryFilter />
-                <ConditionFilter />
-                <SellerTypeFilter />
-                <Waranty />
-                <ShippingFilter />
-                <NegotiableFilter />
-                <PaymentFilter />
-                <ReturnPolicyFilter />
-                <AdTypeFilter />
-                <VerifiedFilter />
+                <CategoryFilter title="Category" states={Category} setStates={SetCategory} />
+                <CategoryFilter title="Subcategory" states={SubCategory} setStates={SetSubCategory} />
+                <ConditionFilter
+                    array={["New", "Like New", "Good", "Fair", "Poor"]}
+                    title={"Condition"}
+                    states={Condition}
+                    setStates={SetCondition}
+                />
+                <ConditionFilter
+                    array={["Individual", "Business"]}
+                    title="Seller Type"
+                    states={SellerType}
+                    setStates={SetSellerType}
+                />
+                <ConditionFilter
+                    array={["Free", "Paid", "Pickup"]}
+                    title="Shipping"
+                    states={Shipping}
+                    setStates={SetShipping}
+                />
+                <Waranty
+                    array={["All", "Yes", "No"]}
+                    title="Warranty"
+                    states={Warranty}
+                    setStatess={SetWarranty}
+                />
+                <Waranty
+                    array={["All", "Yes", "No"]}
+                    title="Negotiable"
+                    states={Negotiable}
+                    setStatess={SetNogoTiable}
+                />
+                <ConditionFilter
+                    array={["Cash", "Card", "Paypal", "Crypto"]}
+                    title="Payment Options"
+                    states={PaymentOptions}
+                    setStates={SetpaymentOption}
+                />
+                <ConditionFilter
+                    array={["No Returns", "14 Days", "30 Days", "60 Days"]}
+                    title="Return Policy"
+                    states={ReturnPolicy}
+                    setStates={SetReturnPolicy}
+                />
+                <ConditionFilter
+                    array={["Standard", "Featured", "Urgent"]}
+                    title="Ad Type"
+                    states={AdType}
+                    setStates={SetAdType}
+                />
+                <Waranty
+                    array={["All", "Yes", "No"]}
+                    title="Verified Seller"
+                    states={VerifiedSeller}
+                    setStatess={SetVerifiedSeller}
+                />
             </SheetContent>
         </Sheet>
     );

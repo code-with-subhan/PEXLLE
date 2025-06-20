@@ -7,7 +7,7 @@ import { Cards } from "../data/CardsData";
 const LeadsTabs = () => {
   return (
     <div className="lg:w-[450px] my-5">
-      <Tabs defaultValue="account" className="w-full">
+      <Tabs defaultValue="Task" className="w-full">
         <TabsList className="w-full rounded-none">
           <TabsTrigger
             value="Activity"

@@ -26,11 +26,13 @@ export const RoomsFilter = ({title, min, setmin , max , setmax}: props) => {
               options={roomOptions}
               value={min}
               onChange={setmin}
-            />
+              title="Min"
+              />
             <ComboboxDemo
               options={roomOptions.filter((opt) => opt >= min)}
               value={max}
               onChange={setmax}
+              title="Max"
             />
           </div>
         </div>

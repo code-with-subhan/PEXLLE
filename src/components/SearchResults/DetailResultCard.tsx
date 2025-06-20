@@ -3,14 +3,26 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Bath, Bed, Calendar, Eye, MapPin, Scan, Users } from "lucide-react";
 import { CardDescription } from "../ui/card";
 import { PropertiesTypes } from "./data/properties";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 export function DetailedResultCard({obj} : {obj : PropertiesTypes}) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <div
-                    className="flex justify-center items-center size-9 rounded-2xl bg-[#F5F5F5]">
-                    <Eye className="w-5" />
-                </div>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <div
+                            className="flex cursor-pointer justify-center items-center size-9 rounded-2xl bg-[#F5F5F5]">
+                            <Eye className="w-5" />
+                        </div>
+                    </TooltipTrigger>
+                    <TooltipContent className="rounded-none">
+                        <p>View Detail</p>
+                    </TooltipContent>
+                </Tooltip>
             </DialogTrigger>
             <DialogContent className="max-w-[800px] md:block hidden">
                 <h1 className="text-xl font-semibold ">

@@ -6,6 +6,7 @@ import CheckboxGroup from "./SearchFilters/RealEstateFilter";
 import { RoomsFilter } from "./SearchFilters/BedRoomContainer";
 import { ChevronDown } from "lucide-react";
 import { RadioGroup } from "./SearchFilters/oneRadioReal";
+import { Button } from "../ui/button";
 
 
 interface props {
@@ -106,18 +107,7 @@ const PropertyFilters = ({
                     className="mb-6"
                 />
 
-                {/* Debug Output */}
-                <div className="mt-5 p-3 bg-gray-50 rounded">
-                    <h4 className="font-medium mb-2">Selected Filters:</h4>
-                    <p>Property Types: {selectedPropertyTypes.join(", ") || "None"}</p>
-                    <p>Features: {selectedFeatures.join(", ") || "None"}</p>
-                    <p>RentalPeriod: {selectedPeriod}</p>
-                    <p>bedroomsmin: {bedroomMin}</p>
-                    <p>bedroomsmax: {bedroomMax}</p>
-                    <p>bathroomsmin: {bathroomMin}</p>
-                    <p>bathroomsmax: {bathroomMax}</p>
-                    <p>bathroomsmax: {bathroomMax}</p>
-                </div>
+                <Button className="rounded-none w-full cursor-pointer" size='sm'>Apply Filter</Button>
             </div>
         </div>
     );

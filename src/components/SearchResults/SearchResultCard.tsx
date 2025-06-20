@@ -14,23 +14,27 @@ import { DetailedResultCard } from "./DetailResultCard";
 import { DrawerDetailCard } from "./DrawerDetailCard";
 import { Properties } from "./data/properties";
 import { PropertiesTypes } from "./data/properties";
-
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 interface props {
     data: PropertiesTypes[],
     HeartList: (value: PropertiesTypes) => void,
     HeartBackground: string[]
     pagActive: number
-    perPage : number
+    perPage: number
 }
 
-const SearchResultCard = ({ data, HeartList , HeartBackground  , pagActive  , perPage}: props) => {
+const SearchResultCard = ({ data, HeartList, HeartBackground, pagActive, perPage }: props) => {
     const ArrayData = data.length !== 0 ? data : Properties
     return (
         <div className="flex gap-7 gap-x-2 flex-wrap justify-between w-full">
-            {ArrayData.map((e , i) => (
+            {ArrayData.map((e, i) => (
                 <div
                     key={e.id}
-                    className={`w-full p-4.5 border rounded-2xl  md:max-w-[15.5rem] grid hover:shadow  ${i < perPage*pagActive && i >= (perPage*pagActive ) -perPage ? "flex" : "hidden"}`}
+                    className={`w-full p-4.5 border rounded-2xl  md:max-w-[15.5rem] grid hover:shadow  ${i < perPage * pagActive && i >= (perPage * pagActive) - perPage ? "flex" : "hidden"}`}
                 >
                     <div className=" rounded-2xl relative mb-2 ">
                         <div className="flex gap-2 justify-end absolute -top-2 -right-1 ">
@@ -38,7 +42,14 @@ const SearchResultCard = ({ data, HeartList , HeartBackground  , pagActive  , pe
                                 className="flex justify-center items-center size-9 rounded-2xl
                          bg-[#F5F5F5]"
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" onClick={() => HeartList(e)} width="24" height="24" viewBox="0 0 24 24" fill={HeartBackground.includes(e.id) ? `rgba(255,0,0,0.6)` : "transparent"} stroke={HeartBackground.includes(e.id) ? `rgba(255,0,0,0.6)` : "black"}  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart w-5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                                <Tooltip>
+                                    <TooltipTrigger asChild>
+                                        <svg  xmlns="http://www.w3.org/2000/svg" onClick={() => HeartList(e)} width="24" height="24" viewBox="0 0 24 24" fill={HeartBackground.includes(e.id) ? `rgba(255,0,0,0.6)` : "transparent"} stroke={HeartBackground.includes(e.id) ? `rgba(255,0,0,0.6)` : "black"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart w-5 cursor-pointer"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                                    </TooltipTrigger>
+                                    <TooltipContent className="rounded-none">
+                                        <p>Add to Favourite</p>
+                                    </TooltipContent>
+                                </Tooltip>
                             </div>
                             <div className="hidden md:block">
                                 <DetailedResultCard obj={e} />
