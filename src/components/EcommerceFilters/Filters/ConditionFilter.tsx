@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/store/store";
+import { set } from "date-fns";
 const ConditionFilter = ({
     array,
     title,
@@ -16,6 +17,15 @@ const ConditionFilter = ({
 }) => {
     const dispatch = useDispatch<AppDispatch>();
 
+    function holdingstate (value : string) {
+        let a = []
+        if(states.includes(value)){
+            a = states.filter(e => e !== value)
+        }else{
+          a = [...states , value]
+        }
+        dispatch(setStates(a))
+    }
     return (
         <div>
             <h1 className="text-sm font-semibold mt-5">{title}</h1>
@@ -26,7 +36,7 @@ const ConditionFilter = ({
                         key={e}
                         size="sm"
                         className={`shadow-none rounded-none cursor-pointer ${states.includes(e) ? "border-black bg-[rgba(0,0,0,0.1)]" : "bg-white border"}`}
-                        onClick={() => dispatch(setStates(e))}
+                        onClick={() => holdingstate(e)}
                     >
                         {e}
                     </Button>

@@ -17,32 +17,11 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 
-const frameworks = [
-    {
-        value: "next.js",
-        label: "Next.js",
-    },
-    {
-        value: "sveltekit",
-        label: "SvelteKit",
-    },
-    {
-        value: "nuxt.js",
-        label: "Nuxt.js",
-    },
-    {
-        value: "remix",
-        label: "Remix",
-    },
-    {
-        value: "astro",
-        label: "Astro",
-    },
-]
 
-export function CategoryFilter({title , states , setStates  } : {title : string , states : string , setStates : (value : string) => void}) {
+
+export function CategoryFilter({title , states , setStates , array  } : {title : string , states : string , setStates : (value : string) => void , array : string[]}) {
     const [open, setOpen] = React.useState(false)
-    const [value, setValue] = React.useState("")
+    const [value, setValue] = React.useState("All")
 
     return (
         <div className="w-full">
@@ -56,31 +35,32 @@ export function CategoryFilter({title , states , setStates  } : {title : string 
                         className=" justify-between"
                     >
                         {value
-                            ? frameworks.find((framework) => framework.value === value)?.label
+                            ? array.find((framework) => framework === value)
                             : "All"}
                         <ChevronsUpDown className="opacity-50" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[160px] block  p-0 rounded-none">
+                <PopoverContent className=" block  p-0 rounded-none">
                     <Command className="w-full">
                         <CommandList >
-                            <CommandGroup>
-                                {frameworks.map((framework) => (
+                            <CommandGroup >
+                                {array.map((framework , i) => (
                                     <CommandItem
                                     className="rounded-none cursor-pointer"
-                                        key={framework.value}
-                                        value={framework.value}
+                                        key={i}
+                                        value={framework}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
                                             setOpen(false)
-                                            setStates(framework.value)
+                                            setStates(framework)
+                                            
                                         }}
                                     >
-                                        {framework.label}
+                                        {framework}
                                         <Check
                                             className={cn(
                                                 "ml-auto",
-                                                value === framework.value ? "opacity-100" : "opacity-0"
+                                                value === framework ? "opacity-100" : "opacity-0"
                                             )}
                                         />
                                     </CommandItem>

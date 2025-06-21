@@ -1,6 +1,6 @@
 import React from 'react'
 import Filters from './Filters'
-import FiltersCard from './FiltersCard'
+import FiltersCard from './FilterCard'
 import { EcommerceFilterSheet } from './Filters/EcommerceFilterSheet'
 
 const WholeFilters = () => {

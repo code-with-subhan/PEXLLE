@@ -34,7 +34,7 @@ const frameworks = [
 
 export function ComboboxFilter({format} : {format : (value : number) => void}) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState("Date (Newest first)")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

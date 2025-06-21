@@ -22,12 +22,12 @@ const initialState: InitialStateType = {
     Condition: [],
     SellerType: [],
     Shipping: [],
-    Warranty: "",
-    Negotiable: "",
+    Warranty: "All",
+    Negotiable: "All",
     PaymentOptions: [],
     ReturnPolicy: [],
     AdType: [],
-    VerifiedSeller: "",
+    VerifiedSeller: "All",
 }
 
 const EcommerceFilters = createSlice({
@@ -44,13 +44,13 @@ const EcommerceFilters = createSlice({
             state.SubCategory = action.payload
         },
         SetCondition(state, action) {
-            state.Condition.push(action.payload)
+            state.Condition = action.payload
         },
         SetSellerType(state, action) {
-            state.SellerType.push(action.payload)
+            state.SellerType =action.payload
         },
         SetShipping(state, action) {
-            state.Shipping.push(action.payload)
+            state.Shipping = action.payload
         },
         SetWarranty(state, action) {
             state.Warranty = action.payload
@@ -59,13 +59,13 @@ const EcommerceFilters = createSlice({
             state.Negotiable = action.payload
         },
         SetpaymentOption(state, action) {
-            state.PaymentOptions.push(action.payload)
+            state.PaymentOptions = action.payload
         },
         SetReturnPolicy(state, action) {
-            state.ReturnPolicy.push(action.payload)
+            state.ReturnPolicy = action.payload
         },
         SetAdType(state, action) {
-            state.AdType.push(action.payload)
+            state.AdType = action.payload
         },
         SetVerifiedSeller(state, action) {
             state.VerifiedSeller = action.payload

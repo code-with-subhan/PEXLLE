@@ -6,7 +6,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Filter } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ConditionFilter from "./ConditionFilter";
 import Waranty from "./Waranty";
 import { CategoryFilter } from "./CategoryFilter";
@@ -26,6 +26,7 @@ import {
     SetAdType,
     SetVerifiedSeller,
 } from "@/store/slices/EcommerCe_Filter";
+import EcommerceFilterproducts from "../data/FilterData";
 
 export function EcommerceFilterSheet() {
     const {
@@ -41,7 +42,19 @@ export function EcommerceFilterSheet() {
         AdType,
         VerifiedSeller,
     } = useSelector((state: RootState) => state.EcommerceFilter);
+    const [a, seta] = useState<string[]>([])
+    const [b, setb] = useState<string[]>([])
+    let z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
+    let c: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
+    let d: any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
 
+    a.unshift("All")
+    b.unshift("All")
+    useEffect(() => {
+    seta(c)
+    setb(d)
+    }, [a ,b])
+    
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -64,8 +77,8 @@ export function EcommerceFilterSheet() {
                         Clear Filters
                     </Button>
                 </div>
-                <CategoryFilter title="Category" states={Category} setStates={SetCategory} />
-                <CategoryFilter title="Subcategory" states={SubCategory} setStates={SetSubCategory} />
+                <CategoryFilter title="Category" states={Category} setStates={SetCategory} array={a} />
+                <CategoryFilter title="Subcategory" states={SubCategory} setStates={SetSubCategory} array={b} />
                 <ConditionFilter
                     array={["New", "Like New", "Good", "Fair", "Poor"]}
                     title={"Condition"}

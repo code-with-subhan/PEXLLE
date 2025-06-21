@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "../ui/button";
 import ConditionFilter from "./Filters/ConditionFilter";
 import Waranty from "./Filters/Waranty";
@@ -19,6 +19,7 @@ import {
     SetAdType,
     SetVerifiedSeller,
 } from "@/store/slices/EcommerCe_Filter";
+import EcommerceFilterproducts from "./data/FilterData";
 
 const Filters = () => {
     const {
@@ -34,6 +35,13 @@ const Filters = () => {
         AdType,
         VerifiedSeller,
     } = useSelector((state: RootState) => state.EcommerceFilter);
+        let z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
+
+    let a: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
+    let b : any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
+
+    a.unshift("All")
+    b.unshift("All")
 
     return (
         <div className="bg-[#F5F5F5] p-4 lg:w-1/2 lg:block hidden">
@@ -47,56 +55,56 @@ const Filters = () => {
                     Clear Filters
                 </Button>
             </div>
-            <CategoryFilter title ="Category" states={Category} setStates={SetCategory}/>
-            <CategoryFilter title ="Subcategory" states={SubCategory} setStates={SetSubCategory}/>
+            <CategoryFilter title="Category" states={Category} setStates={SetCategory} array={a}/>
+            <CategoryFilter title="Subcategory" states={SubCategory} setStates={SetSubCategory} array={b}/>
             <ConditionFilter
                 array={["New", "Like New", "Good", "Fair", "Poor"]}
                 title={"Condition"}
                 states={Condition}
                 setStates={SetCondition}
-                />
+            />
             <ConditionFilter
                 array={["Individual", "Business"]}
                 title="Seller Type"
                 states={SellerType}
                 setStates={SetSellerType}
-                />
+            />
             <ConditionFilter
                 array={["Free", "Paid", "Pickup"]}
                 title="Shipping"
                 states={Shipping}
                 setStates={SetShipping}
-                />
+            />
             <Waranty
                 array={["All", "Yes", "No"]}
                 title="Warranty"
                 states={Warranty}
                 setStatess={SetWarranty}
-                />
+            />
             <Waranty
                 array={["All", "Yes", "No"]}
                 title="Negotiable"
                 states={Negotiable}
                 setStatess={SetNogoTiable}
-                />
+            />
             <ConditionFilter
                 array={["Cash", "Card", "Paypal", "Crypto"]}
                 title="Payment Options"
                 states={PaymentOptions}
                 setStates={SetpaymentOption}
-                />
+            />
             <ConditionFilter
                 array={["No Returns", "14 Days", "30 Days", "60 Days"]}
                 title="Return Policy"
                 states={ReturnPolicy}
                 setStates={SetReturnPolicy}
-                />
+            />
             <ConditionFilter
                 array={["Standard", "Featured", "Urgent"]}
                 title="Ad Type"
                 states={AdType}
                 setStates={SetAdType}
-                />
+            />
             <Waranty
                 array={["All", "Yes", "No"]}
                 title="Verified Seller"
