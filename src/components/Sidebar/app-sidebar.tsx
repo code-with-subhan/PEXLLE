@@ -52,7 +52,7 @@ const data = {
     },
     {
       title: "Messages",
-      url: "#",
+      url: "http://localhost:3000/Messages",
       icon: MessageCircleMore,
     },
     {

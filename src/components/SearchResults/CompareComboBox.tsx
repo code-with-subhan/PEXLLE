@@ -18,33 +18,14 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { Properties } from "./data/properties"
+interface props {
+  value : string,
+  setValue : (value : string) => void
+}
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-]
-
-export function CompareComboBox() {
+export function CompareComboBox({value , setValue} : props) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -56,7 +37,7 @@ export function CompareComboBox() {
           className="max:w-[150px] sm:w-[250px] justify-between rounded-none bg-[#F5F5F5] focus:border focus:border-black"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? Properties.find((framework) => framework.id === value)?.title
             : "Select a property"}
           <ChevronsUpDown className="opacity-50" />
         </Button>
@@ -65,20 +46,21 @@ export function CompareComboBox() {
         <Command>
           <CommandList>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {Properties.map((framework) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={framework.id}
+                  value={framework.id}
                   onSelect={(currentValue) => {
+                    console.log(value)
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                   }}
                 >
-                  {framework.label}
+                  {framework.title}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      value === framework.id ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>

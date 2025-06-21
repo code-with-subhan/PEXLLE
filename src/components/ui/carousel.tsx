@@ -117,12 +117,14 @@ export type CarouselNavigationProps = {
   className?: string;
   classNameButton?: string;
   alwaysShow?: boolean;
+  first: (value: number) => void
 };
 
 function CarouselNavigation({
   className,
   classNameButton,
   alwaysShow,
+  first
 }: CarouselNavigationProps) {
   const { index, setIndex, itemsCount } = useCarousel();
 
@@ -147,9 +149,11 @@ function CarouselNavigation({
           classNameButton
         )}
         disabled={index === 0}
+
         onClick={() => {
           if (index > 0) {
             setIndex(index - 1);
+            first(index - 1)
           }
         }}
       >
@@ -175,6 +179,7 @@ function CarouselNavigation({
         onClick={() => {
           if (index < itemsCount - 1) {
             setIndex(index + 1);
+            first(index + 1)
           }
         }}
       >
@@ -190,11 +195,13 @@ function CarouselNavigation({
 export type CarouselIndicatorProps = {
   className?: string;
   classNameButton?: string;
+  first : (value : number) => void
 };
 
 function CarouselIndicator({
   className,
   classNameButton,
+  first
 }: CarouselIndicatorProps) {
   const { index, itemsCount, setIndex } = useCarousel();
 
@@ -205,13 +212,16 @@ function CarouselIndicator({
         className
       )}
     >
-      <div className='flex space-x-2 bg-black p-3 rounded-full'>
+      <div className='flex space-x-2 bg-black p-3 rounded-full  '>
         {Array.from({ length: itemsCount }, (_, i) => (
           <button
             key={i}
             type='button'
             aria-label={`Go to slide ${i + 1}`}
-            onClick={() => setIndex(i)}
+            onClick={() =>{ 
+              first(i)
+              setIndex(i)
+            }}
             className={cn(
               'h-2.5 w-2.5 cursor-pointer rounded-full transition-opacity duration-300',
               index === i
@@ -291,9 +301,9 @@ function CarouselContent({
         disableDrag
           ? undefined
           : {
-              left: 0,
-              right: 0,
-            }
+            left: 0,
+            right: 0,
+          }
       }
       dragMomentum={disableDrag ? undefined : false}
       style={{

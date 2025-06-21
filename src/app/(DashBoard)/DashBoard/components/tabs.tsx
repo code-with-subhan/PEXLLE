@@ -26,13 +26,13 @@ export function TabsDemo() {
           <div className="">
             <FourDashboardCards />
           </div>
-          <div className="flex justify-between w-full gap-3">
+          <div className="lg:flex grid grid-cols-1 justify-between w-full gap-3">
             <ChartComponent />
             <SalesCardDashBoard classNam="bg-accent"/>
           </div>
-          <div className="flex justify-between gap-3 my-3">
+          <div className="lg:flex grid grid-cols-1 justify-between gap-3 my-3">
             <ChartComponent2 />
-            <SalesCardDashBoard classNam="bg-white"/>
+            <SalesCardDashBoard classNam="bg-white border "/>
           </div>
         </TabsContent>
         <TabsContent value="password" className="m-auto">

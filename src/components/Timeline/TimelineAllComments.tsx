@@ -7,17 +7,21 @@ import {
   Ellipsis,
   Heart,
   MessageSquare,
-  MessagesSquare,
   Repeat,
   Upload,
 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 const TimelineAllComments = () => {
   return (
     <div className="w-full">
       {TimeLineAllComments.map((e) => (
         <div key={e.id} className="border-t border-[#F5F5F5] p-5 flex gap-2 w-full">
           <div>
-            <img src={e.profileImage} alt="" className="rounded-full size-11" />
+            <Avatar className="block sm:hidden">
+              <AvatarImage src={e.profileImage} />
+              <AvatarFallback>CN</AvatarFallback>
+            </Avatar>
+            <img src={e.profileImage} alt="" className="rounded-full sm:size-11 size-13 sm:block hidden" />
           </div>
           <div className="w-full">
             <div className="inline-flex gap-1 items-center w-full">

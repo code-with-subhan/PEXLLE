@@ -6,7 +6,7 @@ const page = () => {
     <div>
       <header className='my-5 px-5'>
         <nav>
-          <ul className='flex gap-7 items-center [&>*]:text-sm'>
+          <ul className='flex gap-7 items-center [&>*]:text-sm overflow-auto sm:overflow-none'>
             <li className='cursor-pointer text-gray-200 '>Overview</li>
             <li className='cursor-pointer text-[#737373] '>Work Orders</li>
             <li className='cursor-pointer text-[#737373] '>Rent</li>

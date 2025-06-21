@@ -4,6 +4,7 @@ import { Moon } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Theme from "../Home/Theme";
 
 export function RegisterForm({
   className,
@@ -11,7 +12,7 @@ export function RegisterForm({
 }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn("flex flex-col gap-3 w-[430px] m-auto ", className)}
+      className={cn("flex flex-col gap-3 sm:w-[430px] m-auto ", className)}
       {...props}
     >
       <form className="p-6 md:p-8 md:py-2 ">
@@ -75,7 +76,7 @@ export function RegisterForm({
           Already have an account? &ensp;&ensp;
             <Link href="/signin" className="underline-none hover:underline-offset-4 font-semibold hover:underline text-[#F05454]" >Log in</Link>
           </div>
-          <div className="grid grid-cols-2 gap-4 items-center w-2/3 m-auto">
+          <div className="grid grid-cols-2 gap-4 items-center sm:w-2/3 m-auto">
             <Button variant="outline" className="w-full rounded-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +116,9 @@ export function RegisterForm({
             </Button>
           </div>
         </div>
-        <div className="flex w-full justify-center mt-5  items-center"><Moon className="text-xs w-4 text-muted-foreground text-center"/></div>
+        <div className="flex w-full justify-center mt-5  items-center">
+          <Theme/>
+        </div>
       </form>
     </div>
   );

@@ -6,10 +6,10 @@ import Percentage from "./components/Percentage";
 
 const page = () => {
   return (
-    <div className="flex justify-center items-center p-5">
-      <div className="border border-[#F5F5F5] p-5 bg-white">
-        <Tabs defaultValue="account" className="w-[400px]">
-          <TabsList className="w-full rounded-none">
+    <div className="flex justify-center items-center p-5 ">
+      <div className="border border-[#F5F5F5] p-5 bg-white w-full sm:w-auto">
+        <Tabs defaultValue="Investment" className="sm:w-[400px] ">
+          <TabsList className="rounded-none">
             <TabsTrigger value="Investment">Investment</TabsTrigger>
             <TabsTrigger value="Target">Target</TabsTrigger>
             <TabsTrigger value="Percentage">Percentage</TabsTrigger>

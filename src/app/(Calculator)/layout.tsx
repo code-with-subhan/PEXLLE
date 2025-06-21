@@ -1,20 +1,10 @@
 import { AppSidebar } from "@/components/Sidebar/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
+
 import {
   SidebarInset,
   SidebarProvider,
-  SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Avatar } from "@/components/ui/avatar";
-import { BellRing, Moon, Search, AppWindow, Plus, Kanban, User, MessageCircle, House } from "lucide-react";
+import {  Plus, Kanban, User, MessageCircle, House } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function WithHeaderLayout({

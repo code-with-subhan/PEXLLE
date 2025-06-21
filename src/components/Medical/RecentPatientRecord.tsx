@@ -6,7 +6,7 @@ import { Badge } from "../ui/badge";
 
 const RecentPatientRecord = () => {
   return (
-    <div className="border border-[#F5F5F5] p-6 w-1/2">
+    <div className="border border-[#F5F5F5] p-6 md:w-1/2 w-full">
       <CardTitle className="text-sm">Recent Patients</CardTitle>
       <CardDescription>You have 5 patients in total</CardDescription>
       <div className="mt-2 flex flex-col gap-6">

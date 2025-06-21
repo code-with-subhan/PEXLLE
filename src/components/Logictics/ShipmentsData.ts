@@ -4,7 +4,7 @@ interface Content {
     content: string
 }
 
-type Data = {
+export type Data = {
     id: number,
     title: Content[],
     BadgeName: string,

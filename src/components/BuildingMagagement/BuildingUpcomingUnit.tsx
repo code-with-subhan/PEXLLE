@@ -20,7 +20,7 @@ const BuildingUpcomingUnit = () => {
   return (
     <div className='mb-16 px-3'>
         <h1 className='font-bold mt-16 mb-12'>Upcoming Units</h1>
-        <div className='my-6 grid grid-cols-4 gap-4'>
+        <div className='my-6 grid lg:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1'>
             {BuildingTasks.map(e => (
                 <div className='flex flex-col gap-1.5'>
                     <div className='relative'>

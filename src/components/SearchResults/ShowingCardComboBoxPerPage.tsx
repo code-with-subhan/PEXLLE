@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
@@ -19,32 +17,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-const frameworks = [
-  {
-    value: "next.js",
-    label: "Next.js",
-  },
-  {
-    value: "sveltekit",
-    label: "SvelteKit",
-  },
-  {
-    value: "nuxt.js",
-    label: "Nuxt.js",
-  },
-  {
-    value: "remix",
-    label: "Remix",
-  },
-  {
-    value: "astro",
-    label: "Astro",
-  },
-]
+const NumberPerpage = [6, 8, 10, 12]
 
-export function ComboPerPage() {
+export function ComboPerPage({ serPerPage, perPage }: { serPerPage: (value: number) => void, perPage: number }) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState<string>(`${perPage} per page`)
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -56,8 +33,8 @@ export function ComboPerPage() {
           className="w-[140px] justify-between rounded-none bg-[#F5F5F5]"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
-            : "12 per page"}
+            ? NumberPerpage.find((framework) => framework === +value.slice(0,2)) + " per page"
+            : `${perPage} per page`}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -65,20 +42,21 @@ export function ComboPerPage() {
         <Command>
           <CommandList>
             <CommandGroup>
-              {frameworks.map((framework) => (
+              {NumberPerpage.map((framework) => (
                 <CommandItem
-                  key={framework.value}
-                  value={framework.value}
+                  key={framework}
+                  value={`${framework} per page`}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
+                    setValue(currentValue === value ? ''  : currentValue)
+                    serPerPage(framework)
                     setOpen(false)
                   }}
                 >
-                  {framework.label}
+                  {framework}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === framework.value ? "opacity-100" : "opacity-0"
+                      +value.slice(0,2) === framework ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>

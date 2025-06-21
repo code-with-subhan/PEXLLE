@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import CategoriesFilterPart from "@/components/EcommerceCategories/CategoriesFilterPart";
 import CategoriesPagination from "@/components/EcommerceCategories/CategoriesPagination";
 import CategoriesCardPage from "@/components/EcommerceCategories/CategoriesCardPage";
@@ -17,16 +17,20 @@ const CategoriesWholePage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [toggleButton, settoggleButton] = useState(true)
     const dispatch = useDispatch<AppDispatch>()
+    const [formalCategories, setformalCategories] = useState<number>(0)
 
     // check all filters of the product include input and category button
-    const filteredProducts = data
-        .filter((product: any) =>
-            product.title.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-        .filter((product: any) =>
-            selectCategory === "All" ? true : product.category === selectCategory
-        );
+    const filteredProducts = useMemo(() => {
+        let result = data
+            .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
+            .filter(p => selectCategory === "All" ? true : p.category === selectCategory);
 
+        if (formalCategories === 1) {
+            result.sort((a, b) => b.price - a.price);
+        }
+
+        return result;
+    }, [data, searchQuery, selectCategory, formalCategories]);
     // to call api
     useEffect(() => {
         dispatch(fetchProducts())
@@ -38,6 +42,12 @@ const CategoriesWholePage = () => {
     useEffect(() => {
         setpaginationNumber(Math.ceil(filteredProducts.length / 8))
     }, [filteredProducts])
+
+    useEffect(() => {
+        setpaginationActive(1)
+    }, [searchQuery, selectCategory])
+
+
 
     // check loading and error
     if (loading) return <h1 className="text-center text-xl font-bold">Loading</h1>
@@ -53,6 +63,7 @@ const CategoriesWholePage = () => {
                 searchQuery={searchQuery}
                 setsearchQuery={setSearchQuery}
                 toggle={toggleButton}
+                format={setformalCategories}
                 setToggle={settoggleButton} />
 
             {/* Categories Part */}
@@ -60,7 +71,7 @@ const CategoriesWholePage = () => {
 
             {/* Card Part */}
             <CategoriesCardPage data={filteredProducts} toggle={toggleButton} pag={paginationNumber} pagActive={paginationActive} />
-            
+
             {/* Pagination Part */}
             <CategoriesPagination pag={paginationNumber} pagActive={paginationActive} setpagActive={setpaginationActive} />
         </div>

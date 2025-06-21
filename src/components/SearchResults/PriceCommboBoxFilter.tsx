@@ -23,18 +23,21 @@ const frameworks = [
   {
     value: "Default",
     label: "Default",
+    num : 0
   },
   {
     value: "Price Low to High",
     label: "Price Low to High",
+    num : 1
   },
   {
     value: "Price High to Low",
     label: "Price High to Low",
+    num : 2
   },
 ]
 
-export function PriceFilter() {
+export function PriceFilter({searchformal} : {searchformal : (value : number) => void}) {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
@@ -64,6 +67,7 @@ export function PriceFilter() {
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
+                    searchformal(framework.num)
                   }}
                 >
                   {framework.label}

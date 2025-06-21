@@ -1,6 +1,6 @@
 import { Product } from "@/components/EcommerceCategories/product";
 
-export function findUniqueProductCategory(data: Product[]) : any[] {
+export function findUniqueProductCategory(data: Product[])  {
     const uniqueCategories = Array.from(
         new Set(data?.map((p: any) => p.category) || [])
     ).sort();

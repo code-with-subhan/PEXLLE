@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Card, CardTitle, CardContent, CardDescription } from "../ui/card";
+import {  CardTitle, CardDescription } from "../ui/card";
 import { Button } from "../ui/button";
 
 const TimelineFollowsers = () => {

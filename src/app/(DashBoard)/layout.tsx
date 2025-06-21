@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/sidebar";
 import { Avatar } from "@/components/ui/avatar";
 import {
-  Moon,
   Search,
   Bell,
   LayoutGrid,
@@ -26,6 +25,7 @@ import {
   User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Theme from "@/components/Home/Theme";
 
 export default function WithHeaderLayout({
   children,
@@ -74,18 +74,16 @@ export default function WithHeaderLayout({
                     </div>
                   </form>
                 </div>
-                <div className="flex gap-1 items-center ml-auto">
+                <div className="flex gap-2 items-center ml-auto">
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="rounded-none relative"
+                    className="rounded-sm relative"
                   >
                     <Bell className="text-[#BBBBBB]" />
                     <div className="w-2 top-1.5 right-2.5 rounded-full h-2 absolute bg-red-600"></div>
                   </Button>
-                  <Button variant="ghost" size="icon" className="rounded-none">
-                    <Moon className="text-[#BBBBBB]" />
-                  </Button>
+                  <Theme />
                   <Avatar>
                     <img
                       src="https://pexlledn.vercel.app/avatar.jpg"
@@ -108,11 +106,11 @@ export default function WithHeaderLayout({
               </p>
             </div>
             <div className="flex gap-2 fixed bg-[#fcfcfc] bottom-6 left-[50%] p-1 px-3">
-              <Button variant="ghost" className="rounded-none bg-gray-300 size-11 text-[#737373] opacity-80"><House  className="size-6"/></Button>
-              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><MessageCircle  className="size-6"/></Button>
-              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><Plus  className="size-6"/></Button>
-              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><Kanban  className="size-6"/></Button>
-              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><User  className="size-6"/></Button>
+              <Button variant="ghost" className="rounded-none bg-gray-300 size-11 text-[#737373] opacity-80"><House className="size-6" /></Button>
+              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><MessageCircle className="size-6" /></Button>
+              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><Plus className="size-6" /></Button>
+              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><Kanban className="size-6" /></Button>
+              <Button variant="ghost" className="rounded-none size-11 text-[#737373] opacity-80"><User className="size-6" /></Button>
             </div>
           </SidebarInset>
         </SidebarProvider>

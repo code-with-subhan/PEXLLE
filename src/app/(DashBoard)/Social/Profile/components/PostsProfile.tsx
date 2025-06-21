@@ -14,7 +14,7 @@ import { Bookmark, Ellipsis, Heart, MessageSquare, Share2 } from "lucide-react";
 const PostsProfile = () => {
   return (
     <div className="flex flex-col gap-4 ">
-      <div className="flex  pb-0">
+      <div className="flex  pb-0 border-b">
         <div className="flex justify-center ">
           <Avatar className="w-10 h-10 mt-4">
             <AvatarImage src="https://i.pravatar.cc/150?img=1"  />
@@ -61,7 +61,7 @@ const PostsProfile = () => {
           </CardFooter>
         </Card>
       </div>
-      <div className="flex  pb-0">
+      <div className="flex  pb-0 border-b lg:border-none">
         <div className="flex justify-center ">
           <Avatar className="w-10 h-10 mt-6">
             <AvatarImage src="https://i.pravatar.cc/150?img=2"  />

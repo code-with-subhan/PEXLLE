@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function ChartComponent() {
   return (
-    <Card className="w-2/3 bg-accent rounded-none border-none shadow-none">
+    <Card className="lg:w-2/3 bg-accent rounded-none border-none shadow-none">
       <CardHeader>
         <CardTitle>Area Chart - Stacked</CardTitle>
         <CardDescription>

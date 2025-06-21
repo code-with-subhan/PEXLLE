@@ -10,10 +10,10 @@ const CommerceTopImage = () => {
             className="h-53 w-full object-cover opacity-55"
           />
           <div className="absolute top-0 left-0 flex justify-center items-center h-full flex-col w-full gap-5">
-            <h1 className="text-4xl font-bold text-white">
+            <h1 className="text-4xl font-bold text-white text-center">
               Welcome to Our Marketplace
             </h1>
-            <p className="text-xl text-white">
+            <p className="text-xl text-white text-center">
               Discover amazing deals on unique items
             </p>
           </div>

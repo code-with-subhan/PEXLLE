@@ -14,7 +14,7 @@ const PostDetailCard = () => {
     return (
         <div className="px-2 mt-15 font-semibold text-2xl text-[#737373]">
             <h1>Similar Listings</h1>
-            <div className="mt-4 flex gap-4 items-center justify-between">
+            <div className="mt-4 lg:flex gap-4 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  items-center justify-between">
                 {imgArray.map((e) => (
                     <div className="p-3 relative h-90 flex flex-col w-full justify-between  "
                         >

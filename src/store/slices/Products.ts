@@ -1,18 +1,19 @@
 // store/productsSlice.ts
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import React from 'react';
 
 export const fetchProducts = createAsyncThunk('products/fetch', async () => {
   const res = await fetch('https://fakestoreapi.com/products');
   return res.json();
 });
 
+
+
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
     data: [] as any[],
-    loading: false,
-    error:  null  ,
+    loading: false as boolean,
+    error:  null as null ,
   },
   reducers: {},
   extraReducers: (builder) => {

@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='flex gap-9 mt-7'>
+    <div className='lg:flex gap-9 mt-7'>
       <UserProfileInformation/>
       <UserProfileProducts/>
     </div>

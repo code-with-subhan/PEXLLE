@@ -5,7 +5,7 @@ import LeadsTabs from './components/LeadsTabs'
 
 const page = () => {
   return (
-    <div className='flex gap-4 w-full justify-between'>
+    <div className='lg:flex gap-4 w-full justify-between'>
         <LeadsProfile />
         <LeadsTabs />
         <LeadsCompanyInformation />

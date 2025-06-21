@@ -6,23 +6,16 @@ import { Indicator } from "./indicatorData";
 import StepIndicator from "./StepIndicator";
 import { CardDescription, CardTitle } from "../ui/card";
 
-const ExportEdit = () => {
+const ExportEdit = ({showlogic} : {showlogic : boolean}) => {
   return (
-    <div className="w-1/2 mt-4">
-      <div className="flex gap-4 items-center justify-between">
-        <Button variant='outline' className="rounded-none" size='sm'>
-          <Download /> Export
-        </Button>
-        <Button variant='outline' className="rounded-none" size='sm'>
-          <Pen /> Edit
-        </Button>
-      </div>
-      <div className="mt-17 flex justify-between items-center">
+    <div className={`lg:w-1/2 mt-4 lg:block ${showlogic ? "hidden" : "block"}`}>
+      
+      <div className="mt-17 flex justify-between items-center px-3">
         <h2 className="font-bold text-[1rem]">Stops</h2>
-        <Button size="icon" variant='ghost' className="rounded-none">
+        <Button size="icon" variant='ghost' className="rounded-none cursor-pointer ml-auto lg:ml-none">
           <Plus />
         </Button>
-        <Button size="icon" variant='ghost' className="rounded-none">
+        <Button size="icon" variant='ghost' className="rounded-none cursor-pointer">
           <PenLine />
         </Button>
       </div>

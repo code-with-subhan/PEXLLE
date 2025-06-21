@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Card, CardDescription, CardTitle } from "../ui/card";
+import { CardDescription, CardTitle } from "../ui/card";
 
 const TimeLine_Trending = () => {
   return (

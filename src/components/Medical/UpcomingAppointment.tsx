@@ -5,7 +5,7 @@ import { UpcomingPateint } from "./UpcomingDataAppointment";
 
 const UpcomingAppointment = () => {
   return (
-    <div className="border border-[#F5F5F5] p-6 w-full">
+    <div className="border border-[#F5F5F5] p-6 w-full block">
       <CardTitle className="text-sm font-semibold">
         Upcoming Appointments
       </CardTitle>
