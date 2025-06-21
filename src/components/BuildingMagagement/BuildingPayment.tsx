@@ -15,15 +15,15 @@ const Payment : BuildingPaymentType[] = [
 ]
 const BuildingPayment = () => {
   return (
-    <div className='bg-[#F5F5F5] p-6'>
+    <div className='bg-[#F5F5F5] p-6 lg:mt-0 mt-5'>
       <div className='flex items-center justify-between'>
         <h1 className='font-bold text-xl'>Payment</h1>
         <Badge className='rounded-full'>This month</Badge>
       </div>
-      <div className='flex justify-between items-center mt-13'>
+      <div className='lg:flex justify-between items-center flex-wrap mt-13 grid grid-cols-2 gap-6'>
         {Payment.map(e => (
-            <div>
-                <h2 className='text-xl font-bold'>{e.price}</h2>
+            <div className=''>
+                <h2 className='lg:text-xl sm:text-2xl text-xl font-bold'>{e.price}</h2>
                 <CardDescription>{e.title}</CardDescription>
             </div>
         ))}

@@ -8,11 +8,11 @@ const ReviewList = () => {
   return (
     <div className="mb-2">
       <CardTitle className="text-[1rem] mb-9 font-bold">Review List</CardTitle>
-      <div className="flex gap-3  ">
+      <div className="lg:flex gap-3 grid md:grid-cols-2 sm:grid-cols-1  ">
         {Review.map((e) => (
-          <div key={e.id} className="p-7 bg-[#F5F5F5] pb-11">
+          <div key={e.id} className="p-7 bg-[#F5F5F5] pb-11 w-full ">
             <div className="flex gap-3 items-center">
-              <img src={e.img} alt="" className="size-12 rounded-full" />
+              <img src={e.img} alt="" className="sm:size-12 size-7 rounded-full" />
               <div>
                 <CardTitle className="text-sm">{e.title}</CardTitle>
                 <CardDescription>{e.subtitle}</CardDescription>
@@ -36,7 +36,7 @@ const ReviewList = () => {
               </Badge>
             </div>
             <CardDescription className="text-black mt-6">
-                {e.description}
+              {e.description}
             </CardDescription>
           </div>
         ))}

@@ -40,7 +40,7 @@ export function AllPostCards({
         style={{
           borderRadius: "0px",
         }}
-        className={`flex max-w-[240px]    flex-col overflow-hidden rounded-none border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 ${ke < 8*pagActive && ke >= (8*pagActive ) -8 ? "flex" : "hidden"}`}
+        className={`flex lg:max-w-[280px] lg:h-100    flex-col overflow-hidden rounded-none border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900 ${ke < 8*pagActive && ke >= (8*pagActive ) -8 ? "flex" : "hidden"}`}
       >
         <MorphingDialogImage
           src={product.image}

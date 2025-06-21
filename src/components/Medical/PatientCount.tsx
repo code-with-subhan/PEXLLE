@@ -6,8 +6,8 @@ import { CardDescription } from "../ui/card";
 
 const PatientCount = () => {
   return (
-    <div className="flex gap-6 justify-between">
-      <div className="p-6 bg-blue-50 pb-9">
+    <div className="lg:flex lg:gap-6 gap-7 justify-between flex-wrap grid sm:grid-cols-2 sm:grid-rows-2 w-full grid-cols-1 grid-rows-1">
+      <div className="p-6 bg-blue-50 pb-9 w-full">
         <div className="flex justify-between items-center">
           <div className="size-12  flex justify-center items-center bg-blue-100">
             <svg
@@ -33,7 +33,7 @@ const PatientCount = () => {
         <CardDescription className="text-sm my-3 font-semibold">Total Patients</CardDescription>
         <h1 className="text-blue-500 text-3xl mt-3 font-bold">1,250</h1>
       </div>
-      <div className="p-6 bg-green-50 pb-9">
+      <div className="p-6 bg-green-50 pb-9 w-full">
         <div className="flex justify-between items-center">
           <div className="size-12  flex justify-center items-center bg-green-100">
             <svg
@@ -59,7 +59,7 @@ const PatientCount = () => {
         <CardDescription className="text-sm my-3 font-semibold">New Patients</CardDescription>
         <h1 className="text-green-500 text-3xl mt-3 font-bold">260</h1>
       </div>
-      <div className="p-6 bg-purple-50 pb-9">
+      <div className="p-6 bg-purple-50 pb-9 w-full">
         <div className="flex justify-between items-center">
           <div className="size-12  flex justify-center items-center bg-purple-100">
             <svg
@@ -92,7 +92,7 @@ const PatientCount = () => {
         <CardDescription className="text-sm my-3 font-semibold">Follow-Up Patients</CardDescription>
         <h1 className="text-purple-500 text-3xl mt-3 font-bold">560</h1>
       </div>
-      <div className="p-6 bg-gray-100 pb-9">
+      <div className="p-6 bg-gray-100 pb-9 w-full">
         <div className="flex justify-between items-center">
           <div className="size-12  flex justify-center items-center bg-gray-200">
             <svg

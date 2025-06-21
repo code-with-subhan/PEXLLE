@@ -6,13 +6,13 @@ const page = () => {
   return (
     <div className="p-3">
       <h1 className="text-4xl font-semibold text-center mt-5">Priciing</h1>
-      <p className="text-center mt-5 w-3/4 text-sm text-[#919191] m-auto">
+      <p className="text-center mt-5 w-full md:w-3/4 text-sm text-[#919191] m-auto leading-5.5">
         We want to empower every builder to learn coding best practices, create
         beautiful interfaces, and fully functioning apps. From individuals to
         enterprises, we have a plan that fits your use case.
       </p>
       <Tabs defaultValue="account" className="mt-8">
-        <TabsList className="rounded-none w-1/5 grid grid-cols-2 m-auto mb-7 ">
+        <TabsList className="rounded-none sm:w-1/2 w-2/3 md:w-1/5 grid grid-cols-2 m-auto mb-7 ">
           <TabsTrigger value="Monthly" className="rounded-none cursor-pointer">
             Monthly
           </TabsTrigger>

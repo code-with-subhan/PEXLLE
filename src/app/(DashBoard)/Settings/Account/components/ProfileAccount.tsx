@@ -15,9 +15,9 @@ const ProfileAccount = () => {
     <div className="mx-5">
       <h6 className="font-bold text-sm">Profile Information</h6>
       <p className="text-[#8A8A8A] text-sm font-medium">Update your personal details and profile photo</p>
-      <div className="flex mt-11 gap-8">
-        <div className=" w-23 h-23 flex justify-center items-center text-xs bg rounded-full bg-[#F5F5F5] ">SH</div>
-        <div className="flex flex-col">
+      <div className="lg:grid grid-cols-2 lg:w-1/4 lg:gap-20 mt-11 gap-8 flex-col items-center justify-center lg:justify-start">
+        <div className=" lg:w-23 lg:h-23 size-30 flex justify-center items-center text-xs bg rounded-full bg-[#F5F5F5] mx-auto lg:mx-0 lg:my-0 my-3">SH</div>
+        <div className="flex flex-col ">
           <Button variant="ghost" className="rounded-none">
             <UploadIcon /> Upload new picture
           </Button>
@@ -26,7 +26,7 @@ const ProfileAccount = () => {
           </Button>
         </div>
       </div>
-      <div className="mt-4 flex gap-3 justify-between items-center w-full">
+      <div className="mt-4 lg:flex grid grid-cols-1 gap-3 justify-between items-center w-full">
         <div className="grid grid-rows-2 w-full">
           <Label>First Name</Label>
           <Input className="bg-[#F5F5F5] w-full rounded-none" value="Subhan"/>
@@ -36,7 +36,7 @@ const ProfileAccount = () => {
           <Input className="bg-[#F5F5F5] w-full rounded-none" value="Hassan"/>
         </div>
       </div>
-      <div className="mt-2 flex gap-3 justify-between items-center w-full">
+      <div className="mt-2 lg:flex grid grid-cols-1 gap-3 justify-between items-center w-full">
         <div className="grid grid-rows-2 w-full">
           <Label>Email</Label>
           <Input className="bg-[#F5F5F5] w-full rounded-none" value="m@example.com"/>

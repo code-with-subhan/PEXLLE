@@ -7,7 +7,7 @@ import { MedicalCalendar } from "./MedicalCalendar";
 
 const MedicalProfile = () => {
   return (
-    <div className="bg-[#F5F5F5] p-6">
+    <div className="bg-[#F5F5F5] p-6 lg:block hidden">
       <div className="flex justify-center items-center ">
         <img
           src="https://i.pravatar.cc/150?img=4"

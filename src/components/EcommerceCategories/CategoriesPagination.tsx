@@ -31,11 +31,11 @@ const CategoriesPagination = ({
     <div className="flex justify-center mt-6">
 
       <div className="flex gap-2 items-center text-[#737373] tex-sm mx-auto">
-        <Button variant='outline' className="rounded-none" onClick={() => SetPaginationNumber("-")}>
+        <Button variant='outline' className="rounded-none" onClick={() => SetPaginationNumber("-")} disabled={pagActive == 1}>
           <ChevronLeft />
         </Button>
         <p className="text-black text-sm">Page {pagActive} of {pag}</p>
-        <Button variant='outline' className="rounded-none" onClick={() => SetPaginationNumber("+")}>
+        <Button variant='outline' className="rounded-none" onClick={() => SetPaginationNumber("+")} disabled={pagActive == pag}>
           <ChevronRight />
         </Button>
       </div>

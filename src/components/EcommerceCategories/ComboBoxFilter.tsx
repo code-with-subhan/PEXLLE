@@ -23,16 +23,18 @@ const frameworks = [
  {
     value: "Date (Newest first)",
     label: "Date (Newest first)",
+    num : 0
   },
   {
     value: "price (Newest first)",
     label: "price (Newest first)",
+    num : 1
   },
 ]
 
-export function ComboboxFilter() {
+export function ComboboxFilter({format} : {format : (value : number) => void}) {
   const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+  const [value, setValue] = React.useState("Date (Newest first)")
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -61,6 +63,7 @@ export function ComboboxFilter() {
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
+                    format(framework.num)
                   }}
                 >
                   {framework.label}

@@ -6,8 +6,8 @@ import EducationBenefits from "./EducationBenefits";
 
 const EducationInformation = () => {
   return (
-    <div className="sticky top-0">
-      <div className="pl-14 pt-3 ">
+    <div className="sticky top-0 w-full">
+      <div className="pl-0 lg:pl-14 pt-3 ">
         <Badge
           className="flex bg-[#CCCCCC] p-2 px-4 border border-[#adacac] items-center font-bold text-4xl rounded-full"
           variant="secondary"
@@ -16,7 +16,7 @@ const EducationInformation = () => {
         </Badge>
         <div className="my-7 flex flex-col gap-4 w-[80%]">
           <div>
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center w-1/2 md:w-full">
               <div className="flex items-center gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ const EducationInformation = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-3 w-full">
           <Button className="bg-black rounded-none" size="sm">Enroll a course</Button>
           <Button variant="outline" className="rounded-none" size="sm">Buy as a gift</Button>
         </div>

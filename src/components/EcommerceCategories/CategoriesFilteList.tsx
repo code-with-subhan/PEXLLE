@@ -14,18 +14,18 @@ interface props {
 }
 const CategoriesList = ({ data, ke, pag, pagActive }: props) => {
   return (
-    <div key={ke} className={`relative flex border border-[#F5F5F5] h-48 ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
-      <div className="w-1/3 h-full">
+    <div key={ke} className={`relative flex border hover:shadow-md shadow-gray-300 transition duration-450 border-[#F5F5F5]  ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
+      <div className="w-1/4  min-h-48 md:h-48">
         <img
           src={data.image}
           alt=""
-          className="h-full  w-full object-contain"
+          className="h-full  w-full md:object-contain object-cover"
         />
         <Badge className="absolute top-2 left-2">{data.category}</Badge>
       </div>
       <div className="w-full h-full">
         <div className=" w-full p-4 bottom-0  text-black">
-          <h1>{data.title}</h1>
+          <h1 className="text-[1.2rem]">{data.title}</h1>
           <p className="text-sm text-[#737373] mt-1">
             {data.description?.slice(0, 90)}....
           </p>

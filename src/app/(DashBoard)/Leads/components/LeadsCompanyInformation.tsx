@@ -4,7 +4,7 @@ import React from "react";
 
 const LeadsCompanyInformation = () => {
   return (
-    <div className=" w-[300px]  sticky top-0 ">
+    <div className=" lg:w-[300px]  lg:sticky top-0 ">
       <div className="bg-[#F5F5F5] sticky top-0 p-6 py-7">
 
       <div className="flex gap-3 ">

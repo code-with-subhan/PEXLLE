@@ -7,13 +7,13 @@ import EducationInformation from './components/EducationInformation'
 
 const page = () => {
   return (
-    <div className='p-9 px-3 flex gap-3'>
+    <div className='p-9 px-3 lg:flex gap-3 block'>
       <div>
         <EducationImage />
         <ProfileDescriptionEducation />
         <Accordian_Education />
       </div>
-      <div className='w-4/3 '>
+      <div className=' '>
         <EducationInformation />
       </div>
     </div>

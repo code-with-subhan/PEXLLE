@@ -22,7 +22,7 @@ const ShowPostFilter = ({
       } `}
     >
       <h2 className="text-xl font-semibold">Categories</h2>
-      <div className="flex gap-2 mt-4">
+      <div className="flex gap-2 mt-4 flex-wrap">
         {uniqueCategory.map((a) => (
           <Button
             size="sm"

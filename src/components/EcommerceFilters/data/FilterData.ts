@@ -1,0 +1,581 @@
+
+
+
+
+
+const SellerType = {
+    Individual: 'Individual',
+    Business: 'Business'
+};
+
+const ShippingOption = {
+    Free: 'Free',
+    Paid: 'Paid',
+    Pickup: 'Pickup'
+};
+
+const PaymentOption = {
+    Cash: 'Cash',
+    Card: 'Card',
+    PayPal: 'PayPal',
+    Crypto: 'Crypto'
+};
+
+const ReturnPolicy = {
+    NoReturns: 'No Returns',
+    Days14: '14 Days',
+    Days30: '30 Days',
+    Days60: '60 Days'
+};
+
+const AdType = {
+    Standard: 'Standard',
+    Featured: 'Featured',
+    Urgent: 'Urgent'
+};
+
+const YesNo = {
+    Yes: 'Yes',
+    No: 'No',
+    All: 'All'
+};
+const ProductCondition = {
+    New: 'New',
+    LikeNew: 'Like New',
+    Good: 'Good',
+    Fair: 'Fair',
+    Poor: 'Poor'
+};
+export interface Product {
+  id: number;
+  title: string;
+  image: string;
+  category: string;
+  subcategory: string;
+  price: number;
+  condition: 'New' | 'Like New' | 'Good' | 'Fair' | 'Poor';
+  sellerType: 'Individual' | 'Business';
+  shipping: ('Free' | 'Paid' | 'Pickup')[];
+  warranty: 'Yes' | 'No';
+  negotiable: 'Yes' | 'No';
+  paymentOptions: ('Cash' | 'Card' | 'PayPal' | 'Crypto')[];
+  returnPolicy: 'No Returns' | '14 Days' | '30 Days' | '60 Days';
+  adType: 'Standard' | 'Featured';
+  verifiedSeller: 'Yes' | 'No';
+}
+// products.js
+
+const EcommerceFilterproducts : Product[] = [
+    {
+        id: 1,
+        title: "iPhone 13 Pro",
+        image: "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1518455027359-f3f8164ba6bd%3Fixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%253D%253D%26auto%3Dformat%26fit%3Dcrop%26w%3D2069%26q%3D80&w=640&q=75",
+        category: "Electronics",
+        subcategory: "Smartphones",
+        price: 899,
+        condition: "Like New",
+        sellerType: "Business",
+        shipping: ["Free", "Pickup"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "14 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 2,
+        title: "Vintage Leather Jacket",
+        image: "https://images.unsplash.com/photo-1551029506-0807df4e2031?w=500&auto=format",
+        category: "Fashion",
+        subcategory: "Outerwear",
+        price: 150,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 3,
+        title: "Acoustic Guitar",
+        image: "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1550985616-10810253b84d%3Fixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%253D%253D%26auto%3Dformat%26fit%3Dcrop%26w%3D2097%26q%3D80&w=640&q=75",
+        category: "Musical Instruments",
+        subcategory: "String Instruments",
+        price: 350,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Free", "Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 4,
+        title: "Smart TV 55\"",
+        image: "https://images.unsplash.com/photo-1593784991095-a205069470b6?w=500&auto=format",
+        category: "Electronics",
+        subcategory: "Televisions",
+        price: 499,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal", "Crypto"],
+        returnPolicy: "30 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 5,
+        title: "Antique Painting",
+        image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&auto=format",
+        category: "Art & Collectibles",
+        subcategory: "Paintings",
+        price: 1200,
+        condition: "Fair",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 6,
+        title: "Running Shoes",
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&auto=format",
+        category: "Sports & Outdoors",
+        subcategory: "Footwear",
+        price: 85,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "60 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 7,
+        title: "Board Game Collection",
+        image: "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1610890716171-6b1bb98ffd09%3Fixlib%3Drb-4.0.3%26ixid%3DM3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%253D%253D%26auto%3Dformat%26fit%3Dcrop%26w%3D2071%26q%3D80&w=640&q=75",
+        category: "Toys & Games",
+        subcategory: "Board Games",
+        price: 75,
+        condition: "Like New",
+        sellerType: "Individual",
+        shipping: ["Paid", "Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "14 Days",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 8,
+        title: "Mountain Bike",
+        image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=500&auto=format",
+        category: "Sports & Outdoors",
+        subcategory: "Cycling",
+        price: 450,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 9,
+        title: "Wireless Earbuds",
+        image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format",
+        category: "Electronics",
+        subcategory: "Audio",
+        price: 129,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 10,
+        title: "Designer Handbag",
+        image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&auto=format",
+        category: "Fashion",
+        subcategory: "Bags",
+        price: 299,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 11,
+        title: "Diamond Ring",
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&auto=format",
+        category: "Jewelry & Watches",
+        subcategory: "Rings",
+        price: 1200,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free", "Paid"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 12,
+        title: "Pet Carrier",
+        image: "https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?w=500&auto=format",
+        category: "Pet Supplies",
+        subcategory: "Travel Accessories",
+        price: 45,
+        condition: "Like New",
+        sellerType: "Individual",
+        shipping: ["Paid", "Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 13,
+        title: "Coffee Maker",
+        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500&auto=format",
+        category: "Home & Garden",
+        subcategory: "Kitchen Appliances",
+        price: 89,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "14 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 14,
+        title: "Yoga Mat",
+        image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=500&auto=format",
+        category: "Sports & Outdoors",
+        subcategory: "Fitness",
+        price: 25,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 15,
+        title: "Electric Scooter",
+        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&auto=format",
+        category: "Vehicles",
+        subcategory: "Personal Transport",
+        price: 399,
+        condition: "Like New",
+        sellerType: "Business",
+        shipping: ["Pickup"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Cash", "Card"],
+        returnPolicy: "14 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 16,
+        title: "Rare Comic Book",
+        image: "https://images.unsplash.com/photo-1608889825103-eb5c146c56c9?w=500&auto=format",
+        category: "Books & Media",
+        subcategory: "Collectibles",
+        price: 750,
+        condition: "Fair",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 17,
+        title: "Blender",
+        image: "https://images.unsplash.com/photo-1563213126-a4273aed2016?w=500&auto=format",
+        category: "Home & Garden",
+        subcategory: "Kitchen Appliances",
+        price: 65,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 18,
+        title: "Digital Camera",
+        image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&auto=format",
+        category: "Electronics",
+        subcategory: "Photography",
+        price: 299,
+        condition: "Like New",
+        sellerType: "Individual",
+        shipping: ["Paid", "Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "14 Days",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 19,
+        title: "Skincare Set",
+        image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&auto=format",
+        category: "Health & Beauty",
+        subcategory: "Skincare",
+        price: 85,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 20,
+        title: "Wooden Chess Set",
+        image: "https://images.unsplash.com/photo-1543092587-d8b8feaf3621?w=500&auto=format",
+        category: "Toys & Games",
+        subcategory: "Strategy Games",
+        price: 120,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 21,
+        title: "Fishing Rod",
+        image: "https://images.unsplash.com/photo-1448387473223-5c37445527e7?w=500&auto=format",
+        category: "Sports & Outdoors",
+        subcategory: "Fishing",
+        price: 75,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 22,
+        title: "Smart Watch",
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format",
+        category: "Electronics",
+        subcategory: "Wearables",
+        price: 199,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 23,
+        title: "Leather Wallet",
+        image: "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=500&auto=format",
+        category: "Fashion",
+        subcategory: "Accessories",
+        price: 45,
+        condition: "Like New",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 24,
+        title: "Garden Tool Set",
+        image: "https://images.unsplash.com/photo-1585399000684-d2f72660f092?w=500&auto=format",
+        category: "Home & Garden",
+        subcategory: "Gardening",
+        price: 65,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free", "Pickup"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "14 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 25,
+        title: "Electric Guitar",
+        image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a5d4?w=500&auto=format",
+        category: "Musical Instruments",
+        subcategory: "String Instruments",
+        price: 550,
+        condition: "Good",
+        sellerType: "Individual",
+        shipping: ["Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 26,
+        title: "Action Figure",
+        image: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806?w=500&auto=format",
+        category: "Toys & Games",
+        subcategory: "Collectibles",
+        price: 35,
+        condition: "Fair",
+        sellerType: "Individual",
+        shipping: ["Paid"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash", "PayPal"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 27,
+        title: "Massage Chair",
+        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&auto=format",
+        category: "Health & Beauty",
+        subcategory: "Wellness",
+        price: 899,
+        condition: "Like New",
+        sellerType: "Business",
+        shipping: ["Pickup"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "Cash"],
+        returnPolicy: "14 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 28,
+        title: "Vintage Record Player",
+        image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&auto=format",
+        category: "Electronics",
+        subcategory: "Audio",
+        price: 250,
+        condition: "Fair",
+        sellerType: "Individual",
+        shipping: ["Pickup"],
+        warranty: "No",
+        negotiable: "Yes",
+        paymentOptions: ["Cash"],
+        returnPolicy: "No Returns",
+        adType: "Standard",
+        verifiedSeller: "No"
+    },
+    {
+        id: 29,
+        title: "Dog Bed",
+        image: "https://images.unsplash.com/photo-1591769225440-811ad7d6eab2?w=500&auto=format",
+        category: "Pet Supplies",
+        subcategory: "Beds & Furniture",
+        price: 55,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Standard",
+        verifiedSeller: "Yes"
+    },
+    {
+        id: 30,
+        title: "Silver Necklace",
+        image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&auto=format",
+        category: "Jewelry & Watches",
+        subcategory: "Necklaces",
+        price: 175,
+        condition: "New",
+        sellerType: "Business",
+        shipping: ["Free", "Paid"],
+        warranty: "Yes",
+        negotiable: "No",
+        paymentOptions: ["Card", "PayPal"],
+        returnPolicy: "30 Days",
+        adType: "Featured",
+        verifiedSeller: "Yes"
+    }
+];
+
+export default EcommerceFilterproducts;

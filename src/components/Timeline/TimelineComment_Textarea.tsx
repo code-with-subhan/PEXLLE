@@ -92,7 +92,7 @@ const TimelineComments = () => {
               </svg>
             </Button>
             </div>
-            <Button className="ml-auto rounded-none " size='sm'>Post</Button>
+            <Button className="ml-auto rounded-none " size='sm' disabled>Post</Button>
           </div>
         </div>
       </div>

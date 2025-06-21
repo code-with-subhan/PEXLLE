@@ -18,11 +18,11 @@ export function MedicalDatePickerDemo() {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
+      <PopoverTrigger asChild className="w-full">
         <Button
           variant={"outline"}
           className={cn(
-            "w-[280px] justify-start text-left font-normal rounded-none bg-[#F5F5F5]",
+            "sm:w-[280px] justify-start text-left font-normal rounded-none bg-[#F5F5F5]",
             !date && "text-muted-foreground"
           )}
         >

@@ -2,8 +2,9 @@ import React from 'react'
 import { Input } from '../ui/input'
 import { Menu, Search, X } from 'lucide-react'
 import { PriceFilter } from './PriceCommboBoxFilter'
+import {props} from "./data/InputPropsTypes" 
 
-const SearchHeader = () => {
+const SearchHeader = ({ searchQuery, setQuery , setformat  }: {searchQuery : string , setQuery : (value : string) => void  ,setformat : (value : number) => void  }) => {
     const [showFilter, setshowFilter] = React.useState<boolean>(true)
     return (
         <>
@@ -21,9 +22,9 @@ const SearchHeader = () => {
                 <div className='ml-auto flex gap-2 items-center'>
                     <div className=' gap-2 items-center max-w-[500px] hidden sm:flex px-3 pr-7 bg-white border border-[#F5F5F5]'>
                         <Search className='text-[#858585]' />
-                        <Input placeholder='Search Properties...' className='shadow-none p-0 rounded-none border-none outline-none focus:border-none focus:outline-none focus:shadow-none' />
+                        <Input placeholder='Search Properties...' className='shadow-none p-0 rounded-none border-none outline-none focus:border-none focus:outline-none focus:shadow-none' value={searchQuery} onChange={(e) => setQuery(e.target.value)} />
                     </div>
-                    <PriceFilter />
+                    <PriceFilter searchformal = {setformat}/>
                 </div>
             </div>
             {!showFilter && 
@@ -35,7 +36,8 @@ const SearchHeader = () => {
                 </ul>
                 <form className='px-3 gap-2 items-center max-w-[500px] hover:border-2 hover:border-black flex sm:hidden mt-3 pr-7 bg-[#F5F5F5] border border-[#F5F5F5]'>
                     <Search className='text-[#858585] w-5' />
-                    <Input placeholder='Search Properties...' className='shadow-none p-0 rounded-none border-none outline-none focus:border-none focus:outline-none focus:shadow-none' />
+                    <Input placeholder='Search Properties...' className='shadow-none p-0 rounded-none border-none outline-none focus:border-none focus:outline-none focus:shadow-none' value={searchQuery}
+                    onChange={(e) => setQuery(e.target.value)} />
                 </form>
             </div>
             }

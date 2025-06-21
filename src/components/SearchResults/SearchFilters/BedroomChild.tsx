@@ -20,12 +20,14 @@ type ComboBoxProps = {
   value: string | number;
   onChange: (value: any) => void;
   className?: string;
+  title : string
 };
 
 export function ComboboxDemo({
   options,
   value,
   onChange,
+  title ,
   className = "",
 }: ComboBoxProps) {
   const [open, setOpen] = React.useState(false);
@@ -39,7 +41,7 @@ export function ComboboxDemo({
           aria-expanded={open}
           className={cn("w-full justify-between rounded-none cursor-pointer", className)}
         >
-          {value ? value : "Select..."}
+          {value ? value : title}
           <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50 shrink-0" />
         </Button>
       </PopoverTrigger>

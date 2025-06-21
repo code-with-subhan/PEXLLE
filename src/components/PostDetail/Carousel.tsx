@@ -23,16 +23,16 @@ export function CarouselBasic() {
     return (
         <div className="relative  max-w-full ">
             <Carousel className="relative">
-                    <CarouselImage img={ImagesArray[first]}/>
+                <CarouselImage img={ImagesArray[first]} />
                 <CarouselContent>
                     {ImagesArray.map(e => (
                         <CarouselItem className="p-4">
-                            <img src={e} alt="" className="w-full h-105 object-cover"  />
+                            <img src={e} alt="" className="w-full h-105 object-cover" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselNavigation alwaysShow className="absolute"  />
-                <CarouselIndicator className="absolute" />
+                <CarouselNavigation alwaysShow className="absolute" first={setfirst}  />
+                <CarouselIndicator className="absolute" first={setfirst} />
             </Carousel>
         </div>
     );

@@ -3,11 +3,11 @@ import React from "react";
 
 
 const page = () => {
-    return (
-      <>
-<AllPostHeader/>
-      </>
-    )
+  return (
+    <>
+      <AllPostHeader />
+    </>
+  )
 };
 
 export default page;

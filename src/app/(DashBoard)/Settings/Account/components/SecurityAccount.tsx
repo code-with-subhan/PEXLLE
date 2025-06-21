@@ -65,19 +65,19 @@ const SecurityAccount = () => {
           Manage your active sessions and devices
         </p>
       </div>
-      <div className="flex mt-6">
+      <div className="flex mt-6 mb-3">
         <Button variant='secondary' size='icon' className="mr-4 rounded-full">
           <Smartphone />
         </Button>
         <div>
-          <h6 className="text-sm font-bold">MacBook Pro</h6>
+          <h6 className="text-sm font-semibold">MacBook Pro</h6>
           <p className="text-[#8A8A8A] text-sm font-medium">
             San Francisco, CA • 2 minutes ago
           </p>
         </div>
-        <Button className="ml-auto" variant="ghost">
+        <Button className="ml-auto rounded-none cursor-pointer" variant="ghost">
           <X />
-          End Session
+          <span className="sm:block hidden">End Session</span>
         </Button>
       </div>
       <div className="flex">
@@ -85,14 +85,14 @@ const SecurityAccount = () => {
           <Smartphone />
         </Button>
         <div>
-          <h6 className="text-sm font-bold">iPhone 12</h6>
+          <h6 className="text-sm font-semibold">iPhone 12</h6>
           <p className="text-[#8A8A8A] text-sm font-medium">
             New York, NY • 1 hour ago
           </p>
         </div>
-        <Button className="ml-auto" variant="ghost">
+        <Button className="ml-auto rounded-none cursor-pointer" variant="ghost">
           <X />
-          End Session
+          <span className="sm:block hidden">End Session</span>
         </Button>
       </div>
     </div>
