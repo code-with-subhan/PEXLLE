@@ -10,5 +10,3 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   ],
   secret: process.env.AUTH_SECRET,
 })
-console.log("GITHUB_ID:", process.env.GITHUB_ID)
-console.log("GITHUB_SECRET:", process.env.GITHUB_SECRET)

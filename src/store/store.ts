@@ -5,6 +5,7 @@ import categoryReducer from "@/store/slices/SelectProductCategorySlice"
 import BuildingReducer from "@/store/slices/BuildingAPIS"
 import RealstateListingSlice from "@/store/slices/RealListing"
 import EcommerceFilter from "@/store/slices/EcommerCe_Filter"
+import MessageSlice from "@/store/slices/messageSlice"
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     Building: BuildingReducer,
     RealListing : RealstateListingSlice,
     EcommerceFilter : EcommerceFilter,
+    Messages : MessageSlice,
   },
 });
 
