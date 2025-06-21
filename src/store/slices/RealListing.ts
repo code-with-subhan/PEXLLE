@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { act } from 'react'
 
 interface InitialStateType { query: string, rooms: string[], BasicCreteria: string[], PropertyType: string }
 

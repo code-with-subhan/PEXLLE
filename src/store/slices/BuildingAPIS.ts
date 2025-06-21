@@ -19,8 +19,8 @@ const BuildingAPIS = createSlice({
   name: 'Building',
   initialState: {
     data: [] as any[],
-    loading: false,
-    error: null,
+    loading: false as boolean,
+    error: null as null,
   },
   reducers: {},
   extraReducers: (builder) => {

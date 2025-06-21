@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -18,7 +18,7 @@ import {
 import { login } from "@/lib/actions/auth";
 
 const OTPpassword = () => {
-  let a = "111111"
+  const a = "111111"
   let b = ''
   return (
     <main className="hidden lg:block w-full">

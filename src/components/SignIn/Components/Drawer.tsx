@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
 
 import {
   Drawer,

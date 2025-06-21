@@ -3,7 +3,6 @@ import React from "react";
 import { CardDescription } from "../ui/card";
 import { Button } from "../ui/button";
 import { ComboPerPage } from "./ShowingCardComboBoxPerPage";
-import { boolean } from "zod";
 import { Compare } from "./compare";
 import { MortageCalculator } from "./MortageCalculator";
 import { SavedSheet } from "./SavedSheet";

@@ -1,7 +1,6 @@
 // components/filters/RoomsFilter.tsx
 "use client";
 
-import { useState } from "react";
 import { ComboboxDemo } from "./BedroomChild";
 
 interface props {

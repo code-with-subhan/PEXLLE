@@ -26,22 +26,22 @@ const WholeSearchResult = () => {
     const [paginationActive, setpaginationActive] = useState(1)
     // format , sorting 
     const [formal, setformal] = useState<number>(0)
-    const [pro, setpro] = useState(Properties)
+    const [pro, setpro] = useState<PropertiesTypes[]>(Properties)
 
     const data = useMemo(() => {
-        let result = pro
-            .filter((e: any) => {
+        const result = pro
+            .filter((e: PropertiesTypes) => {
                 return SearchQuery ? e.title.toLowerCase().includes(SearchQuery.toLowerCase()) : true
             })
-            .filter((e: any) =>
+            .filter((e: PropertiesTypes) =>
                 selectedPeriod ?
                     e.rentalPeriod.toLowerCase() === selectedPeriod.toLowerCase() : true
             )
-            .filter((e: any) => {
+            .filter((e) => {
                 if (selectedPropertyTypes.length !== 0) {
                     let element: string = "";
                     for (let i = 0; i < selectedPropertyTypes.length; i++) {
-                        let arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
+                        const arrayElement = selectedPropertyTypes[i].toLowerCase().slice(0, selectedPropertyTypes[i].length - 1);
                         if (arrayElement === e.realEstateType.toLowerCase()) {
                             element = arrayElement;
                         }
@@ -53,8 +53,8 @@ const WholeSearchResult = () => {
             })
             .filter((e: any) => {
                 if (selectedFeatures.length !== 0) {
-                    let objElements = Object.keys(e.amenities)
-                    let a = e.amenities
+                    const objElements = Object.keys(e.amenities)
+                    const a = e.amenities
                     for (const element of objElements) {
                         for (const feature of selectedFeatures) {
                             return element == feature && a[element] === true
@@ -64,10 +64,10 @@ const WholeSearchResult = () => {
                     return true
                 }
             })
-            .filter((e: any) => {
+            .filter((e) => {
                 return bedroomMax || bedroomMin ? e.bedrooms >= bedroomMin && e.bedrooms <= bedroomMax : true
             })
-            .filter((e: any) => {
+            .filter((e: PropertiesTypes) => {
                 return bathroomMax || bathroomMin ? e.bathrooms >= bathroomMin && e.bathrooms <= bathroomMax : true
             })
 

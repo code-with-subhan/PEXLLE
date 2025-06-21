@@ -2,7 +2,6 @@ import React from 'react'
 import { Input } from '../ui/input'
 import { Menu, Search, X } from 'lucide-react'
 import { PriceFilter } from './PriceCommboBoxFilter'
-import {props} from "./data/InputPropsTypes" 
 
 const SearchHeader = ({ searchQuery, setQuery , setformat  }: {searchQuery : string , setQuery : (value : string) => void  ,setformat : (value : number) => void  }) => {
     const [showFilter, setshowFilter] = React.useState<boolean>(true)
