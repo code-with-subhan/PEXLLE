@@ -10,6 +10,7 @@ import { RootState } from '@/store/store'
 
 const MessageChatbox = () => {
     const { Userobject } = useSelector((state: RootState) => state.Messages);
+    
     return (
         <div className='lg:w-2/3 w-full '>
             <div className='bg-[#f5f5f5] p-4 rounded-t-2xl'>
