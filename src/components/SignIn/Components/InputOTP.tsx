@@ -18,7 +18,7 @@ import {
 import { login } from "@/lib/actions/auth";
 
 const OTPpassword = () => {
-  const a = "111111"
+  // const a = "111111"
   let b = ''
   return (
     <main className="hidden lg:block w-full">
@@ -36,7 +36,7 @@ const OTPpassword = () => {
           <DialogHeader>
             <DialogTitle>Enter OTP (for this demo: 111-111)</DialogTitle>
             <DialogDescription>
-              Enter your email address and we'll send you instructions to reset
+              Enter your email address and we ll send you instructions to reset
               your password.
             </DialogDescription>
           </DialogHeader>

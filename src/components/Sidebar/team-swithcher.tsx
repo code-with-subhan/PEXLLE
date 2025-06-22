@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/sidebar";
 import Image from "next/image";
 
-export function TeamSwitcher({ }) {
+export function TeamSwitcher() {
 
   return (
     <SidebarMenu>

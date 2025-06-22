@@ -1,4 +1,6 @@
+'use client'
 import { Button } from "@/components/ui/button";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -82,7 +84,7 @@ export function TeamMember() {
             </div>
             <div className="mt-7 mb-0 grid grid-rows-3 gap-3">
               {TeamMember_Called.map((e) => (
-                <div className="flex justify-between">
+                <div key={e} className="flex justify-between">
                   <div className="flex gap-5">
                     <Image
                       src={e.img}

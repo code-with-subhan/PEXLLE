@@ -9,6 +9,7 @@ import {
     DrawerFooter,
     DrawerTrigger,
 } from "@/components/ui/drawer"
+
 import { Bath, Bed, Calendar, Eye, MapPin, Scan, Users } from "lucide-react";
 import { CardDescription } from "../ui/card";
 import { PropertiesTypes } from "./data/properties"
@@ -21,11 +22,6 @@ import Image from "next/image";
 
 
 export function DrawerDetailCard({ obj }: { obj: PropertiesTypes }) {
-    const [goal, setGoal] = React.useState(350)
-
-    function onClick(adjustment: number) {
-        setGoal(Math.max(200, Math.min(400, goal + adjustment)))
-    }
 
     return (
         <Drawer >

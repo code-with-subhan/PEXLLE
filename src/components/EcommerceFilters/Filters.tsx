@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect } from "react";
+"use client"
+import React from "react";
 import { Button } from "../ui/button";
 import ConditionFilter from "./Filters/ConditionFilter";
 import Waranty from "./Filters/Waranty";
@@ -35,10 +35,10 @@ const Filters = () => {
         AdType,
         VerifiedSeller,
     } = useSelector((state: RootState) => state.EcommerceFilter);
-        let z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
+        const z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
 
-    let a: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
-    let b : any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
+    const a: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
+    const b : any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
 
     a.unshift("All")
     b.unshift("All")

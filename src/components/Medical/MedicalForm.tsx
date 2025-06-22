@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 import { UserPlus } from "lucide-react"
 import { MedicalComboboxDemo } from "./medicalComboBox"
 import { MedicalDatePickerDemo } from "./MedicalDataPicker"
-
+import React from "react"
 export function MedicalDialog() {
   return (
     <Dialog>
@@ -26,7 +26,7 @@ export function MedicalDialog() {
         <DialogHeader>
           <DialogTitle>Add New Patient</DialogTitle>
           <DialogDescription>
-            Enter the details of the new patient here. Click save when you're done.
+            Enter the details of the new patient here. Click save when you re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">

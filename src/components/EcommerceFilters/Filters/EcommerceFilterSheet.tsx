@@ -11,8 +11,8 @@ import ConditionFilter from "./ConditionFilter";
 import Waranty from "./Waranty";
 import { CategoryFilter } from "./CategoryFilter";
 import { CardDescription } from "@/components/ui/card";
-import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
+import { useSelector } from "react-redux";
+import {  RootState } from "@/store/store";
 import {
     SetCategory,
     SetSubCategory,
@@ -44,9 +44,9 @@ export function EcommerceFilterSheet() {
     } = useSelector((state: RootState) => state.EcommerceFilter);
     const [a, seta] = useState<string[]>([])
     const [b, setb] = useState<string[]>([])
-    let z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
-    let c: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
-    let d: any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
+    const z = EcommerceFilterproducts.filter(e => Category == "All" || e.category == Category)
+    const c: any[] = Array.from(new Set(EcommerceFilterproducts.map((e: any) => e.category)))
+    const d: any[] = Array.from(new Set(z.map((e: any) => e.subcategory)))
 
     a.unshift("All")
     b.unshift("All")

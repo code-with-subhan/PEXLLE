@@ -1,12 +1,13 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import React from "react";
 import {
   Sheet,
   SheetClose,
   SheetContent,
   SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -59,7 +60,7 @@ export function DataTableViewOptions() {
         <SheetHeader>
           <SheetTitle>Add New User</SheetTitle>
           <SheetDescription>
-            Add a new user to the system. Click save when you're done.
+            Add a new user to the system. Click save when you are done.
           </SheetDescription>
         </SheetHeader>
         <div className="px-4">

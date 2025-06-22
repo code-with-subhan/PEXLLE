@@ -21,7 +21,7 @@ const CategoriesWholePage = () => {
 
     // check all filters of the product include input and category button
     const filteredProducts = useMemo(() => {
-        let result = data
+        const result = data
             .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
             .filter(p => selectCategory === "All" ? true : p.category === selectCategory);
 

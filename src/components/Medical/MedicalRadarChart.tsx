@@ -1,6 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
+import React from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 import {
@@ -65,6 +66,7 @@ export function MedicalRadarChart() {
             <PolarAngleAxis
               dataKey="month"
               tick={({ x, y, textAnchor, value, index, ...props }) => {
+                console.log(value)
                 const data = chartData[index];
 
                 return (

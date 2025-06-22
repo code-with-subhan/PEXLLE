@@ -17,7 +17,7 @@ export interface PropertiesTypes {
     gallery : string[]
  }  ,
 }
-export let Properties : PropertiesTypes[] = [
+export const Properties : PropertiesTypes[] = [
   {
     id: "property-1",
     title: "Family Home",

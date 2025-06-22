@@ -2,7 +2,7 @@
 
 import { TrendingUp } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
-
+import React from "react"
 import {
   Card,
   CardContent,
@@ -36,6 +36,7 @@ const chartConfig = {
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig
+
 
 export function ChartComponent() {
   return (

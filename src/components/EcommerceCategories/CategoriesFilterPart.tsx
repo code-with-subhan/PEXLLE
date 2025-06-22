@@ -4,8 +4,7 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { LayoutGrid, List } from "lucide-react";
 import { ComboboxFilter } from "./ComboBoxFilter";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "@/store/store";
+
 
 const CategoriesFilterPart = ({
   searchQuery,

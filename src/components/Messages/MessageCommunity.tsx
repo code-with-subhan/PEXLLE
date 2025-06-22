@@ -6,11 +6,10 @@ import Image from 'next/image';
 
 const MessageCommunity = () => {
     const { Userobject } = useSelector((state: RootState) => state.Messages);
-    console.log(Userobject)
     return (
         <div className='flex-col gap-6 mt-4 h-115 overflow-auto'>
             {Userobject && Userobject.Messages[0].Usermessages.map((e, i) => (
-                <div key={e.id} className={`p-2 flex ${e.MessageType == "Send" ? "flex-row" : "flex-row-reverse"} gap-2`}>
+                <div key={i} className={`p-2 flex ${e.MessageType == "Send" ? "flex-row" : "flex-row-reverse"} gap-2`}>
                     <div className='self-end'>
                         <Image src={Userobject.Messages[0].images} alt="blur" blurDataURL='blur' width={1080} height={780} className='rounded-full size-9' />
                     </div>

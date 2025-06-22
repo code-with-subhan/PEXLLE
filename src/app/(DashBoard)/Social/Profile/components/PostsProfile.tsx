@@ -34,7 +34,7 @@ const PostsProfile = () => {
             <p className="text-[#0C0A09] text-sm mb-2">
               Just launched my new portfolio website! 🚀 Check out these 15
               standout examples of creative, sleek, and interactive portfolio
-              designs that inspired me. Which one's your favorite? #WebDesign
+              designs that inspired me. Which one s your favorite? #WebDesign
               #PortfolioInspiration
             </p>
             <Image

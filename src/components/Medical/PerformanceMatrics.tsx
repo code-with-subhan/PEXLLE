@@ -10,7 +10,7 @@ const PerformanceMatrics = () => {
       <CardTitle className='text-sm'>Performance Metrics</CardTitle>
 
       <div className='mt-5 flex flex-col gap-4'>
-        {PerformanceMetrics.map((e ,i) => (
+        {PerformanceMetrics.map((e ) => (
             <div key={e.id } className='flex flex-col gap-2'>
                 <div className='flex justify-between items-center'>
                     <h1 className="text-sm">{e.title}</h1>

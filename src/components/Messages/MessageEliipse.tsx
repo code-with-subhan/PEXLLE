@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import React from "react"
 import {
     Popover,
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
-import { Archive, Delete, Ellipsis, Moon, Star, Trash2, User } from "lucide-react"
+import { Archive, Ellipsis, Moon, Star, Trash2, User } from "lucide-react"
 
 export function MessageEllipse() {
     return (

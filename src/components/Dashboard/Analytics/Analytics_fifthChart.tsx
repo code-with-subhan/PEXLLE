@@ -1,8 +1,7 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
-
+import { Bar, BarChart, CartesianGrid } from "recharts"
+import React from "react"
 import {
   Card,
   CardContent,
@@ -13,7 +12,6 @@ import {
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltipContent,
 
 } from "@/components/ui/chart"
 const chartData = [

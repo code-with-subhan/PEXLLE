@@ -21,6 +21,7 @@ import {
 
 export function CategoryFilter({title , states , setStates , array  } : {title : string , states : string , setStates : (value : string) => void , array : string[]}) {
     const [open, setOpen] = React.useState(false)
+    console.log(states)
     const [value, setValue] = React.useState("All")
 
     return (

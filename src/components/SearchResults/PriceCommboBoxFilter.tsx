@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
 } from "@/components/ui/command"
@@ -64,7 +62,7 @@ export function PriceFilter({searchformal} : {searchformal : (value : number) =>
                 <CommandItem
                   key={framework.value}
                   value={framework.value}
-                  onSelect={(currentValue) => {
+                  onSelect={(currentValue : any) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
                     searchformal(framework.num)

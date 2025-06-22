@@ -1,14 +1,13 @@
-
+'use client'
 // import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-
+import React from "react";
 import { Ellipsis } from "lucide-react";
 import { Project_Members } from "@/app/(DashBoard)/Settings/Team/data/TeamData";
 
 import { TeamMember } from "./components/InviteTeamMembers";
 
 export default function Page() {
-  const tasks = Project_Members;
 
   return (
     <>

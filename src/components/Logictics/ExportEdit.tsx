@@ -1,5 +1,5 @@
 "use client";
-import { Download, Pen, PenLine, Plus } from "lucide-react";
+import {  PenLine, Plus } from "lucide-react";
 import React from "react";
 import { Button } from "../ui/button";
 import { Indicator } from "./indicatorData";

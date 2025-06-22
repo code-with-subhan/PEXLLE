@@ -14,6 +14,7 @@ interface props {
   pagActive: number
 }
 const FilterList = ({ data, ke, pag, pagActive }: props) => {
+  console.log(pag)
   return (
     <div key={ke} className={`relative flex border hover:shadow-md shadow-gray-300 transition duration-450 border-[#F5F5F5]  ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
       <div className="w-1/4  min-h-48 md:h-48">

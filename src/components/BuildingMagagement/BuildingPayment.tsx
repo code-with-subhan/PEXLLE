@@ -21,8 +21,8 @@ const BuildingPayment = () => {
         <Badge className='rounded-full'>This month</Badge>
       </div>
       <div className='lg:flex justify-between items-center flex-wrap mt-13 grid grid-cols-2 gap-6'>
-        {Payment.map(e => (
-            <div className=''>
+        {Payment.map((e ,i) => (
+            <div key={i} className=''>
                 <h2 className='lg:text-xl sm:text-2xl text-xl font-bold'>{e.price}</h2>
                 <CardDescription>{e.title}</CardDescription>
             </div>

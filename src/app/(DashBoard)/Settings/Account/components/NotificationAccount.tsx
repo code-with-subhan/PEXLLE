@@ -2,7 +2,6 @@
 import React from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { DeleteIcon, LogOut } from "lucide-react";
 
 const NotificationAccount = () => {
   return (

@@ -1,6 +1,7 @@
 "use client";
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import React from "react";
 import {
   Dialog,
   DialogContent,
@@ -55,7 +56,7 @@ export const ProfileFormDialogue = forwardRef<HTMLInputElement, {
         <DialogHeader className="">
           <DialogTitle>Edit profile</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Make changes to your profile here. Click save when you re done.
           </DialogDescription>
         </DialogHeader>
         <div className="translate-y-5.5">
