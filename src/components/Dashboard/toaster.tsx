@@ -1,7 +1,7 @@
 "use client"
 
 import { toast } from "sonner"
-
+import React from "react"
 import { Button } from "@/components/ui/button"
 
 export function SonnerDemo() {

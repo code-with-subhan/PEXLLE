@@ -14,6 +14,7 @@ interface props {
 }
 
 const FilterfourLInes = ({ data, ke, pag, pagActive }: props) => {
+  console.log(pag)
   return (
     <div key={ke} className={`border border-[#F5F5F5] relative w-full lg:max-w-[200px] overflow-hidden ${ke < 8 * pagActive && ke >= ( pagActive - 1) * 8 ? "block" : "hidden"}`}>
       <Image

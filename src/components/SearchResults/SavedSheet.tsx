@@ -1,3 +1,4 @@
+import React from "react"
 import { Button } from "@/components/ui/button"
 import {
     Sheet,
@@ -34,7 +35,7 @@ export function SavedSheet ({Hear , HeartList} : props) {
                                 <div className='flex gap-2 justify-end absolute -top-2 -right-1 '>
                                     <div className='flex justify-center items-center size-9 rounded-2xl
                          bg-[#F5F5F5]'>
-                                        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => HeartList(e)} width="24" height="24" viewBox="0 0 24 24" fill={`rgba(255,0,0,0.6)`} stroke={`rgba(255,0,0,0.6)`}  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-heart w-5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" onClick={() => HeartList(e)} width="24" height="24" viewBox="0 0 24 24" fill={`rgba(255,0,0,0.6)`} stroke={`rgba(255,0,0,0.6)`}  strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-heart w-5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
                                     </div>
                                     <div className='flex justify-center items-center size-9 rounded-2xl
                          bg-[#F5F5F5]'>

@@ -26,6 +26,9 @@ const FiltersCard = () => {
     const [data, setdata] = useState<Product[]>(FiltersProducts)
     const [toggleButton, settoggleButton] = useState(true)
     const [formalCategories, setformalCategories] = useState<number>(0)
+useEffect(() => {
+  setdata(FiltersProducts)
+}, [])
 
     const filters = useMemo(() => {
         const result = data
@@ -39,20 +42,20 @@ const FiltersCard = () => {
             .filter(e => SubCategory ? SubCategory == 'All' || SubCategory === e.subcategory : true)
             .filter(e => Negotiable ? Negotiable == 'All' || Negotiable === e.negotiable : true)
             .filter(e => VerifiedSeller ? VerifiedSeller == 'All' || VerifiedSeller === e.verifiedSeller : true)
-            .filter((e, i) => {
+            .filter((e) => {
                 if (Shipping.length !== 0) {
-                    for (let ship of Shipping) {
-                        for (let Eship of e.shipping) {
+                    for (const ship of Shipping) {
+                        for (const Eship of e.shipping) {
                             if (ship !== Eship) continue
                             return ship === Eship
                         }
                     }
                 } else return true
             })
-            .filter((e, i) => {
+            .filter((e) => {
                 if (PaymentOptions.length !== 0) {
-                    for (let pay of PaymentOptions) {
-                        for (let Epay of e.paymentOptions) {
+                    for (const pay of PaymentOptions) {
+                        for (const Epay of e.paymentOptions) {
                             if (pay !== Epay) continue
                             return pay === Epay
                         }

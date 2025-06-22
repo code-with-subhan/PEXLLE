@@ -3,21 +3,20 @@ import React from "react";
 import { HousesData } from "./RealStateHouseData";
 import { Heart, MapPin } from "lucide-react";
 import { CardDescription, CardTitle } from "../ui/card";
-import { AppDispatch, RootState } from "@/store/store";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import {  useSelector } from "react-redux";
 import Image from "next/image";
 
 const RealStateHousesCategory = () => {
   const { query, PropertyType, rooms, BasicCreteria } = useSelector((state: RootState) => state.RealListing);
-  const dispatch = useDispatch<AppDispatch>();
-  let filterData = HousesData
+  const filterData = HousesData
     .filter((e : any) => query ? e.title.toLowerCase().includes(query.toLowerCase()) : true)
     .filter(e => PropertyType ? e.PropertyType.includes(PropertyType) : true)
     .filter(e => {
       if (rooms.length !== 0) {
         let element: string = "";
         for (let i = 0; i < rooms.length; i++) {
-          let arrayElement = rooms[i]
+          const arrayElement = rooms[i]
           if (e.Rooms + "" >= "4" && arrayElement == "4") {
             element = arrayElement;
           } else if (e.Rooms + "" === arrayElement) {
@@ -32,8 +31,8 @@ const RealStateHousesCategory = () => {
     .filter(e => {
       if (BasicCreteria.length !== 0) {
         for (let i = 0; i < BasicCreteria.length; i++) {
-          let arrayElement = BasicCreteria[i];
-          for (let b of e.BasicCreteria) {
+          const arrayElement = BasicCreteria[i];
+          for (const b of e.BasicCreteria) {
             if (b === arrayElement) {
               return e
             }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SearchHeader from "./SearchHeader";
 import PropertyFilters from "./filterReal";
 import ShowingContent from "./ShowingContent";
@@ -27,6 +27,10 @@ const WholeSearchResult = () => {
     // format , sorting 
     const [formal, setformal] = useState<number>(0)
     const [pro, setpro] = useState<PropertiesTypes[]>(Properties)
+    useEffect(() => {
+      setpro(Properties)
+    }, [])
+    
 
     const data = useMemo(() => {
         const result = pro

@@ -1,5 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button"
+import React from "react"
 import {
     Sheet,
     SheetContent,
@@ -12,7 +13,7 @@ export function MedicalResponsive() {
         <Sheet >
             <SheetTrigger asChild>
                 <Button variant='ghost' size='icon' className="rounded-none cursor-pointer md:hidden sm:block">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="block sm:hiddenh-6 w-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="block sm:hiddenh-6 w-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>
                 </Button>
             </SheetTrigger>
             <SheetContent side="left" className="px-6  pt-14 w-2/3 m-5 h-[95%] ">

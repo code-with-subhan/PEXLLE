@@ -16,8 +16,8 @@ const PostDetailCard = () => {
         <div className="px-2 mt-15 font-semibold text-2xl text-[#737373]">
             <h1>Similar Listings</h1>
             <div className="mt-4 lg:flex gap-4 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1  items-center justify-between">
-                {imgArray.map((e) => (
-                    <div className="p-3 relative h-90 flex flex-col w-full justify-between  "
+                {imgArray.map((e , i) => (
+                    <div key={i} className="p-3 relative h-90 flex flex-col w-full justify-between  "
                         >
 
                         <div className="absolute top-0 left-0 w-full h-full z-0  " style={{
@@ -30,8 +30,8 @@ const PostDetailCard = () => {
                             <Badge variant='secondary' className="rounded-full text-sm">$999</Badge>
                         </div>
                         <div className="grid gap-2 relative z-10">
-                            <h1 className="text-white">iMac 21.5" (2019)</h1>
-                            <CardDescription className="text-[#E7E5E4]">iMac 21.5" (2019)</CardDescription>
+                            <h1 className="text-white">iMac 21.5 (2019)</h1>
+                            <CardDescription className="text-[#E7E5E4]">iMac 21.5 (2019)</CardDescription>
                             <div className="flex justify-between items-center">
                                 <div className="flex items-center gap-2">
                                     <MapPin className="w-4 text-[#E7E5E4]" />

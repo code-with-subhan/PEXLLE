@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
 import RealstateHomes from '@/components/RealStateListing/RealstateHomes'
 import RealStateListingFilters from '@/components/RealStateListing/RealStateListingFilters'
 import { MenuIcon } from 'lucide-react'

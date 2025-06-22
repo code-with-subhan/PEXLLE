@@ -5,7 +5,6 @@ import { CardDescription, CardTitle } from "../ui/card";
 // import { Progress } from "@/components/ui/progress";
 import { BuildingChart } from "./BuildingChart";
 import { Garden } from "./Data";
-import { Progress } from "@radix-ui/react-progress";
 import { ProgressDemo } from "./BuildingProgress";
 import BuildingAvatar from "./BuildingAvatar";
 import Image from "next/image";

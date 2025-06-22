@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import { MessageProfile } from './messgesProfileData'
 import { CardDescription, CardTitle } from '../ui/card'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'

@@ -1,9 +1,7 @@
 "use client";
-
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from "@/store/store";
-import { Checkbox } from "@/components/ui/checkbox";
-import { spec } from "node:test/reporters";
+import React from "react";
+import { useDispatch } from "react-redux";
+import {  AppDispatch } from "@/store/store";
 
 
 export function CheckboxDemoFilters({
@@ -18,7 +16,6 @@ export function CheckboxDemoFilters({
   specific : string[]
 }) {
   const dispatch = useDispatch<AppDispatch>();
-  console.log(specific)
 
   function handleListing(value : string) {
     let a = []

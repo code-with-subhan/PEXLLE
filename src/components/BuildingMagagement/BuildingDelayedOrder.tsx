@@ -23,8 +23,8 @@ const BuildingDelayedOrder = () => {
         <div className='lg:w-1/2'>
             <h1 className='mb-8 font-bold'>Delayed Work Orders</h1>
             <div className='flex flex-col gap-6'>
-                {Order.map(e => (
-                    <div className='flex gap-3'>
+                {Order.map((e,i) => (
+                    <div key={i} className='flex gap-3'>
                         <div>
                             <Avatar>
                                 <AvatarImage src={e.img} />

@@ -3,49 +3,49 @@
 
 
 
-const SellerType = {
-    Individual: 'Individual',
-    Business: 'Business'
-};
+// const SellerType = {
+//     Individual: 'Individual',
+//     Business: 'Business'
+// };
 
-const ShippingOption = {
-    Free: 'Free',
-    Paid: 'Paid',
-    Pickup: 'Pickup'
-};
+// const ShippingOption = {
+//     Free: 'Free',
+//     Paid: 'Paid',
+//     Pickup: 'Pickup'
+// };
 
-const PaymentOption = {
-    Cash: 'Cash',
-    Card: 'Card',
-    PayPal: 'PayPal',
-    Crypto: 'Crypto'
-};
+// const PaymentOption = {
+//     Cash: 'Cash',
+//     Card: 'Card',
+//     PayPal: 'PayPal',
+//     Crypto: 'Crypto'
+// };
 
-const ReturnPolicy = {
-    NoReturns: 'No Returns',
-    Days14: '14 Days',
-    Days30: '30 Days',
-    Days60: '60 Days'
-};
+// const ReturnPolicy = {
+//     NoReturns: 'No Returns',
+//     Days14: '14 Days',
+//     Days30: '30 Days',
+//     Days60: '60 Days'
+// };
 
-const AdType = {
-    Standard: 'Standard',
-    Featured: 'Featured',
-    Urgent: 'Urgent'
-};
+// const AdType = {
+//     Standard: 'Standard',
+//     Featured: 'Featured',
+//     Urgent: 'Urgent'
+// };
 
-const YesNo = {
-    Yes: 'Yes',
-    No: 'No',
-    All: 'All'
-};
-const ProductCondition = {
-    New: 'New',
-    LikeNew: 'Like New',
-    Good: 'Good',
-    Fair: 'Fair',
-    Poor: 'Poor'
-};
+// const YesNo = {
+//     Yes: 'Yes',
+//     No: 'No',
+//     All: 'All'
+// };
+// const ProductCondition = {
+//     New: 'New',
+//     LikeNew: 'Like New',
+//     Good: 'Good',
+//     Fair: 'Fair',
+//     Poor: 'Poor'
+// };
 export interface Product {
   id: number;
   title: string;

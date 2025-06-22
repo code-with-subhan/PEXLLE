@@ -6,7 +6,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { DollarSign, Users, Folder, HeartPulse } from "lucide-react";
 

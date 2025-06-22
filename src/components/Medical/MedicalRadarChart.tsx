@@ -1,6 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
+import React from "react";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 import {

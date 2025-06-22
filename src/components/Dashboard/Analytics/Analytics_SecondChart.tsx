@@ -1,21 +1,16 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis, YAxis } from "recharts"
-
+import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts"
+import React from "react"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card"
 import {
   ChartConfig,
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart"
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },

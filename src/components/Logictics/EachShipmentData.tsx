@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import { CardDescription, CardTitle } from "../ui/card";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import LogicticsMap from "./LogisticsMap";
-import { Data } from "./ShipmentsData";
-import { Button } from "../ui/button";
 import Image from "next/image";
 const EachShipmentData = ({ showlogic }: {  showlogic: boolean }) => {
   return (

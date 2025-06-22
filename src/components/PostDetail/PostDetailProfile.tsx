@@ -3,7 +3,7 @@ import React from 'react'
 import { Badge } from '../ui/badge'
 import { Calendar, Mail, MapPin, Monitor, Phone } from 'lucide-react'
 import { Button } from '../ui/button'
-import { CardDescription, CardTitle } from '../ui/card'
+import { CardDescription } from '../ui/card'
 import Image from 'next/image'
 
 interface ProfileType {
@@ -24,8 +24,8 @@ const PostDetailProfile = () => {
                 <Badge className='bg-purple-100 text-purple-500 rounded-full text-sm'>Negotiable</Badge>
             </div>
             <div className='my-6 grid gap-y-3'>
-                {Profile.map(e => (
-                    <div className='flex gap-2 items-center'>
+                {Profile.map((e,i) => (
+                    <div key={i} className='flex gap-2 items-center'>
                         {e.icon}
                         <CardDescription className='text-sm'>{e.title}</CardDescription>
                     </div>
@@ -42,8 +42,8 @@ const PostDetailProfile = () => {
                     <div>
                         <CardDescription className='font-semibold'>John Doe</CardDescription>
                         <div className='flex items-center'>
-                            {[...Array(5)].map(_ => (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-star w-4 h-4 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            {[...Array(5)].map(e => (
+                                <svg key={e} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-star w-4 h-4 text-yellow-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                             ))}
                             <CardDescription className='ml-2'> (4.2)</CardDescription>
                         </div>

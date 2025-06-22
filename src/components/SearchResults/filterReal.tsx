@@ -1,6 +1,6 @@
 // In your PropertyFilters component (filterReal.tsx)
 "use client";
-
+import React from "react";
 import { useState } from "react";
 import CheckboxGroup from "./SearchFilters/RealEstateFilter";
 import { RoomsFilter } from "./SearchFilters/BedRoomContainer";
@@ -28,7 +28,6 @@ interface props {
 }
 
 const PropertyFilters = ({
-    searchQuery,
     selectedFeatures,
     setSelectedFeatures,
     selectedPropertyTypes,

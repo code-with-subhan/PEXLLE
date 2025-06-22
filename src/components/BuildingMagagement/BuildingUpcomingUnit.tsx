@@ -22,8 +22,8 @@ const BuildingUpcomingUnit = () => {
     <div className='mb-16 px-3'>
         <h1 className='font-bold mt-16 mb-12'>Upcoming Units</h1>
         <div className='my-6 grid lg:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1'>
-            {BuildingTasks.map(e => (
-                <div className='flex flex-col gap-1.5'>
+            {BuildingTasks.map((e ,i) => (
+                <div key={i} className='flex flex-col gap-1.5'>
                     <div className='relative'>
                         <Image width={1080} height={780} src={e.img} alt="blur" blurDataURL= "blur" className='h-50 w-full'/>
                         <Badge className='absolute top-3 left-3 rounded-full'>Residential</Badge>

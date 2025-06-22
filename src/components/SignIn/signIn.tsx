@@ -8,7 +8,7 @@ import OTPpassword from "./Components/InputOTP";
 import DrawerOTP from "./Components/Drawer";
 import Theme from "../Home/Theme";
 import Image from "next/image";
-
+import React from "react";
 export function LoginForm({
   className,
   ...props

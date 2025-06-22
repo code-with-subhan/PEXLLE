@@ -5,7 +5,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import { Send } from "lucide-react";
-import { description } from "@/app/(DashBoard)/DashBoard/components/chart-area-interactive";
 interface CommentsPost {
   id: number;
   title: string;
@@ -33,8 +32,8 @@ const Comments: CommentsPost[] = [
   },
 ];
 const PostComment = () => {
-  let a = new Date();
-  let b = a.getFullYear() + "-" + a.getDate() + "-" + a.getMonth();
+  const a = new Date();
+  const b = a.getFullYear() + "-" + a.getDate() + "-" + a.getMonth();
   const [PostComments, setPostComments] = useState<CommentsPost[]>(Comments);
   const [PostObject, setPostObject] = useState<string>("");
   return (

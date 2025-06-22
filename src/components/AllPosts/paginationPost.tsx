@@ -1,13 +1,13 @@
+'use client'
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-
+import React from "react";
 export function PaginationPost({
   pag,
   pagActive,

@@ -1,7 +1,7 @@
 "use client"
 
 // import { useThemeConfig } from "@/app/Provider"
-import useThemec
+
 import { Label } from "@/components/ui/label"
 import {
   Select,

@@ -30,7 +30,7 @@ const AllPostHeader = () => {
 
   // select categories buttons
   const filteredProducts = useMemo(() => {
-    let result = data
+    const result = data
       .filter(p => p.title.toLowerCase().includes(searchQuery.toLowerCase()))
       .filter(p => selectedCategory === "All" ? true : p.category === selectedCategory);
     return result;
@@ -79,8 +79,8 @@ const AllPostHeader = () => {
         selectCategory={selectedCategory}
       />
       <div className="grid lg:grid-cols-4 gap-4 mb-6 w-full gap-y-6 sm:grid-cols-2 grid-cols-1">
-        {filteredProducts.map((e: any, i: number) => (
-          <AllPostCards product={e} ke={i} pag={paginationNumber} pagActive={paginationActive} />
+        {filteredProducts.map((e, i: number) => (
+          <AllPostCards product={e} ke={i} key={i} pag={paginationNumber} pagActive={paginationActive} />
         ))}
       </div>
       <div className="mt-5">

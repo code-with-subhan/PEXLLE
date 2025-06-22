@@ -3,6 +3,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Bath, Bed, Calendar, Eye, MapPin, Scan, Users } from "lucide-react";
 import { CardDescription } from "../ui/card";
 import { PropertiesTypes } from "./data/properties";
+import React from "react";
 import {
     Tooltip,
     TooltipContent,

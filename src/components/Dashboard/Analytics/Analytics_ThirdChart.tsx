@@ -1,15 +1,7 @@
 "use client"
 
 import { RadialBar, RadialBarChart } from "recharts"
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
+import React from "react"
 import {
   ChartConfig,
   ChartContainer,

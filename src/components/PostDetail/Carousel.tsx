@@ -6,7 +6,6 @@ import {
     CarouselIndicator,
     CarouselItem,
 } from "@/components/ui/carousel";
-import { ZoomIn } from "lucide-react";
 import { CarouselImage } from "./CaroouselImage";
 import React from "react";
 import Image from "next/image";
@@ -26,8 +25,8 @@ export function CarouselBasic() {
             <Carousel className="relative">
                 <CarouselImage img={ImagesArray[first]} />
                 <CarouselContent>
-                    {ImagesArray.map(e => (
-                        <CarouselItem className="p-4">
+                    {ImagesArray.map((e , i) => (
+                        <CarouselItem className="p-4" key={i}>
                             <Image src={e} alt="a" blurDataURL="blur" width={1080} height={780} className="w-full h-105 object-cover" />
                         </CarouselItem>
                     ))}

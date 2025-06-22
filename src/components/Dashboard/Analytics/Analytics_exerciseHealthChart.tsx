@@ -1,7 +1,7 @@
 "use client";
 
 import { Bar, BarChart, LabelList, XAxis, YAxis } from "recharts";
-
+import React from "react";
 import {
   Card,
   CardContent,
