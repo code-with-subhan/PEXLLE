@@ -2,6 +2,7 @@ import React from 'react'
 import { CardDescription } from '../ui/card'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import Image from 'next/image';
 
 const MessageCommunity = () => {
     const { Userobject } = useSelector((state: RootState) => state.Messages);
@@ -11,7 +12,7 @@ const MessageCommunity = () => {
             {Userobject && Userobject.Messages[0].Usermessages.map((e, i) => (
                 <div key={e.id} className={`p-2 flex ${e.MessageType == "Send" ? "flex-row" : "flex-row-reverse"} gap-2`}>
                     <div className='self-end'>
-                        <img src={Userobject.Messages[0].images} alt="" className='rounded-full size-9' />
+                        <Image src={Userobject.Messages[0].images} alt="blur" blurDataURL='blur' width={1080} height={780} className='rounded-full size-9' />
                     </div>
                     <div className={`w-2/3 block ${e.title.length < 20 ? "w-auto" : "w-2/3"} `}>
                         <div className={`p-4 py-4 text-sm   ${e.MessageType == "Send" ? "bg-black text-white " : "bg-white text-black"} p-2`}>

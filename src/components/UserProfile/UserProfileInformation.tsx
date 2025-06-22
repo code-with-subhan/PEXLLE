@@ -4,14 +4,15 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Calendar, MapPin, Phone, ShoppingBag } from "lucide-react";
 import { CardDescription, CardTitle } from "../ui/card";
+import Image from "next/image";
 
 const UserProfileInformation = () => {
   return (
     <div className="bg-[#F5F5F5] container lg:w-1/3 lg:p-8 p-8 flex flex-col items-center">
       <div className="relative">
-        <img
+        <Image
           src="https://i.pravatar.cc/150?img=1"
-          alt=""
+          alt="a" blurDataURL="blur" width={1080} height={780}
           className="rounded-full size-42 lg:size-auto"
         />
         <svg

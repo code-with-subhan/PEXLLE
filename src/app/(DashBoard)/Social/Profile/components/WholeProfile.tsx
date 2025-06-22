@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ProfileFormDialogue } from "./ProfileFormDialogue";
 import CombineDivProfile from "./CombineDivProfile";
 import { useRef, useState } from "react";
+import Image from "next/image";
 const WholeProfile = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [image, setImage] = useState<string | null>(null);
@@ -14,22 +15,29 @@ const WholeProfile = () => {
         <div className="lg:flex gap-2 p-2.5 px-0 justify-between grid">
             <div className="h-auto">
                 <div>
-                    <img
+                    <Image
                         src={
                             image ||
                             "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1470071459604-3b5ec3a7fe05%3Fw%3D1200%26h%3D400%26fit%3Dcrop&w=1920&q=75" // fallback
                         }
-                        alt=""
+                        alt="190"
+                        blurDataURL="blur"
+                        width={1080}
+                        height={780}
+                        className=""
                     />
                 </div>
                 <div className="flex gap-2.5 items-end mx-3 -translate-y-3.5">
                     <div className="p-1 bg-white rounded-full">
-                        <img
+                        <Image
                             src={
                                 image2 ||
                                 "https://i.pravatar.cc/150?img=3" // fallback
                             }
-                            alt=""
+                            alt="abcd"
+                            width={1080}
+                            height={780}
+                            blurDataURL="blur"
                             className="rounded-full w-22 h-22"
                         />
                     </div>

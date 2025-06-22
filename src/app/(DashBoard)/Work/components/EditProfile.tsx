@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import React from "react";
 
 const EditProfile = () => {
@@ -6,9 +7,12 @@ const EditProfile = () => {
     <div className="w-1/5 lg:block hidden">
       <div className="bg-[#F5F5F5] p-3">
         <div className="flex justify-between gap-8 items-center">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
+            alt="a"
+            blurDataURL="blur"
+            width={1080}
+            height={780}
             className="w-19 h-19 rounded-full "
           />
           <div>
@@ -43,9 +47,12 @@ const EditProfile = () => {
       </div>
       <div className="bg-[#F5F5F5] p-3">
         <div className="font-bold text-sm text-[#737373] mb-3">345 Profile View</div>
-        <img
+        <Image
+          width={1080}
+          height={780}
           src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1551288049-bebda4e38f71%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D2070%26q%3D80&w=256&q=75"
-          alt=""
+          alt="blur"
+          blurDataURL="blur"
         />
       </div>
     </div>

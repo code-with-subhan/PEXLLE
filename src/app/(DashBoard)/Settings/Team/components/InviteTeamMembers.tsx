@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Globe, X } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 
 type Remove_TeamMembers = {
   Title: string;
@@ -47,9 +48,12 @@ export function TeamMember() {
           <DialogTitle className="text-xl font-bold">Team Members</DialogTitle>
         </DialogHeader>
         <div className="flex gap-3 items-center">
-          <img
+          <Image
             src="https://i.pravatar.cc/150?u=owner "
-            alt=""
+            alt="abcd"
+            width={1080}
+            height={230}
+            blurDataURL="blur"
             className="w-12 h-12 rounded-full"
           />
           <div>
@@ -80,9 +84,12 @@ export function TeamMember() {
               {TeamMember_Called.map((e) => (
                 <div className="flex justify-between">
                   <div className="flex gap-5">
-                    <img
+                    <Image
                       src={e.img}
-                      alt=""
+                      alt="subhan"
+                      width={1080}
+                      height={780}
+                      blurDataURL="blur"
                       className="w-10 h-10 rounded-full"
                     />
                     <div>

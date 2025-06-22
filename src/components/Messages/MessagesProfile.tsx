@@ -4,6 +4,7 @@ import { MessageProfile } from './messgesProfileData'
 import { CardDescription, CardTitle } from '../ui/card'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
+import Image from 'next/image'
 
 const MessagesProfile = () => {
     const { Userobject } = useSelector((state: RootState) => state.Messages);
@@ -14,7 +15,7 @@ const MessagesProfile = () => {
                     <div className='absolute size-4 z-49 bg-white bottom-0 right-3 rounded-full flex justify-center items-center '>
                         <div className={`${Userobject?.onLine ? "bg-green-500" : "bg-gray-500"} size-3 rounded-full`}></div>
                     </div>
-                    <img src={Userobject?.image} alt="" className='rounded-full size-26' />
+                    <Image src={Userobject?.image || "/default-user.png"} alt="a" blurDataURL='blur' width={1080} height={780} className='rounded-full size-26' />
                 </div>
                 <div>
                     <h1 className='text-xl font-semibold'>Ethan Hunt</h1>

@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 
 export function SalesCardDashBoard({classNam} : {classNam : string}) {
   return( 
@@ -18,9 +19,14 @@ export function SalesCardDashBoard({classNam} : {classNam : string}) {
       <CardContent className="w-full ml-2 p-3 grid gap-6">
         <div className="flex items-center gap-4 ">
           <div>
-            <img
-              src="https://material-kit-pro-react.devias.io/assets/avatar-5.png" alt="" 
+            <Image
+              src="https://material-kit-pro-react.devias.io/assets/avatar-5.png" 
+              alt="blur" 
+              width={1080}
+              height={780}
+              blurDataURL="blur"
               className=" rounded-full w-9"
+
             />
           </div>
           <div>
@@ -33,10 +39,13 @@ export function SalesCardDashBoard({classNam} : {classNam : string}) {
         </div>
         <div className="flex items-center gap-4">
           <div>
-            <img
+            <Image
               src="https://material-kit-pro-react.devias.io/assets/avatar-3.png" 
               className="w-9 rounded-full"
-              alt=""
+              alt="blur"
+              width={1080}
+              height={780}
+              blurDataURL="blur"
             />
           </div>
           <div>
@@ -49,10 +58,13 @@ export function SalesCardDashBoard({classNam} : {classNam : string}) {
         </div>
         <div className="flex items-center gap-4">
           <div>
-            <img
+            <Image
               src="https://material-kit-pro-react.devias.io/assets/avatar-4.png" 
               className="w-9 rounded-full"
-              alt=""
+              alt="blur"
+              width={1080}
+              height={780}
+              blurDataURL="blur"
             />
           </div>
           <div>

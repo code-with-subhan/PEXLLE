@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Circle, Ellipsis } from "lucide-react";
 import { Cards } from "../data/CardsData";
+import Image from "next/image";
 const LeadsTabs = () => {
   return (
     <div className="lg:w-[450px] my-5">
@@ -117,9 +118,12 @@ const LeadsTabs = () => {
                       variant="outline"
                       size="sm"
                     >
-                      <img
+                      <Image
                         src="https://i.pravatar.cc/128?u=esther"
-                        alt=""
+                        alt="Profile"
+                        blurDataURL="blur"
+                        width={1080}
+                        height={780}
                         className="rounded-full w-4 h-4"
                       />
                       Esther Howard
@@ -183,9 +187,12 @@ const LeadsTabs = () => {
                         className=" rounded-none "
                         variant="outline"
                       >
-                        <img
+                        <Image
                           src={e.ImageButtonSrc}
-                          alt=""
+                          alt="as"
+                          width={1080}
+                          height={780}
+                          blurDataURL="blur"
                           className="rounded-full w-4 h-4"
                         />
                         {e.TopButtonText}

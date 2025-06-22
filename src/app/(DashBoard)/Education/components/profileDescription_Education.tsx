@@ -1,15 +1,18 @@
 "use client"
 import { MessageSquare } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 
 const profileDescriptionEducation = () => {
   return (
     <div>
       <div className="flex gap-3 my-10 px-4 items-center">
-        <img
+        <Image
           src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fi.pravatar.cc%2F128&w=64&q=75"
           alt=""
-          className="rounded-full"
+          width={1080}
+          height={780}
+          className="rounded-full w-20"
         />
         <div>
           <h6 className=" text-sm text-[#787878] font-medium">A course by</h6>
