@@ -1,6 +1,7 @@
+'use client'
 import { cookies } from "next/headers"
 import Image from "next/image"
-
+import React from "react"
 import { Mail } from "@/app/(DashBoard)/mail/components/mail"
 import { accounts, mails } from "@/app/(DashBoard)/mail/data"
 

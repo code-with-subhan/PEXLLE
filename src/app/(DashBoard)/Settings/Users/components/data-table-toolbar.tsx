@@ -2,7 +2,7 @@
 
 import { Table } from "@tanstack/react-table"
 import { Filter } from "lucide-react"
-
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataTableViewOptions } from "@/app/(DashBoard)/Settings/Users/components/data-table-view-options"
@@ -15,7 +15,6 @@ interface DataTableToolbarProps<TData> {
 export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
-  const isFiltered = table.getState().columnFilters.length > 0
 
   return (
     <div className="flex items-center justify-between">

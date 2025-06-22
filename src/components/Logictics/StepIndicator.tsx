@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 
-export default function StepIndicator({ active = false }) {
+export default function StepIndicator({ active = false  } : {active : boolean}) {
   return (
     <div className="flex flex-col items-center mt-[2px]">
       <div

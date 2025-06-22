@@ -1,4 +1,6 @@
+'use client'
 import { Table } from "@tanstack/react-table"
+import React from "react"
 import {
   ChevronLeft,
   ChevronRight,

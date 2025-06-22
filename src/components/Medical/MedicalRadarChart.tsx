@@ -66,6 +66,7 @@ export function MedicalRadarChart() {
             <PolarAngleAxis
               dataKey="month"
               tick={({ x, y, textAnchor, value, index, ...props }) => {
+                console.log(value)
                 const data = chartData[index];
 
                 return (

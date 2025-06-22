@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import { RotateCcw } from "lucide-react"
-
+import React from "react"
 import { Button } from "@/components/ui/button"
 import {
   HoverCard,

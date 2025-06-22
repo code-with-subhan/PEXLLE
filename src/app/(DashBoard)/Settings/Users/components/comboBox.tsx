@@ -5,11 +5,9 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { ChevronsUpDown } from "lucide-react"
 
 export function ComboboxDemo({framework} : {framework : {label : string , value : string}[]}) {
   return (
@@ -23,8 +21,8 @@ export function ComboboxDemo({framework} : {framework : {label : string , value 
       <SelectContent className="rounded-none">
         <SelectGroup className="rounded-none">
           {
-            framework.map(e => (
-              <SelectItem value={e.value}>{e.value}</SelectItem>
+            framework.map((e , i) => (
+              <SelectItem key={i} value={e.value}>{e.value}</SelectItem>
             ))
           }
           

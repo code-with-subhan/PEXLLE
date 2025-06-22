@@ -95,7 +95,7 @@ export function LoginForm({
             </Button>
           </div>
           <div className="text-center text-sm">
-            Don't have an account?&ensp;&ensp;
+            Dont have an account?&ensp;&ensp;
             <Link
               href="/register"
               className="underline-none hover:underline-offset-4 font-semibold hover:underline text-[#F05454]"

@@ -26,8 +26,8 @@ const BuildingLeftView = () => {
       <div className="px-2">
         <h1 className=" mb-3 font-bold text-xl my-5">Sobha Garden</h1>
         <div className="my-4 lg:flex justify-between items-center grid grid-cols-2 gap-5">
-          {Garden.map(e => (
-            <div>
+          {Garden.map((e ,i) => (
+            <div key={i}>
               <CardTitle className="text-xl font-bold">{e.value}</CardTitle>
               <CardDescription>{e.title}</CardDescription>
             </div>
