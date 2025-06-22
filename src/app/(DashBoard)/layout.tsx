@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Theme from "@/components/Home/Theme";
+import { AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 export default function WithHeaderLayout({
   children,
@@ -85,11 +86,9 @@ export default function WithHeaderLayout({
                   </Button>
                   <Theme />
                   <Avatar>
-                    <img
-                      src="https://pexlledn.vercel.app/avatar.jpg"
-                      alt=""
-                      className=""
-                    />
+                   
+                    <AvatarImage src="https://pexlledn.vercel.app/avatar.jpg"></AvatarImage>
+                    <AvatarFallback>SH</AvatarFallback>
                   </Avatar>
                 </div>
               </header>

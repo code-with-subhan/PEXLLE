@@ -7,6 +7,7 @@ import ForgetPassword from "./Components/ForgetPassword";
 import OTPpassword from "./Components/InputOTP";
 import DrawerOTP from "./Components/Drawer";
 import Theme from "../Home/Theme";
+import Image from "next/image";
 
 export function LoginForm({
   className,
@@ -20,10 +21,10 @@ export function LoginForm({
       <form className="p-6 md:p-8 mb-12">
         <div className="flex flex-col gap-4 ">
           <div className="flex flex-col items-center text-center mb-4">
-            <img
+            <Image
               src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
-              width="150px"
-              alt=""
+              className="w-[150px]"
+              alt="a" blurDataURL="blur" width={1080} height={780}
             />
           </div>
           <div className="grid gap-2">

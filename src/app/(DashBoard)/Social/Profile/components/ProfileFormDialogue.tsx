@@ -14,6 +14,7 @@ import { Check, ImagePlus, X } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 export const ProfileFormDialogue = forwardRef<HTMLInputElement, {
   image: string | null;
@@ -59,13 +60,16 @@ export const ProfileFormDialogue = forwardRef<HTMLInputElement, {
         </DialogHeader>
         <div className="translate-y-5.5">
           <div className="relative flex justify-center items-center bg-[#f5f5f5]">
-            <img
+            <Image
               src={
                 image ||
                 "https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1470071459604-3b5ec3a7fe05%3Fw%3D1200%26h%3D400%26fit%3Dcrop&w=1920&q=75" // fallback
               }
 
-              alt=""
+              alt="abcd"
+              blurDataURL="blur"
+              width={1080}
+              height={1080}
               className="h-[120px] w-full object-cover"
             />
             <div className="absolute flex gap-3 items-center">
@@ -86,13 +90,16 @@ export const ProfileFormDialogue = forwardRef<HTMLInputElement, {
             </div>
           </div>
           <div className="rounded-full ml-4 w-23 bg-white  bg- p-1 -translate-y-7 relative flex justify-center items-center">
-            <img
+            <Image
               src={
                 image2 ||
                 "https://i.pravatar.cc/150?img=3" // fallback
               }
               className="rounded-full w-22 h-22 object-cover"
-              alt=""
+              alt="proifle"
+              blurDataURL="blur"
+              width={1080}
+              height={780}
             />
             <input
                 ref={fileInputRef}

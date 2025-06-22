@@ -5,6 +5,7 @@ import { Heart, MapPin } from "lucide-react";
 import { CardDescription, CardTitle } from "../ui/card";
 import { AppDispatch, RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
+import Image from "next/image";
 
 const RealStateHousesCategory = () => {
   const { query, PropertyType, rooms, BasicCreteria } = useSelector((state: RootState) => state.RealListing);
@@ -46,7 +47,7 @@ const RealStateHousesCategory = () => {
     <div className="w-full">
       {filterData.map((e) => (
         <div key={e.id} className="my-2 sm:flex gap-2 bg-[#F5F5F5] w-full">
-          <img src={e.img} alt="" className="object-cover sm:w-1/3" />
+          <Image src={e.img} alt="a" blurDataURL="blur" width={1080} height={780} className="object-cover sm:w-1/3" />
           <div className="p-4 whitespace-pre-wrap w-full">
             <div className="flex items-center gap-1 justify-between">
               <MapPin className="w-4 text-[#737373]" />

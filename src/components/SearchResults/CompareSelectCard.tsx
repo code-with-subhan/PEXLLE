@@ -1,12 +1,14 @@
 import React from "react";
 import { CardDescription } from "../ui/card";
 import { Properties } from "./data/properties";
-const CompareSelectCard = ({value} : {value : string}) => {
+import Image from "next/image";
+const CompareSelectCard = ({ value }: { value: string }) => {
     const obj = Properties.find(item => item.id == value)
     return (
         <div>
-            <img
-            src={obj?.images.main}
+            <Image
+                blurDataURL="blur" width={1080} height={780}
+                src={obj?.images.main || "/default-user.png"}
                 alt="" className="w-[15rem] sm:h-[15rem] h-[10rem]"
             />
             <h1 className="text-[1rem] font-semibold mt-3">{obj?.title}</h1>

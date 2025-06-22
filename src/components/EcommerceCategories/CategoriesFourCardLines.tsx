@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge";
 import { Clock, MapPin, User } from "lucide-react";
 import { Button } from "../ui/button";
 import { Product } from "./product";
+import Image from "next/image";
 
 interface props {
   data: Product
@@ -16,9 +17,10 @@ const CategoriesFourCardLines = ({ data, ke, pag, pagActive }: props) => {
   console.log(ke)
   return (
     <div key={ke} className={`border border-[#F5F5F5] relative w-full lg:max-w-[280px] overflow-hidden ${ke < 8 * pagActive && ke >= ( pagActive - 1) * 8 ? "block" : "hidden"}`}>
-      <img
-        alt=""
-        src={data.image}
+      <Image
+        src={data.image || "/default-user.png"}
+        blurDataURL="blur" width={1080} height={780}
+        alt="a"
         className="w-[290px] lg:h-[330px] h-150 sm:h-120 hover:scale-125 relative  cursor-pointer object-contain mx-auto"
       />
       <div className="absolute top-0 left-0 flex justify-between items-center z-20 w-full p-2 ">

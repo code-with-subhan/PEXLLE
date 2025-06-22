@@ -5,6 +5,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LeadsInfo } from "../data/data";
 import { AdressInfo } from "../data/data";
+import Image from "next/image";
 
 const LeadsProfile = () => {
   return (
@@ -14,12 +15,15 @@ const LeadsProfile = () => {
         Back to Leads
       </div>
       <div className="flex justify-center flex-col items-center py-10 pb-8">
-        <img src="https://i.pravatar.cc/128?u=jerome" alt="" className="rounded-full "/>
+        <Image src="https://i.pravatar.cc/128?u=jerome" alt="profile" className="rounded-full w-35"  width={1080} height={780} blurDataURL="blur"/>
         <h2 className="mt-3.5 font-bold text-xl">Jerome Bell</h2>
         <div className="flex gap-1 text-[#8b8b8b] items-center text-sm mt-1.5">
-          <img
+          <Image
             src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Flogo.clearbit.com%2Fgoogle.com&w=48&q=75"
             alt=""
+            width={1080}
+            blurDataURL="blur"
+            height={780}
             className="w-5"
           />
           Google

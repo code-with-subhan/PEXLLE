@@ -4,14 +4,18 @@ import { Badge } from "../ui/badge";
 import { CardDescription, CardTitle } from "../ui/card";
 import { Building, Mail, Phone } from "lucide-react";
 import { MedicalCalendar } from "./MedicalCalendar";
+import Image from "next/image";
 
 const MedicalProfile = () => {
   return (
     <div className="bg-[#F5F5F5] p-6 lg:block hidden">
       <div className="flex justify-center items-center ">
-        <img
+        <Image
           src="https://i.pravatar.cc/150?img=4"
-          alt=""
+          alt="a"
+          blurDataURL="blur"
+          height={780}
+          width={1080}
           className="rounded-full size-32"
         />
       </div>

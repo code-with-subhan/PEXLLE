@@ -1,5 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import React from "react";
 
 const LeadsCompanyInformation = () => {
@@ -8,9 +9,12 @@ const LeadsCompanyInformation = () => {
       <div className="bg-[#F5F5F5] sticky top-0 p-6 py-7">
 
       <div className="flex gap-3 ">
-        <img
+        <Image
           src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Flogo.clearbit.com%2Fgoogle.com&w=48&q=75"
           alt=""
+          width={1080}
+          height={780}
+          className="w-14"
         />
         <div>
           <h3 className="font-bold">Google inc.</h3>

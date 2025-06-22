@@ -3,6 +3,7 @@ import React from "react";
 import { CardDescription } from "../ui/card";
 import { Clock, MapPin, User } from "lucide-react";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
 
 const imgArray: string[] = [
     "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80",
@@ -22,7 +23,7 @@ const PostDetailCard = () => {
                         <div className="absolute top-0 left-0 w-full h-full z-0  " style={{
                             'boxShadow': 'inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #000'
                         }}>
-                            <img src={e} alt="" className="object-cover w-full h-full opacity-96" />
+                            <Image src={e} alt="blur" blurDataURL="blur" width={1080} height={780} className="object-cover w-full h-full opacity-96" />
                         </div>
                         <div className="flex items-center justify-between relative z-10">
                             <Badge className="rounded-full text-sm">Used</Badge>

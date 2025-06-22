@@ -9,6 +9,7 @@ import {
 import { ZoomIn } from "lucide-react";
 import { CarouselImage } from "./CaroouselImage";
 import React from "react";
+import Image from "next/image";
 
 type img = string;
 
@@ -27,7 +28,7 @@ export function CarouselBasic() {
                 <CarouselContent>
                     {ImagesArray.map(e => (
                         <CarouselItem className="p-4">
-                            <img src={e} alt="" className="w-full h-105 object-cover" />
+                            <Image src={e} alt="a" blurDataURL="blur" width={1080} height={780} className="w-full h-105 object-cover" />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

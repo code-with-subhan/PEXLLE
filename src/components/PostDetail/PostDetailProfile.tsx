@@ -4,6 +4,7 @@ import { Badge } from '../ui/badge'
 import { Calendar, Mail, MapPin, Monitor, Phone } from 'lucide-react'
 import { Button } from '../ui/button'
 import { CardDescription, CardTitle } from '../ui/card'
+import Image from 'next/image'
 
 interface ProfileType {
     title: string,
@@ -37,7 +38,7 @@ const PostDetailProfile = () => {
             <div className='my-8 flex flex-col gap-5'>
                 <CardDescription className='font-semibold'>Seller Information</CardDescription>
                 <div className='flex gap-4 items-center'>
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&h=300&q=80" className='size-14 rounded-full' alt="" />
+                    <Image src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&h=300&q=80" className='size-14 rounded-full' alt="blur" blurDataURL="blur" width={1080} height={780} />
                     <div>
                         <CardDescription className='font-semibold'>John Doe</CardDescription>
                         <div className='flex items-center'>

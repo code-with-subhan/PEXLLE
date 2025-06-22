@@ -7,6 +7,7 @@ import MessagesSend from './MessagesSend'
 import { MessageEllipse } from './MessageEliipse'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
+import Image from 'next/image'
 
 const MessageChatbox = () => {
     const { Userobject } = useSelector((state: RootState) => state.Messages);
@@ -19,7 +20,7 @@ const MessageChatbox = () => {
                     </div>
                     <div className='flex items-center gap-4'>
                         <div className='relative'>
-                            <img src={Userobject?.image} alt="" className='rounded-full' />
+                            <Image src={Userobject?.image || "/default-user.png"} alt="a" blurDataURL='blur' width={1080} height={780} className='rounded-full size-12' />
                             <div className='absolute size-3.5 z-49 bg-white bottom-0 right-0 rounded-full flex justify-center items-center '>
                                 <div className={`${Userobject?.onLine ? "bg-green-500" : "bg-gray-400"} size-2.5 rounded-full`}></div>
                             </div>
