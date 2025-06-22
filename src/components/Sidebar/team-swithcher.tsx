@@ -7,6 +7,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
 
 export function TeamSwitcher({ }) {
 
@@ -20,9 +21,9 @@ export function TeamSwitcher({ }) {
           <div className="flex aspect-square size-8 items-center justify-center rounded-lg ">
           </div>
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <img
+            <Image
               src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=1920&q=75"
-              alt=""
+              alt="a" blurDataURL="blur" width={1080} height={780}
             />
           </div>
           <ChevronsUpDown className="ml-auto" />

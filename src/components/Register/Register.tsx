@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import Theme from "../Home/Theme";
+import Image from "next/image";
 
 export function RegisterForm({
   className,
@@ -18,10 +19,11 @@ export function RegisterForm({
       <form className="p-6 md:p-8 md:py-2 ">
         <div className="flex flex-col gap-5 ">
           <div className="flex flex-col items-center text-center mb-4">
-            <img
+            <Image
               src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
-              width="150px"
-              alt=""
+              blurDataURL="blur" width={1080} height={780}
+              className="w-[150px] cursor-pointer"
+              alt="a"
             />
           </div>
           <div className="grid gap-2">

@@ -6,6 +6,8 @@ import Theme from "@/components/Home/Theme";
 import LoginButton from "@/components/AuhButton/LoginButton";
 import { auth } from "@/Auth";
 import LogOutButton from "@/components/AuhButton/LogoutButton";
+import Image from 'next/image';
+
 
 const Home = async () => {
   const session = await auth()
@@ -15,23 +17,26 @@ const Home = async () => {
     <>
       <main className="bg-gradient-to-br from-white-100 to-[#f69a9a] v">
         <div className="p-4 sm:px-19 px-3  z-10 grid gap-6 ">
-          <div className="m-auto w-full sticky flex justify-between items-center p-2.5 px-7 lg:w-1/2  bg-[rgba(255,255,255,0.5)]  shadow-md  top-2 z-10 backdrop-blur-xl">
-            <img
-              src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
-              width=""
-              alt=""
-              className="w-[130px]"
-            />
+          <div className="  m-auto w-full sticky flex justify-between items-center p-2.5 px-7 lg:w-1/2  bg-[rgba(255,255,255,0.5)]  shadow-md  top-2 z-10 backdrop-blur-xl">
+            <div className="relative">
+              <Image
+                src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
+                alt="Pexlle"
+                width={150}
+                height={150}
+                className="object-contain"
+              />
+            </div>
             <ul className="flex gap-7 items-center">
               {session?.user?.name ?
                 <>
                   <Link href="http://localhost:3000//DashBoard">
-                    <li className="text-sm cursor-pointer" >DashBoard</li>
+                    <li className="text-sm cursor-pointer border-none" >DashBoard</li>
                   </Link>
                   <Link href="http://localhost:3000//Calculator">
                     <li className="text-sm cursor-pointer">Calculator</li>
                   </Link>
-                  <LogOutButton/>
+                  <LogOutButton />
                 </>
                 :
                 <LoginButton />
@@ -70,23 +75,35 @@ const Home = async () => {
             </Button>
           </div>
           <div className="flex relative mb-50 lg:mx-20">
-            <img
-              src="https://pexlledn.vercel.app/_next/image?url=%2Fdashboard.png&w=1080&q=75"
-              alt=""
-              className="w-full"
-            />
-            <img
-              src="https://pexlledn.vercel.app/_next/image?url=%2Fmdashboard.png&w=256&q=75"
-              alt=""
-              className="absolute bottom-0 -right-1/10 lg:block hidden max-h-[540px] h-full"
+            <Image
+              src="https://pexlledn.vercel.app/dashboard.png"
+              width={1080}
+              height={720}
+              alt="large pic"
+              placeholder="blur"
+              blurDataURL="blur"
+              className="w-full h-auto object-contain" // ✅ maintain aspect ratio
+              />
+
+              <Image
+                src="https://pexlledn.vercel.app/mdashboard.png"
+                alt="small pic"
+                width={400}
+                height={300}
+                placeholder="blur"
+                blurDataURL="blur"
+                className="absolute bottom-0 xL:right-[0%] lg:right-[-12%] lg:block hidden max-h-[540px] h-[100%] object-contain" // ✅ fixed right and h-auto
+              />
+          </div>
+          <div className="relative">
+            <Image
+              src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
+              alt="pexlle"
+              width={150}
+              height={150}
+              className="m-auto w-[150px]"
             />
           </div>
-          <img
-            src="https://pexlledn.vercel.app/_next/image?url=%2Fpexlleh.png&w=256&q=75"
-            width="150px"
-            alt=""
-            className="m-auto"
-          />
           <div className="grid gap-2 mb-2">
             <p className="text-center text-muted-foreground">
               © 2024 Pexlle Inc. All rights reserved.

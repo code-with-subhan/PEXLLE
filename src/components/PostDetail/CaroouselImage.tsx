@@ -1,17 +1,11 @@
-import { Button } from "@/components/ui/button"
 import {
     Dialog,
-    DialogClose,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+
 import { ZoomIn } from "lucide-react"
+import Image from "next/image"
 
 export function CarouselImage({img} : {img : string}) {
     return (
@@ -23,7 +17,7 @@ export function CarouselImage({img} : {img : string}) {
                     </div>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[80%]">
-                  <img src={img} alt="" className=" h-full" />
+                  <Image src={img} alt="a" blurDataURL="blur" width={1080} height={780} className=" h-full" />
                 </DialogContent>
             </form>
         </Dialog>

@@ -5,6 +5,7 @@ import { ArrowLeft, MessageCircle } from "lucide-react";
 import LogicticsMap from "./LogisticsMap";
 import { Data } from "./ShipmentsData";
 import { Button } from "../ui/button";
+import Image from "next/image";
 const EachShipmentData = ({ showlogic }: {  showlogic: boolean }) => {
   return (
     <div className={`w-full mt-6 lg:block ${showlogic ? "hidden" : "block"} `}>
@@ -15,10 +16,12 @@ const EachShipmentData = ({ showlogic }: {  showlogic: boolean }) => {
       </div>
       <div className="flex flex-wrap items-center gap-6 mt-8 lg:grid grid-cols-2">
         <div className="flex items-center gap-3  justify-between bg-[#F5F5F5] p-3 py-5 w-full">
-          <img
-
+          <Image
             src="https://i.pravatar.cc/80?img=12"
-            alt=""
+            alt="blur"
+            blurDataURL="i.pravatar.cc"
+            width={1080}
+            height={780}
             className="rounded-full size-9"
           />
           <div>
@@ -28,9 +31,12 @@ const EachShipmentData = ({ showlogic }: {  showlogic: boolean }) => {
           <MessageCircle className="w-12 text-[#737373] lg:m-none ml-auto" />
         </div>
         <div className="flex items-center gap-3  justify-between bg-[#F5F5F5] p-3 py-5 w-full">
-          <img
+          <Image
             src="https://i.pravatar.cc/80?img=23"
-            alt=""
+            alt="blur"
+            blurDataURL="i.pravatar.cc"
+            width={1080}
+            height={780}
             className="rounded-full size-9"
           />
           <div>

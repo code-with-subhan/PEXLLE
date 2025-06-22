@@ -8,6 +8,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Image from "next/image";
 export function DetailedResultCard({obj} : {obj : PropertiesTypes}) {
     return (
         <Dialog>
@@ -30,9 +31,10 @@ export function DetailedResultCard({obj} : {obj : PropertiesTypes}) {
                 </h1>
                 <div className=" rounded-2xl max-w-full flex justify-between">
                     <div className=" rounded-2xl relative mb-2">
-                        <img
+                        <Image
+                        blurDataURL="blur" width={1080} height={780}
                         src={obj.images.main}
-                            alt=""
+                            alt="a"
                             className="max-w-[450px] h-[330px]  object-cover "
                         />
                     </div>

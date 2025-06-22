@@ -19,6 +19,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Image from "next/image";
 interface props {
     data: PropertiesTypes[],
     HeartList: (value: PropertiesTypes) => void,
@@ -58,9 +59,9 @@ const SearchResultCard = ({ data, HeartList, HeartBackground, pagActive, perPage
                                 <DrawerDetailCard obj={e} />
                             </div>
                         </div>
-                        <img
+                        <Image
                             src={e.images.main}
-                            alt=""
+                            alt="a" blurDataURL="blur" width={1080} height={780}
                             className="w-full  object-cover lg:h-[230px]"
                         />
                         <Badge className="absolute -bottom-2 rounded-full">{e.realEstateType}</Badge>

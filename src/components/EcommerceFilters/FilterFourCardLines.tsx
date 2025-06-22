@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge";
 import { Clock, MapPin, User } from "lucide-react";
 import { Button } from "../ui/button";
 import { Product } from "./data/FilterData";
+import Image from "next/image";
 
 interface props {
   data: Product
@@ -15,8 +16,11 @@ interface props {
 const FilterfourLInes = ({ data, ke, pag, pagActive }: props) => {
   return (
     <div key={ke} className={`border border-[#F5F5F5] relative w-full lg:max-w-[200px] overflow-hidden ${ke < 8 * pagActive && ke >= ( pagActive - 1) * 8 ? "block" : "hidden"}`}>
-      <img
-        alt=""
+      <Image
+        alt="a"
+        blurDataURL="blur"
+        width={1080}
+        height={780}
         src={data.image}
         className="w-[290px] lg:h-[270px] h-150 sm:h-120 hover:scale-125 relative  cursor-pointer object-cover mx-auto"
       />

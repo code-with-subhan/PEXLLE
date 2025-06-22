@@ -8,14 +8,18 @@ import { Garden } from "./Data";
 import { Progress } from "@radix-ui/react-progress";
 import { ProgressDemo } from "./BuildingProgress";
 import BuildingAvatar from "./BuildingAvatar";
+import Image from "next/image";
 
 const BuildingLeftView = () => {
   return (
     <div className="p-4 w-full bg-[#F5F5F5]">
       <div className="relative">
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop"
-          alt=""
+          alt="blur"
+          width={1080}
+          height={780}
+          blurDataURL="blur"
           className="w-full h-60 object-cover"
         />
         <Badge className="absolute top-3 left-3 rounded-full">Residential</Badge>

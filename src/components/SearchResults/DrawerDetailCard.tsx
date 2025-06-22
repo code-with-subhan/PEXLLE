@@ -17,6 +17,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import Image from "next/image";
 
 
 export function DrawerDetailCard({ obj }: { obj: PropertiesTypes }) {
@@ -50,9 +51,9 @@ export function DrawerDetailCard({ obj }: { obj: PropertiesTypes }) {
                     </h1>
                     <div className=" rounded-2xl max-w-full flex-col  gap-5 justify-between">
                         <div className=" rounded-2xl relative mb-2">
-                            <img
+                            <Image
                                 src={obj.images.main}
-                                alt=""
+                                alt="a" blurDataURL="blur" width={1080} height={780}
                                 className="max-w-full h-[330px]  object-cover "
                             />
                         </div>

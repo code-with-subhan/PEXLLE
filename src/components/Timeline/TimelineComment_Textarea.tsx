@@ -2,15 +2,17 @@
 import React from "react";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 const TimelineComments = () => {
   return (
     <>
       <div className="flex gap-4 bg-red mt-8 container px-3">
         <div>
-          <img
+          <Image
             src="https://i.pravatar.cc/100?img=1"
-            alt=""
+            alt="a"
+            blurDataURL="blur" width={1080} height={780}
             className="rounded-full size-10"
           />
         </div>
