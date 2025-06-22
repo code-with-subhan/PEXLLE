@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "next dev",
+=======
+    "dev": "next dev ",
+>>>>>>> 35d63e7d0f0c0ed8e8e61f35f8221b90b4418d8f
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

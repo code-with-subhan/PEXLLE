@@ -5,6 +5,7 @@ import { Clock, MapPin, User } from "lucide-react";
 import { Button } from "../ui/button";
 
 import { Product } from "./product";
+import Image from "next/image";
 
 interface props {
   data: Product
@@ -16,9 +17,12 @@ const CategoriesList = ({ data, ke, pag, pagActive }: props) => {
   return (
     <div key={ke} className={`relative flex border hover:shadow-md shadow-gray-300 transition duration-450 border-[#F5F5F5]  ${ke < 8 * pagActive && ke >= (8 * pagActive) - 8 ? "block" : "hidden"}`}>
       <div className="w-1/4  min-h-48 md:h-48">
-        <img
+        <Image
           src={data.image}
-          alt=""
+          alt="b"
+          blurDataURL="blur"
+          width={1080}
+          height={780}
           className="h-full  w-full md:object-contain object-cover"
         />
         <Badge className="absolute top-2 left-2">{data.category}</Badge>

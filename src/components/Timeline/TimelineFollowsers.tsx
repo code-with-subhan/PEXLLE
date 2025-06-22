@@ -2,6 +2,7 @@
 import React from "react";
 import {  CardTitle, CardDescription } from "../ui/card";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 const TimelineFollowsers = () => {
   return (
@@ -10,9 +11,10 @@ const TimelineFollowsers = () => {
       <div className="shadow-none bg-[#F5F5F5] border-none rounded-none ">
         <div className="flex gap-2 justify-between px-5 mt-4">
           <div>
-            <img
+            <Image
               src="https://i.pravatar.cc/100?img=7"
-              alt=""
+              alt="a"
+              blurDataURL="blur" width={1080} height={780}
               className="rounded-full size-11"
             />
           </div>
@@ -33,9 +35,10 @@ const TimelineFollowsers = () => {
         </div>
         <div className="flex gap-2 justify-between px-5  mt-4">
           <div>
-            <img
+            <Image
               src="https://i.pravatar.cc/100?img=8"
-              alt=""
+              alt="a"
+              blurDataURL="blur" width={1080} height={780}
               className="rounded-full size-11"
             />
           </div>
@@ -58,9 +61,10 @@ const TimelineFollowsers = () => {
         </div>
         <div className="flex gap-2 justify-between  px-5 mt-4">
           <div>
-            <img
+            <Image
               src="https://i.pravatar.cc/100?img=9"
-              alt=""
+              alt="a"
+              blurDataURL="blur" width={1080} height={780}
               className="rounded-full size-11"
             />
           </div>

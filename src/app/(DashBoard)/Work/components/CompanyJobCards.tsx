@@ -3,10 +3,11 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal } from "lucide-react";
 import { Bookmark } from "lucide-react";
 import { JobDetail } from "../data/data";
 import { JobData } from "../data/data";
+import Image from "next/image";
 
 const CompanyJobCards = ({
   WorkObj,
@@ -26,7 +27,7 @@ const CompanyJobCards = ({
     >
       <div className="bg-white flex gap-2 ">
         <Input
-          placeholder={`UI Designer`}
+          placeholder={` UI Designer`}
           className="rounded-none pl-13 focus:border-none active:border-none bg-[#F5F5F5]"
         />
         <Button size="icon" variant="outline" className="rounded-none">
@@ -51,7 +52,7 @@ const CompanyJobCards = ({
             }}
           >
             <div className="flex gap-4 items-start">
-              <img src={e.img} alt="" className="w-10 h-10" />
+              <Image src={e.img} alt="abcd" blurDataURL="blur" width={1080} height={780} className="w-10 h-10" />
               <div>
                 <h6 className="text-sm font-bold">{e.title}</h6>
                 <p className="text-xs text-[#737373]">{e.JobTitle}</p>

@@ -11,6 +11,7 @@ import {
   Upload,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Image from "next/image";
 const TimelineAllComments = () => {
   return (
     <div className="w-full">
@@ -21,7 +22,7 @@ const TimelineAllComments = () => {
               <AvatarImage src={e.profileImage} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-            <img src={e.profileImage} alt="" className="rounded-full sm:size-11 size-13 sm:block hidden" />
+            <Image src={e.profileImage} alt="a" blurDataURL="blur" width={1080} height={780} className="rounded-full sm:size-11 size-13 sm:block hidden" />
           </div>
           <div className="w-full">
             <div className="inline-flex gap-1 items-center w-full">
@@ -33,7 +34,7 @@ const TimelineAllComments = () => {
               </Button>
             </div>
             <div className="text-sm my-3">{e.description}</div>
-            {e.img && <img src={e.img} className="my-2" />}
+            {e.img && <Image src={e.img} blurDataURL="blur" width={1080} height={780} alt= "a" className="my-2" />}
             <div className="flex items-center justify-between my-2">
               <div className="text-[#737373] text-sm flex gap-1">
                 <Button variant="ghost" className="rounded-none" size='sm'>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Badge } from '../ui/badge'
 import { CardDescription, CardTitle } from '../ui/card'
+import Image from 'next/image'
 
 interface Tasks {
     title : string,
@@ -24,7 +25,7 @@ const BuildingUpcomingUnit = () => {
             {BuildingTasks.map(e => (
                 <div className='flex flex-col gap-1.5'>
                     <div className='relative'>
-                        <img src={e.img} alt="" className='h-50 w-full'/>
+                        <Image width={1080} height={780} src={e.img} alt="blur" blurDataURL= "blur" className='h-50 w-full'/>
                         <Badge className='absolute top-3 left-3 rounded-full'>Residential</Badge>
                     </div>
                         <CardTitle className='text-sm mt-1'>{e.title}</CardTitle>

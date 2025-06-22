@@ -3,6 +3,7 @@ import { ArrowLeft, Bookmark } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { JobData } from "../data/data";
+import Image from 'next/image';
 
 
 const ResponsiveEachObj = ({ WorkObj, setshowWork, showWork }:
@@ -15,7 +16,7 @@ const ResponsiveEachObj = ({ WorkObj, setshowWork, showWork }:
             </div>
             <div className="lg:w-1/2 p-6 bg-[#F5F5F5] lg:hidden block mt-2">
                 <div className="flex gap-4 items-start">
-                    <img src={WorkObj.img} alt="" className="w-17 h-17" />
+                    <Image src={WorkObj.img} width={1080} height={780} alt="a" blurDataURL='a' className="w-17 h-17" />
                     <div>
                         <h6 className="text-xl font-bold">{WorkObj.title}</h6>
                         <p className="text-sm text-[#737373]">{WorkObj.JobTitle}</p>

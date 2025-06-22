@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import React from "react";
 
 const ProfileLike = () => {
@@ -7,9 +8,12 @@ const ProfileLike = () => {
       <h6 className="text-sm mb-2 font-bold">You might like</h6>
       <div className="flex flex-col gap-4">
         <div className="flex gap-2 items-center">
-          <img
+          <Image
             src="https://i.pravatar.cc/150?img=4"
-            alt=""
+            alt="blur"
+            width={1080}
+            height={780}
+            blurDataURL="blur"
             className="rounded-full w-10 h-10 "
           />
           <div>
@@ -21,9 +25,12 @@ const ProfileLike = () => {
           </Button>
         </div>
         <div className="flex gap-2 items-center">
-          <img
+          <Image
             src="https://i.pravatar.cc/150?img=5"
-            alt=""
+            alt="blur"
+            width={1080}
+            height={780}
+            blurDataURL="blur"
             className="rounded-full w-10 h-10 "
           />
           <div>
@@ -35,9 +42,12 @@ const ProfileLike = () => {
           </Button>
         </div>
         <div className="flex gap-2 items-center">
-          <img
+          <Image
             src="https://i.pravatar.cc/150?img=6"
-            alt=""
+            alt="blur"
+            width={1080}
+            height={780}
+            blurDataURL="blur"
             className="rounded-full w-10 h-10 "
           />
           <div>

@@ -3,6 +3,7 @@ import React from "react";
 import { CardDescription, CardTitle } from "../ui/card";
 import { Review } from "./ReviewListData";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
 
 const ReviewList = () => {
   return (
@@ -12,7 +13,7 @@ const ReviewList = () => {
         {Review.map((e) => (
           <div key={e.id} className="p-7 bg-[#F5F5F5] pb-11 w-full ">
             <div className="flex gap-3 items-center">
-              <img src={e.img} alt="" className="sm:size-12 size-7 rounded-full" />
+              <Image src={e.img} alt="a" blurDataURL="blur" width={1080} height={780}  className="sm:size-12 size-7 rounded-full" />
               <div>
                 <CardTitle className="text-sm">{e.title}</CardTitle>
                 <CardDescription>{e.subtitle}</CardDescription>

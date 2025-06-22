@@ -10,6 +10,7 @@ import { CardDescription } from "../ui/card"
 import { Bath, Bed, Calendar, Eye, MapPin, Scan, Users } from "lucide-react"
 import { Badge } from "../ui/badge"
 import { PropertiesTypes } from "./data/properties"
+import Image from "next/image"
 
 interface props {
     Hear : PropertiesTypes[]
@@ -40,7 +41,7 @@ export function SavedSheet ({Hear , HeartList} : props) {
                                         <Eye className='w-5' />
                                     </div>
                                 </div>
-                                <img src={e.images.main} alt="" className='w-full  object-cover' />
+                                <Image src={e.images.main} alt="a" className='w-full  object-cover' blurDataURL="blur" width={1080} height={780} />
                                 <Badge className='absolute -bottom-2 rounded-full'>{e.realEstateType}</Badge>
                                 <Badge className='absolute top-0 rounded-none text-sm' variant='destructive'>{e.realEstateType}</Badge>
                             </div>

@@ -10,6 +10,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Bookmark, Ellipsis, Heart, MessageSquare, Share2 } from "lucide-react";
+import Image from "next/image";
 
 const PostsProfile = () => {
   return (
@@ -36,9 +37,11 @@ const PostsProfile = () => {
               designs that inspired me. Which one's your favorite? #WebDesign
               #PortfolioInspiration
             </p>
-            <img
+            <Image
               src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1467232004584-a241de8bcf5d%3Fw%3D800%26h%3D600%26fit%3Dcrop&w=828&q=75"
-              alt=""
+              alt="abcd"
+              width={1080}
+              height={780}
               className="w-full h-[300px]"
             />
           </CardContent>
@@ -80,9 +83,12 @@ const PostsProfile = () => {
             <p className="text-[#0C0A09] text-sm mb-2">
             Exploring the intersection of AI and UX design. Here's a sneak peek at my latest project. Thoughts? #AIinDesign #UXInnovation
             </p>
-            <img
+            <Image
               src="https://pexlledn.vercel.app/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1518770660439-4636190af475%3Fw%3D800%26h%3D600%26fit%3Dcrop&w=828&q=75"
-              alt=""
+              alt="blur"
+              blurDataURL="blur"
+              width={1080}
+              height={780}
               className="w-full h-[300px]"
             />
           </CardContent>
